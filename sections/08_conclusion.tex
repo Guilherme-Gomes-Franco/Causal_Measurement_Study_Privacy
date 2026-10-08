@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper presented the first outcome-oriented, causal measurement framework evaluating modern anti-fingerprinting defenses through programmatic Real-Time Bidding clearing prices. Across 150 commercial publishers, our experiments proved that stateful profile clearing alone is ineffective against modern ad tech: unhardened Chrome exhibited an imperceptible $-1.12\%$ bid drop ($p = 0.4832$), confirming that commercial Demand-Side Platforms routinely bypass storage resets using stateless fingerprinting.
+
+Conversely, anti-fingerprinting defenses disrupt commercial tracking along an empirical Pareto frontier:
+(1)~\textbf{Hardened Firefox} achieves the \textit{Stealth / Zero-Breakage Optimum}, delivering a $-26.86\%$ median bid collapse ($p = 0.0734$) and unique tracking host containment (810 hosts) with zero runtime script breakage ($\ucost = 0.00$); and
+(2)~\textbf{Hardened Brave} achieves the \textit{Apex Disruption Optimum}, collapsing median bids by $-59.98\%$ ($Q_3 \le 0.00\%$), but at the cost of a $+44\%$ surge in runtime script breakage ($\ucost = 0.44$).
+
+Finally, our formulation of the Refined Effectiveness-to-Risk metric ($\etr$) resolves the ``Usability Trap,'' proving that defensive request blocking triggers tracker retry loops that invert naive evaluation metrics. To prevent script breakage while preserving user privacy, browser vendors should transition from aggressive network blocking toward API normalization and mock-return shims. We open-source our testbed and auction datasets to foster reproducible research in web privacy.

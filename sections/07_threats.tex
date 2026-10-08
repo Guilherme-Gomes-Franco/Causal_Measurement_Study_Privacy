@@ -1,0 +1,14 @@
+\section{Threats to Validity \& Limitations}
+\label{sec:threats}
+
+\paragraph{Client-Side vs.\ Server-Side Bidding Observability}
+Our causal oracle intercepts client-side \texttt{Prebid.js} header auctions. Transactions routed via proprietary Server-to-Server (S2S) frameworks (e.g., Google Open Bidding, Amazon TAM) remain opaque behind publisher ad servers~\cite{pachilakis2019imc, cook2020popets}. While client-side bids establish direct market demand, server-side auctions may access proprietary cross-site identity graphs not fully observable in the DOM.
+
+\paragraph{Synthetic Persona vs.\ Longitudinal Browsing}
+Our behavioral profiles were synthesized via automated crawls across 14 high-intent commercial seeders. While sufficient to initialize commercial DSP device graphs and trigger premium bid pacing in production exchanges, this profile lacks the longitudinal entropy of multi-month human browsing (e.g., sporadic search histories and latent social logins).
+
+\paragraph{Software Rasterization Trade-offs}
+Standardizing graphics pipelines to Mesa software rasterization (\texttt{swrast}) was methodologically necessary to enforce determinism across cluster workers and avoid physical GPU confounding. However, commercial fingerprinting scripts occasionally probe bare-metal GPU driver signatures (e.g., unmasked renderer strings via \texttt{WEBGL\_debug\_renderer\_info}) that software rasterization inherently normalizes.
+
+\paragraph{Geographic \& Regulatory Vantage}
+Measurement workers operated from European academic IP ranges (Portugal). Due to European GDPR and ePrivacy enforcement, programmatic exchanges may deploy more conservative bid throttling and stricter CMP gates than in jurisdictions lacking unified data protection frameworks.

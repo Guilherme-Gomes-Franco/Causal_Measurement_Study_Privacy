@@ -1,0 +1,74 @@
+\section{Measurement Platform Architecture}
+\label{sec:platform}
+
+Automated privacy measurement platforms frequently succumb to the \textbf{Emulation Fallacy}~\cite{cassel2022omnicrawl}: headless automation frameworks (e.g., Puppeteer, vanilla Selenium) leak automated execution signatures (\texttt{navigator.webdriver}, missing rendering contexts, anomalous clock skews). 
+
+Commercial ad-fraud filters detect these anomalies and drop bid requests, causing crawlers to record artificial auction artifacts~\cite{ahmad2020crawlers}. To guarantee experimental fidelity, we designed and deployed a hardened, distributed measurement cluster running native Linux binaries over virtual displays.
+
+\subsection{Cluster Execution \& Environment Hardening}
+\paragraph{Batch Orchestration}
+The harness is deployed across dedicated HPC cluster nodes via the OAR batch scheduler. Worker nodes execute isolated Docker containers implementing a \textit{sidecar proxy architecture}.
+
+\paragraph{Native Binaries on Virtual Framebuffers}
+Instead of relying on Chromium's \texttt{--headless=new} or Gecko's \texttt{-headless} flags—both of which bypass standard graphics pipelines and alert anti-bot heuristics~\cite{cassel2022omnicrawl}—the platform executes uninstrumented native Linux binaries (Google Chrome, Mozilla Firefox, Brave Browser). Browsers run within an isolated X Virtual Framebuffer (\texttt{Xvfb}) display server operating at display \texttt{:99} ($1920 \times 1080 \times 24$, 24-bit TrueColor depth).
+
+\paragraph{Mesa Software Rasterization}
+Cluster worker nodes feature heterogeneous physical GPUs, which would introduce divergent hardware entropy into WebGL and 2D canvas draw operations. We eliminate physical GPU confounding by forcing Mesa software rasterization across all containers:
+\begin{small}
+\begin{verbatim}
+export LIBGL_ALWAYS_SOFTWARE=1
+export MESA_LOADER_DRIVER_OVERRIDE=swrast
+\end{verbatim}
+\end{small}
+This forces Chromium and Gecko rendering engines to execute all graphics operations via identical CPU-based rasterization logic (\texttt{swrast}/\texttt{llvmpipe}), ensuring baseline visual determinism across cluster workers.
+
+\paragraph{D-Bus Nullification}
+Containerized browser processes frequently hang when background threads attempt to communicate with desktop secrets daemons (GNOME Keyring, KWallet) over system D-Bus channels. We remediate this by unsetting \texttt{DBUS\_SESSION\_BUS\_ADDRESS}, binding socket addresses to \texttt{/dev/null}, and generating unique, container-isolated machine identifiers via \texttt{dbus-uuidgen} during entrypoint initialization.
+
+\subsection{Network Interception \& Proxy Stealth}
+Network interception and auction event harvesting are managed via an upstream \texttt{mitmproxy} sidecar instance incorporating specific stealth countermeasures:
+
+\paragraph{Dual-Tier CA Injection}
+To inspect TLS flows without launching browsers under \path{--ignore-certificate-errors} (a flag that strips browser security guarantees and alerts commercial crawlers), our platform installs an ephemeral root CA into both:
+\begin{enumerate}
+    \item The host operating system trust store (\path{/usr/local/share/ca-certificates/} via \path{update-ca-certificates});
+    \item The user NSS SQLite databases (\path{/root/.pki/nssdb} via \path{certutil -A -t "TC,,"}).
+\end{enumerate}
+
+\paragraph{Transport-Layer Fingerprint Evasion}
+Python-based proxy engines (such as \texttt{mitmproxy}'s HTTP/2 implementation) emit distinctive frame multiplexing and window-update sequences that commercial Web Application Firewalls (Cloudflare, Akamai) classify as crawler traffic. We pass \texttt{--no-http2} to the proxy, downgrading upstream network transport to clean HTTP/1.1 pipelines and neutralizing proxy-specific TLS/H2 fingerprinting.
+
+\paragraph{Causal Anti-Cache Enforcement}
+To guarantee that Phase 3 measurements represent genuine live network transactions rather than disk artifacts, the proxy strips \texttt{If-Modified-Since} and \texttt{If-None-Match} headers via \texttt{--anticache}. This forces origin servers to return explicit HTTP 200 responses, preventing HTTP 304 Not Modified responses from fabricating tracking persistence.
+
+\paragraph{Out-of-Band IPC \& Referrer Concealment}
+The automation harness communicates with the interception proxy using the unallocated non-routable IP address \texttt{240.240.240.240}. To navigate between publisher targets without leaking control metadata into browser history or polluting outbound \texttt{Referer} headers, the proxy injects an inline HTML anchor:
+\begin{small}
+\begin{verbatim}
+<a href="{target_url}" rel="noreferrer" 
+   id="autoclick"></a>
+\end{verbatim}
+\end{small}
+A 100ms timer triggers this synthetic click, concealing the control endpoint. Unhandled runtime script exceptions intercepted by driver listeners are transmitted out-of-band via Python's native \texttt{urllib.request} directly to \texttt{http://240.240.240.240/js\_error}.
+
+\subsection{3-Tier Hybrid CMP Auto-Consent Engine}
+Under European GDPR and ePrivacy frameworks, programmatic header bidding auctions stall until user consent is recorded. Unhandled Consent Management Platform (CMP) dialogs freeze \texttt{Prebid.js} bid loops, resulting in complete auction drops. To resolve this, we engineered an asynchronous 3-tier hybrid consent engine:
+(1)~\textbf{Tier 1 (API-First Settlement):} Inspects the global \texttt{window} context and directly triggers official framework handlers (\path{OneTrust.AllowAll()}, \path{Didomi.setUserAgreeToAll()}, or \path{Cookiebot.dialog.submit()});
+(2)~\textbf{Tier 2 (Targeted CSS Mutators):} Dispatches synthetic mouse events targeting standard European consent selectors (\path{#onetrust-accept-btn-handler}, \path{.cmp-agree-all}, or \path{button[id*="consent"]}) combined with programmatic wheel scrolling;
+(3)~\textbf{Tier 3 (Heuristic DOM Regex Traversal):} Recursively traverses the DOM and consent \texttt{iframe} scopes to match affirmative multilingual strings (English, Portuguese, Spanish: e.g., \path{/(Accept All|Aceitar Todos|Aceptar Todo)/i}) bounded strictly by character length ($2 \le \text{length} < 35$).
+\subsection{Atomic Profile Sanitization}
+In preliminary trials, standard profile cloning leaked persistent identifiers across experimental phases. Specifically, Blink-based browsers cache session descriptors and identity graphs within LevelDB binary stores, HSTS caches, and persistent Service Worker storage, producing an artificial $0.0\%$ bid delta.
+
+We resolved this by developing an \textbf{Atomic Profile Sanitizer}. To construct the clean profile for Phase 3, the engine extracts configuration files while stripping stateful directories using strict exclusion patterns:
+\begin{small}
+\begin{verbatim}
+EXCLUDED_PATTERNS = shutil.ignore_patterns(
+    'SingletonLock', 'Cookies*', 'Cache*',
+    'Local Storage', 'IndexedDB', 'Sessions',
+    'Session Storage', 'TransportSecurity',
+    'Network Persistent State', 'QuotaManager',
+    'Service Worker', 'shared_proto_db'
+)
+\end{verbatim}
+\end{small}
+This guarantees that the post-break browser initializes from a provably clean storage slate while preserving exact defense configurations.

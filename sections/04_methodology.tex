@@ -1,0 +1,130 @@
+\section{Causal Measurement Methodology}
+\label{sec:methodology}
+
+To evaluate anti-fingerprinting defenses without relying on static code heuristics or theoretical entropy proxies, we formulate our measurement as an empirical causal inference pipeline. By training high-value behavioral personas and capturing clearing prices in programmatic ad auctions, we test whether clearing stateful storage causes bid values to drop to generic floor levels (indicating tracking disruption) or remain elevated (proving stateless identity persistence).
+
+\subsection{Causal Experimental Design}
+\label{subsec:causal_design}
+
+Let $\mathcal{S}$ denote the set of evaluated commercial publisher domains ($|\mathcal{S}| = 150$), and let $\mathcal{C}$ represent the set of evaluated browser configurations. For each configuration $c \in \mathcal{C}$, our cluster infrastructure executes a deterministic 3-phase protocol:
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+    node distance=0.5cm and 0.6cm,
+    phase/.style={draw, rectangle, rounded corners=2pt, minimum width=3.8cm, minimum height=1.3cm, align=center, fill=gray!8, font=\small},
+    decision/.style={draw, rectangle, rounded corners=2pt, minimum width=5.0cm, minimum height=1.3cm, align=center, fill=blue!5, font=\small},
+    arrow/.style={thick, ->, >=stealth}
+]
+    % Nodes
+    \node (p1a) [phase] {\textbf{Phase 1A: Persona Training}\\14 High-Intent Seeders\\4 Commercial Verticals};
+    \node (p1b) [phase, right=of p1a] {\textbf{Phase 1B: Pre-Break Baseline}\\150 Target Publishers\\Intercept $\cpm_{\text{Pre}}(s)$};
+    \node (p2)  [phase, right=of p1b] {\textbf{Phase 2: Identity Break}\\Atomic Profile Sanitization\\Strip Cookies, Storage, LevelDB};
+    \node (p3)  [phase, right=of p2] {\textbf{Phase 3: Efficacy Audit}\\Revisit 150 Publishers\\Intercept $\cpm_{\text{Post}}(s)$};
+
+    % Causal Decision
+    \node (dec1) [decision, below=0.8cm of p1b] {\textbf{Stateless Tracking Persists}\\$\Delta\cpm(s) \ge -10\%$ ($p > 0.05$)\\Identity Graph Preserved};
+    \node (dec2) [decision, below=0.8cm of p3] {\textbf{Tracking Severed (Defense Works)}\\$\Delta\cpm(s) \le -30\%$ ($p < 0.05$)\\Reversion to Contextual Floor};
+
+    % Paths
+    \draw [arrow] (p1a) -- (p1b);
+    \draw [arrow] (p1b) -- (p2);
+    \draw [arrow] (p2) -- (p3);
+    
+    \draw [arrow] (p3.south) -- ++(0,-0.4) -| (dec1.north);
+    \draw [arrow] (p3.south) -- ++(0,-0.4) -| (dec2.north);
+\end{tikzpicture}
+}
+\caption{The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$).}
+\label{fig:causal_lifecycle}
+\end{figure*}
+
+\paragraph{Phase 1A: Persona Training ($t_0 \to t_1$)}
+A fresh browser profile navigates across 14 high-value commercial seed domains structured across four advertising verticals:
+(1)~\textit{Financial \& Insurance (High CPM):} \url{geico.com}, \url{progressive.com}, \url{statefarm.com}, \url{allstate.com}, \url{nerdwallet.com}, \url{investopedia.com};
+(2)~\textit{Automotive Research (High Intent):} \url{kbb.com}, \url{autotrader.com};
+(3)~\textit{Luxury Retail \& Lifestyle (Retargeting):} \url{architecturaldigest.com}, \url{robbreport.com};
+(4)~\textit{High-End Travel \& Real Estate:} \url{fourseasons.com}, \url{ritzcarlton.com}, \url{remax.com}, \url{century21.com}.
+On each domain, the crawler resolves consent via the 3-Tier Consent Engine, dispatches hardware-level cursor movements, and waits for tracking pixels to register, establishing an ``Affluent Consumer'' profile in commercial device graphs.
+
+\paragraph{Phase 1B: Pre-Break Baseline Measurement ($t_1 \to t_2$)}
+Holding this persona, the browser navigates the 150 publisher targets. Upon reaching each domain, the crawler dispatches synthetic cursor events, resolves consent, and maintains a strict \textbf{15.0-second auction observation window} to allow asynchronous Prebid bid adjustments to settle. The network proxy intercepts clearing prices:
+\begin{equation}
+\cpm_{\text{Pre}}(s) = \max_{b \in \mathcal{B}_s} \{\cpm(b)\}
+\end{equation}
+where $\mathcal{B}_s$ is the set of all valid bids returned across active SSP adapters.
+
+\paragraph{Phase 2: The Enforced Identity Break ($t_2 \to t_3$)}
+The browser process is closed, releasing operating system file locks. The Atomic Profile Sanitizer purges all stateful directories (\texttt{Cookies*}, \texttt{Local Storage}, \texttt{IndexedDB}, \texttt{Session Storage}, \texttt{Sessions}, \texttt{Cache*}, and NSS databases), while preserving extension configurations, anti-fingerprinting shields, and browser preferences.
+
+\paragraph{Phase 3: Efficacy Measurement ($t_3 \to t_4$)}
+The sanitized browser revisits the exact same 150 publisher domains in identical order under the same network routing. The platform records the post-break clearing price:
+\begin{equation}
+\cpm_{\text{Post}}(s) = \max_{b \in \mathcal{B}_s'} \{\cpm(b)\}
+\end{equation}
+alongside runtime JavaScript exceptions and network tracking flows.
+
+\subsection{Publisher Curation Pipeline}
+\label{subsec:curation}
+
+To ensure auctions are observable, publishers must run client-side header bidding rather than opaque server-side auctions~\cite{pachilakis2019imc, cook2020popets}. We curated $\mathcal{S}$ ($|\mathcal{S}| = 150$) from top Tranco ledger entries via a 4-stage filter:
+(1)~\textbf{TLD Selection:} Restrict domains to primary commercial English TLDs (\texttt{.com}, \texttt{.net}, \texttt{.org}, \texttt{.uk}, \texttt{.ca}, \texttt{.au}, \texttt{.nz}, \texttt{.ie});
+(2)~\textbf{Walled-Garden Elimination:} Filter out a 40-domain blacklist of platforms that monetize inventory exclusively through proprietary internal ad tech without OpenRTB (e.g., Google, Facebook, Amazon, Apple, Netflix, Wikipedia, StackOverflow);
+(3)~\textbf{Header Bidding Signature Detection:} Inspect landing-page source HTML for active wrappers (\texttt{prebid.js}, \texttt{pbjs.que}, \texttt{pubfood}, \texttt{apstag.js}, or \texttt{gpt.js});
+(4)~\textbf{Supply-Chain Validation (\texttt{ads.txt}):} Query \path{https://{domain}/ads.txt} and require an HTTP 200 status containing \texttt{"DIRECT"} authorized exchange relationships.
+
+\paragraph{The Paired Observability Filter ($\mathcal{S}_{\text{active}}$)}
+Because production auctions can suffer transient exchange timeouts or dynamic allocation shifts, we enforce a strict Paired Observability Filter:
+\begin{equation}
+\mathcal{S}_{\text{active}}(c) = \left\{ s \in \mathcal{S} \;\middle|\; \cpm_{\text{Pre}}(s) > 0 \;\land\; \cpm_{\text{Post}}(s) > 0 \right\}
+\end{equation}
+Across configurations, $|\mathcal{S}_{\text{active}}|$ ranges from 33 to 54 domains ($22.0\%$ to $36.0\%$ transparency), ensuring that all calculated deltas represent valid, paired transactions. Workloads were parallelized across three Docker containers (50 domains/batch, 4\,GB shared memory) on dual Intel Xeon E5-2609 v4 and AMD EPYC 7343 nodes.
+
+\subsection{Evaluated Browser Configurations}
+\label{subsec:browser_matrix}
+
+We evaluate five browser configurations across Blink and Gecko rendering engines:
+(1)~\textbf{\texttt{chrome\_baseline}:} Vanilla Google Chrome operating under default settings, acting as our unhardened control group;
+(2)~\textbf{\texttt{firefox\_baseline}:} Standard Mozilla Firefox with Enhanced Tracking Protection (ETP Standard);
+(3)~\textbf{\texttt{firefox\_hardened}:} Multi-layered hardened Firefox combining ETP Strict (\path{browser.contentblocking.category = "strict"}), Total Cookie Protection (\path{network.cookie.cookieBehavior = 5}, dFPI), network state partitioning, query parameter stripping, and Tor-derived Resist Fingerprinting (\path{privacy.resistFingerprinting = true});
+(4)~\textbf{\texttt{brave\_baseline}:} Standard Brave Browser with default Shields (Canvas and Audio Farbling enabled; standard network blocking);
+(5)~\textbf{\texttt{brave\_hardened}:} Brave Browser with ``Strict'' Shields (farbling combined with aggressive network request blocking).
+
+\subsection{Metrics \& Econometric Ground Truth}
+\label{subsec:metrics}
+
+\paragraph{Relative Economic Bid Shift ($\Delta\cpm$)}
+For each active domain $s \in \mathcal{S}_{\text{active}}$:
+\begin{equation}
+\Delta\cpm(s) = \frac{\cpm_{\text{Post}}(s) - \cpm_{\text{Pre}}(s)}{\cpm_{\text{Pre}}(s)}
+\end{equation}
+
+\paragraph{Econometric Resistance Thresholds}
+Drawing on empirical ad-pricing literature, we partition observed responses into three regimes:
+(1)~\textbf{Tracked / Low Resistance ($\Delta\cpm \ge -10\%$):} RTB auctions display $5\%$--$10\%$ natural volatility from DSP budget pacing and latency~\cite{barysei2023imc}; shifts within this boundary indicate stateless identity persistence.
+(2)~\textbf{High Tracking Resistance ($\htr$, $\Delta\cpm \le -30\%$):} Behavioral targeting yields a documented $30\%$--$60\%+$ premium over untargeted contextual inventory~\cite{beales2014navigant, johnson2020marketsci, google2019cookies}; drops exceeding $30\%$ prove cross-site tracking was severed.
+(3)~\textbf{Partial Resistance ($-30\% < \Delta\cpm < -10\%$):} Represents intermediate valuation, partial graph matching, or algorithmic bid shading.
+
+\paragraph{Re-Identification Rate ($\rid$)}
+The proportion of active publishers where the client is successfully re-identified:
+\begin{equation}
+\rid = \frac{\left| \{ s \in \mathcal{S}_{\text{active}} \mid \Delta\cpm(s) \ge -10\% \} \right|}{|\mathcal{S}_{\text{active}}|}
+\end{equation}
+
+\paragraph{Usability Cost ($\ucost$)}
+Using the Site Breakage Index (SBI), runtime errors captured via our out-of-band logger are deduplicated by MD5 hashing normalized error strings and stack locations ($U_e$). To account for cross-engine variations between Gecko and Blink, we normalize against the control group (\texttt{chrome\_baseline}):
+\begin{equation}
+\ucost = \max\left(0.0,\; \frac{U_e(\text{Test}) - U_e(\text{Chrome})}{U_e(\text{Chrome})}\right)
+\end{equation}
+
+\subsection{Statistical Hypothesis Testing}
+\label{subsec:stats}
+
+Because auction prices follow right-skewed, heavy-tailed distributions with left-censored reserve floors, parametric tests are invalid~\cite{barysei2023imc}. We apply the non-parametric \textbf{Paired Wilcoxon Signed-Rank Test}:
+\begin{equation}
+H_0: \text{median}(\Delta\cpm) = 0 \quad \text{vs.} \quad H_1: \text{median}(\Delta\cpm) < 0
+\end{equation}
+calculated over the signed ranks of non-zero absolute differences $|D_s| = |\cpm_{\text{Post}}(s) - \cpm_{\text{Pre}}(s)|$. 
+
+To test whether the five browser configurations diverge systematically across the complete parameter space, we compute an omnibus \textbf{Kruskal-Wallis test} across all groups.

@@ -1,0 +1,79 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+The style file: ACM-Reference-Format.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Database file #1: references.bib
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Warning--empty publisher in ahmad2020crawlers
+Warning--empty address in ahmad2020crawlers
+Warning--empty publisher in barysei2023imc
+Warning--empty address in barysei2023imc
+Warning--empty publisher in demir2022reproducibility
+Warning--empty address in demir2022reproducibility
+Warning--empty publisher in eckersley2010panopticlick
+Warning--empty address in eckersley2010panopticlick
+Warning--empty publisher in englehardt2016openwpm
+Warning--empty address in englehardt2016openwpm
+Warning--empty publisher in iqbal2021fpinspector
+Warning--empty address in iqbal2021fpinspector
+Warning--empty publisher in laperdrix2016amiunique
+Warning--empty address in laperdrix2016amiunique
+Warning--empty publisher in liu2025fptrace
+Warning--empty address in liu2025fptrace
+Warning--page numbers missing in both pages and numpages fields in liu2025fptrace
+Warning--empty publisher in pachilakis2019imc
+Warning--empty address in pachilakis2019imc
+Warning--empty publisher in papadopoulos2019conrad
+Warning--empty address in papadopoulos2019conrad
+You've used 16 entries,
+            6335 wiz_defined-function locations,
+            1612 strings with 21311 characters,
+and the built_in function-call counts, 19024 in all, are:
+= -- 2356
+> -- 498
+< -- 0
++ -- 170
+- -- 198
+* -- 1147
+:= -- 1758
+add.period$ -- 81
+call.type$ -- 16
+change.case$ -- 98
+chr.to.int$ -- 16
+cite$ -- 37
+duplicate$ -- 1837
+empty$ -- 1287
+format.name$ -- 234
+if$ -- 4680
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 66
+newline$ -- 161
+num.names$ -- 112
+pop$ -- 734
+preamble$ -- 1
+purify$ -- 224
+quote$ -- 0
+skip$ -- 701
+stack$ -- 0
+substring$ -- 1512
+swap$ -- 186
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 424
+warning$ -- 21
+while$ -- 131
+width$ -- 0
+write$ -- 335
+(There were 21 warnings)

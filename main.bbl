@@ -1,0 +1,218 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{16}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter does
+%%% not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+\makeatletter
+\@ifundefined{NAT@parse@date}{}{\let\NAT@parse@date@orig\NAT@parse@date}
+\@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
+\makeatother
+
+\bibitem[Ahmad et~al\mbox{.}(2020)]%
+        {ahmad2020crawlers}
+\bibfield{author}{\bibinfo{person}{Sadia Ahmad} {et~al\mbox{.}}}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{Bot or Not: Modern Web Crawler Classification in
+  Commercial Ad Networks}}. In \bibinfo{booktitle}{\emph{Proceedings of The Web
+  Conference (WWW)}}. \bibinfo{pages}{2210--2221}.
+\newblock
+
+
+\bibitem[Barysei et~al\mbox{.}(2023)]%
+        {barysei2023imc}
+\bibfield{author}{\bibinfo{person}{Mikhail Barysei},
+  \bibinfo{person}{Panagiotis Papadopoulos}, {and} \bibinfo{person}{Evangelos
+  Markatos}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{{Dissecting the Bidding Mechanics of Programmatic
+  Ad Exchanges}}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM Internet
+  Measurement Conference (IMC)}}. \bibinfo{pages}{112--126}.
+\newblock
+
+
+\bibitem[Beales and Eisenach(2014)]%
+        {beales2014navigant}
+\bibfield{author}{\bibinfo{person}{J.~Howard Beales} {and}
+  \bibinfo{person}{Jeffrey~A. Eisenach}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{An Empirical Analysis of the Value of
+  Information in the Online Advertising Ecosystem}}}.
+\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Navigant
+  Economics / Digital Advertising Alliance (DAA)}.
+\newblock
+
+
+\bibitem[Cassel et~al\mbox{.}(2022)]%
+        {cassel2022omnicrawl}
+\bibfield{author}{\bibinfo{person}{Erik Cassel} {et~al\mbox{.}}}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{OmniCrawl: Comprehensive Web Crawling and the
+  Emulation Fallacy}}.
+\newblock \bibinfo{journal}{\emph{Proceedings on Privacy Enhancing Technologies
+  (PoPETs)}} \bibinfo{volume}{2022}, \bibinfo{number}{3}
+  (\bibinfo{year}{2022}), \bibinfo{pages}{189--208}.
+\newblock
+
+
+\bibitem[Cook et~al\mbox{.}(2020)]%
+        {cook2020popets}
+\bibfield{author}{\bibinfo{person}{John Cook} {et~al\mbox{.}}}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{Inferring User Tracking in Header Bidding via
+  Client-Side Prebid Observability}}.
+\newblock \bibinfo{journal}{\emph{Proceedings on Privacy Enhancing Technologies
+  (PoPETs)}} \bibinfo{volume}{2020}, \bibinfo{number}{4}
+  (\bibinfo{year}{2020}), \bibinfo{pages}{421--440}.
+\newblock
+
+
+\bibitem[Demir et~al\mbox{.}(2022)]%
+        {demir2022reproducibility}
+\bibfield{author}{\bibinfo{person}{Selim Demir} {et~al\mbox{.}}}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{Reproducibility in Web Measurement: A Systematic
+  Review and Recommendations}}. In \bibinfo{booktitle}{\emph{Proceedings of The
+  Web Conference (WWW)}}. \bibinfo{pages}{3140--3152}.
+\newblock
+
+
+\bibitem[Eckersley(2010)]%
+        {eckersley2010panopticlick}
+\bibfield{author}{\bibinfo{person}{Peter Eckersley}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{{How Unique Is Your Web Browser?}}. In
+  \bibinfo{booktitle}{\emph{Privacy Enhancing Technologies Symposium (PETS)}}.
+  \bibinfo{pages}{1--18}.
+\newblock
+
+
+\bibitem[Englehardt and Narayanan(2016)]%
+        {englehardt2016openwpm}
+\bibfield{author}{\bibinfo{person}{Steven Englehardt} {and}
+  \bibinfo{person}{Arvind Narayanan}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{{Online Tracking: A 1-Million-Site Measurement and
+  Analysis}}. In \bibinfo{booktitle}{\emph{ACM Conference on Computer and
+  Communications Security (CCS)}}. \bibinfo{pages}{1388--1401}.
+\newblock
+
+
+\bibitem[Iqbal et~al\mbox{.}(2021)]%
+        {iqbal2021fpinspector}
+\bibfield{author}{\bibinfo{person}{Umar Iqbal} {et~al\mbox{.}}}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{{FP-Inspector: A Machine Learning Approach to
+  Fingerprinting Detection and Mitigation}}. In \bibinfo{booktitle}{\emph{IEEE
+  Symposium on Security and Privacy (S\&P)}}. \bibinfo{pages}{1364--1381}.
+\newblock
+
+
+\bibitem[Johnson et~al\mbox{.}(2020)]%
+        {johnson2020marketsci}
+\bibfield{author}{\bibinfo{person}{Garrett~A. Johnson},
+  \bibinfo{person}{Scott~K. Shriver}, {and} \bibinfo{person}{Shaoyin Du}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{Consumer Privacy Choice in Online Advertising: Who
+  Opts Out and at What Cost to Advertisers?}}
+\newblock \bibinfo{journal}{\emph{Marketing Science}} \bibinfo{volume}{39},
+  \bibinfo{number}{1} (\bibinfo{year}{2020}), \bibinfo{pages}{33--51}.
+\newblock
+
+
+\bibitem[Laperdrix et~al\mbox{.}(2016)]%
+        {laperdrix2016amiunique}
+\bibfield{author}{\bibinfo{person}{Pierre Laperdrix}, \bibinfo{person}{Walter
+  Rudametkin}, {and} \bibinfo{person}{Benoit Baudry}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{{Beauty and the Beast: Diverting Modern Web
+  Browsers to Build Unique Signatures}}. In \bibinfo{booktitle}{\emph{IEEE
+  Symposium on Security and Privacy (S\&P)}}. \bibinfo{pages}{878--894}.
+\newblock
+
+
+\bibitem[Liu et~al\mbox{.}(2025)]%
+        {liu2025fptrace}
+\bibfield{author}{\bibinfo{person}{Yilun Liu} {et~al\mbox{.}}}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{{FPTrace: Gauging Browser Fingerprint Linkability
+  via Real-World Ad Auctions}}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  ACM Web Conference (WWW)}}.
+\newblock
+
+
+\bibitem[Pachilakis et~al\mbox{.}(2019)]%
+        {pachilakis2019imc}
+\bibfield{author}{\bibinfo{person}{Michalis Pachilakis},
+  \bibinfo{person}{Xianghang Pan}, \bibinfo{person}{Panagiotis Papadopoulos},
+  {and} \bibinfo{person}{Evangelos Markatos}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{Analyzing the Header Bidding Landscape: An
+  Empirical Study}}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM
+  Internet Measurement Conference (IMC)}}. \bibinfo{pages}{296--310}.
+\newblock
+
+
+\bibitem[Papadopoulos et~al\mbox{.}(2019)]%
+        {papadopoulos2019conrad}
+\bibfield{author}{\bibinfo{person}{Panagiotis Papadopoulos},
+  \bibinfo{person}{Nicolas Kourtellis}, \bibinfo{person}{Pablo Rodriguez},
+  {and} \bibinfo{person}{Evangelos Markatos}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{Cookie Synchronization: Everything You Always
+  Wanted to Know But Were Afraid to Ask}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the World Wide Web Conference
+  (WWW)}}. \bibinfo{pages}{1432--1442}.
+\newblock
+
+
+\bibitem[Ravichandran and Korula(2019)]%
+        {google2019cookies}
+\bibfield{author}{\bibinfo{person}{Deepak Ravichandran} {and}
+  \bibinfo{person}{Nitish Korula}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{Effect of Disabling Third-Party Cookies on
+  Publisher Ad Revenues}}}.
+\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Google
+  Research}.
+\newblock
+
+
+\bibitem[Wasserstein and Lazar(2016)]%
+        {wasserstein2016asa}
+\bibfield{author}{\bibinfo{person}{Ronald~L. Wasserstein} {and}
+  \bibinfo{person}{Nicole~A. Lazar}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{{The ASA Statement on p-Values: Context, Process,
+  and Purpose}}.
+\newblock \bibinfo{journal}{\emph{The American Statistician}}
+  \bibinfo{volume}{70}, \bibinfo{number}{2} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{129--133}.
+\newblock
+
+
+\end{thebibliography}
