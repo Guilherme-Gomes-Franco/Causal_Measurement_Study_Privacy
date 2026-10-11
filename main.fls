@@ -1,6 +1,6 @@
 PWD /home/gfranco/Desktop/Causal_Measurement_Study_Privacy
 INPUT /home/gfranco/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
-INPUT main.tex
+INPUT /home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex
 OUTPUT main.log
 INPUT /home/gfranco/.miktex/texmfs/install/tex/latex/url/url.sty
 INPUT /home/gfranco/.miktex/texmfs/install/tex/latex/acmart/acmart.cls

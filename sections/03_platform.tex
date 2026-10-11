@@ -10,7 +10,7 @@ Commercial ad-fraud filters detect these anomalies and drop bid requests, causin
 The harness is deployed across dedicated HPC cluster nodes via the OAR batch scheduler. Worker nodes execute isolated Docker containers implementing a \textit{sidecar proxy architecture}.
 
 \paragraph{Native Binaries on Virtual Framebuffers}
-Instead of relying on Chromium's \texttt{--headless=new} or Gecko's \texttt{-headless} flags—both of which bypass standard graphics pipelines and alert anti-bot heuristics~\cite{cassel2022omnicrawl}—the platform executes uninstrumented native Linux binaries (Google Chrome, Mozilla Firefox, Brave Browser). Browsers run within an isolated X Virtual Framebuffer (\texttt{Xvfb}) display server operating at display \texttt{:99} ($1920 \times 1080 \times 24$, 24-bit TrueColor depth).
+Instead of relying on Chromium's \texttt{--headless=new} or Gecko's \texttt{-headless} flags, both of which bypass standard graphics pipelines and alert anti-bot heuristics~\cite{cassel2022omnicrawl}, the platform executes uninstrumented native Linux binaries (Google Chrome, Mozilla Firefox, Brave Browser). Browsers run within an isolated X Virtual Framebuffer (\texttt{Xvfb}) display server operating at display \texttt{:99} ($1920 \times 1080 \times 24$, 24-bit TrueColor depth).
 
 \paragraph{Mesa Software Rasterization}
 Cluster worker nodes feature heterogeneous physical GPUs, which would introduce divergent hardware entropy into WebGL and 2D canvas draw operations. We eliminate physical GPU confounding by forcing Mesa software rasterization across all containers:
