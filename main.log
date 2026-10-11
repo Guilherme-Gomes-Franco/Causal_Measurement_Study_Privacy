@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.20)  11 OCT 2026 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.20)  11 OCT 2026 22:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1328,46 +1328,48 @@ Overfull \hbox (3.68684pt too wide) in paragraph at lines 104--108
  []
 
 ) (sections/05_evaluation.tex
-Package pgfplots info on input line 62: Using 'lua backend=false' for axis: x coord trafo unsupported.
+Package pgfplots info on input line 63: Using 'lua backend=false' for axis: x coord trafo unsupported.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 5.0pt on input line 75.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.5pt on input line 74.
+(Font)              scaled to size 6.5pt on input line 75.
 
 
-Class acmart Warning: A possible image without description on input line 78.
+Class acmart Warning: A possible image without description on input line 79.
 
 
 LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
-(Font)              using `T1/zi4/m/n' instead on input line 81.
+(Font)              using `T1/zi4/m/n' instead on input line 82.
 
 [5.5]
 LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
-(Font)              scaled to size 9.0pt on input line 86.
+(Font)              scaled to size 9.0pt on input line 87.
 
-Overfull \hbox (4.26398pt too wide) in paragraph at lines 86--87
+Overfull \hbox (4.26398pt too wide) in paragraph at lines 87--88
  []\T1/LinuxLibertineT-TLF/m/it/9 (-20) Baseline De-fenses (\T1/zi4/m/it/9 firefox_baseline \T1/LinuxLibertineT-TLF/m/it/9 (-20) & \T1/zi4/m/it/9 brave_baseline\T1/LinuxLibertineT-TLF/m/it/9 (-20) ).[] \T1/LinuxLibertineT-TLF/m/n/9 (-20) Stan-
  []
 
 
-Overfull \hbox (3.31682pt too wide) in paragraph at lines 88--89
+Overfull \hbox (3.31682pt too wide) in paragraph at lines 89--90
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) Standard Brave (de-fault Far-bling) re-duced me-dian bids by $\LMS/ntxsy/m/n/9 ^^@\OT1/LinuxLibertineT-TLF/m/n/9 (-20) 21\OML/nxlmi/m/it/9 :\OT1/LinuxLibertineT-TLF/m/n/9 (-20) 39%$\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
 
-Overfull \hbox (3.46791pt too wide) in paragraph at lines 99--100
+Overfull \hbox (3.46791pt too wide) in paragraph at lines 100--101
 []\T1/LinuxLibertineT-TLF/b/n/9 (-20) Negative Up-per Quar-tile Ceil-ing: \T1/LinuxLibertineT-TLF/m/n/9 (-20) The third quar-tile was capped
  []
 
@@ -1378,12 +1380,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6.6]
-Overfull \hbox (16.14629pt too wide) in paragraph at lines 129--130
+Overfull \hbox (16.14629pt too wide) in paragraph at lines 130--131
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) Client-side er-ror log-ging cap-tured 45,000+ un-han-dled run-time JavaScript
  []
 
 
-Overfull \hbox (2.01329pt too wide) in paragraph at lines 132--133
+Overfull \hbox (2.01329pt too wide) in paragraph at lines 133--134
 \T1/LinuxLibertineT-TLF/m/n/9 (-20) cep-tions, while Hard-ened Fire-fox recorded 2,400 ex-cep-tions ($\LMS/ntxsy/m/n/9 Ï\OT1/LinuxLibertineT-TLF/m/n/9 (-20) 50\OML/nxlmi/m/it/9 :\OT1/LinuxLibertineT-TLF/m/n/9 (-20) 9%$\T1/LinuxLibertineT-TLF/m/n/9 (-20) ).
  []
 
@@ -1446,8 +1448,6 @@ Overfull \hbox (4.36987pt too wide) in paragraph at lines 48--49
  []
 
 [7.7]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 5.0pt on input line 138.
 
@@ -1506,15 +1506,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4BADD11A5E8AF9A419137147E503DCA6;7159.
  ) 
 Here is how much of TeX's memory you used:
- 43364 strings out of 469784
- 954945 string characters out of 5469783
- 1517029 words of memory out of 5000000
- 70222 multiletter control sequences out of 15000+600000
+ 43363 strings out of 469784
+ 954923 string characters out of 5469783
+ 1519029 words of memory out of 5000000
+ 70221 multiletter control sequences out of 15000+600000
  887574 words of font info for 623 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
  90i,17n,131p,1056b,2681s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/gfranco/.miktex/texmfs/install/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/LibertineMathMI.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/LibertineMathMI5.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/LibertineMathMI7.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/LibertineMathRM.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/libertine/LinBiolinumT.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/libertine/LinBiolinumTB.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/libertine/LinLibertineT.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/libertine/LinLibertineTB.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/libertine/LinLibertineTI.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/NewTXMI.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/NewTXMI7.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/txexs.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/txmiaX.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/txsym.pfb></home/gfranco/.miktex/texmfs/install/fonts/type1/public/newtx/txsys.pfb>
-Output written on main.pdf (9 pages, 634695 bytes).
+Output written on main.pdf (9 pages, 634998 bytes).
 PDF statistics:
  462 PDF objects out of 1000 (max. 8388607)
  134 named destinations out of 1000 (max. 500000)

@@ -643,6 +643,7 @@ INPUT ./sections/05_evaluation.tex
 INPUT ./sections/05_evaluation.tex
 INPUT sections/05_evaluation.tex
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1.tfm
+INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-t1.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-ot1.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/nxlmi7.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/ntxsy7.tfm
@@ -672,6 +673,8 @@ INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/libertine/LinLibertin
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-ot1--base.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/newtx/ntxexx.vf
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/txexs.tfm
+INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/libertine/LinLibertineT-tlf-t1.vf
+INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-t1--base.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/newtx/ntxsy7.vf
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/txsys.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/txex-bar.tfm
@@ -725,7 +728,6 @@ INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/ntxexa.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/libertine/LinLibertineT-tlf-t1.vf
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-t1--base.tfm
-INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-t1.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1.tfm
 INPUT ./sections/07_threats.tex
 INPUT ./sections/07_threats.tex
@@ -747,8 +749,6 @@ INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/NewTXMI7.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/newtx/stxscr.tfm
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/libertine/LinLibertineTB-tlf-t1.vf
 INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineTB-tlf-t1--base.tfm
-INPUT /home/gfranco/.miktex/texmfs/install/fonts/vf/public/libertine/LinLibertineT-tlf-t1.vf
-INPUT /home/gfranco/.miktex/texmfs/install/fonts/tfm/public/libertine/LinLibertineT-tlf-t1--base.tfm
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl

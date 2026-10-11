@@ -25,7 +25,7 @@ The binary re-identification rate $\rid$ registers an active domain as ``tracked
 The linear denominator ($1 + \ucost = 1.44$) penalized Brave Hardened by $44\%$, disproportionately degrading its score and drowning out its substantial privacy gains.
 
 \paragraph{3. The Retry-Storm Inversion}
-Equation~\ref{eq:etr_initial} uses raw identity diffusion events ($D_{\text{ID}}$) in the logarithmic denominator. As revealed in Section~\ref{subsec:silo_network}, blocking tracker endpoints triggers client-side retry storms: client scripts repeatedly re-trigger cookie synchronization and UID decoration loops. This paradoxically inflated Hardened Firefox's diffusion volume to $28,976$, penalizing the browser for effectively blocking third-party endpoints.
+Equation~\ref{eq:etr_initial} uses raw identity diffusion events ($D_{\text{ID}}$) in the logarithmic denominator. As revealed in Section~\ref{subsec:silo_network}, blocking tracker endpoints triggers client-side retry storms: client scripts repeatedly re-trigger cookie synchronization and UID decoration loops. This paradoxically inflated Hardened Firefox's diffusion volume to 28,976 total events (6,006 cookie syncs and 22,970 smuggled UIDs), penalizing the browser for effectively blocking third-party endpoints.
 
 \subsection{Axiomatic Formulation of $\etr$}
 \label{subsec:etr_star}

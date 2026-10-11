@@ -47,14 +47,15 @@ Figure~\ref{fig:iqr_spread} plots the full distributional spread of relative bid
 \begin{tikzpicture}
 \begin{axis}[
     width=\columnwidth,
-    height=3.6cm,
+    height=3.3cm,
     ymin=-110, ymax=140,
     ylabel={Relative $\Delta\cpm$ (\%)},
     ylabel style={font=\footnotesize},
     ticklabel style={font=\scriptsize},
     symbolic x coords={Chrome, FF Base, Brave Base, FF Hard, Brave Hard},
-    xtick=data,
-    x tick label style={rotate=20, anchor=east},
+    % FIX: Explicitly enumerate all 5 ticks instead of relying on xtick=data
+    xtick={Chrome, FF Base, Brave Base, FF Hard, Brave Hard},
+    x tick label style={rotate=25, anchor=east, font=\tiny},
     ymajorgrids=true,
     grid style=dashed,
     extra y ticks={-10, -30},
