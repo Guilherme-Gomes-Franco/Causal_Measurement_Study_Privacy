@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{16}
+\begin{thebibliography}{43}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -40,79 +40,173 @@
 \@ifundefined{NAT@parse@date}{}{\def\NAT@parse@date#1#2#3#4#5#6@@{\NAT@parse@date@orig#1#2#3#4#5#6@@\def\NAT@tempyear{0000}\def\NAT@tempexlab{{?}}\ifx\NAT@year\NAT@tempyear\ifx\NAT@exlab\NAT@tempexlab\def\NAT@date{[n.\,d.]}\else\edef\NAT@date{[n.\,d.]\NAT@exlab}\fi\fi}}
 \makeatother
 
+\bibitem[Acar et~al\mbox{.}(2014)]%
+        {acar2014web}
+\bibfield{author}{\bibinfo{person}{Gunes Acar}, \bibinfo{person}{Christian
+  Eubank}, \bibinfo{person}{Steven Englehardt}, \bibinfo{person}{Marc Juarez},
+  \bibinfo{person}{Arvind Narayanan}, {and} \bibinfo{person}{Claudia Diaz}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{{The Web Never Forgets: Persistent Tracking
+  Mechanisms in the Wild}}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  2014 ACM SIGSAC Conference on Computer and Communications Security (CCS
+  '14)}}. \bibinfo{publisher}{ACM}, \bibinfo{pages}{674--689}.
+\newblock
+
+
+\bibitem[Acar et~al\mbox{.}(2013)]%
+        {acar2013fpdetective}
+\bibfield{author}{\bibinfo{person}{Gunes Acar}, \bibinfo{person}{Marc Juarez},
+  \bibinfo{person}{Nick Nikiforakis}, \bibinfo{person}{Claudia Diaz},
+  \bibinfo{person}{Seda G{\"u}rses}, \bibinfo{person}{Frank Piessens}, {and}
+  \bibinfo{person}{Bart Preneel}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{{FPDetective: Dusting the Web for Fingerprinters}}.
+  In \bibinfo{booktitle}{\emph{Proceedings of the 2013 ACM SIGSAC Conference on
+  Computer \& Communications Security (CCS '13)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{1129--1140}.
+\newblock
+
+
 \bibitem[Ahmad et~al\mbox{.}(2020)]%
-        {ahmad2020crawlers}
-\bibfield{author}{\bibinfo{person}{Sadia Ahmad} {et~al\mbox{.}}}
-  \bibinfo{year}{2020}\natexlab{}.
-\newblock \showarticletitle{{Bot or Not: Modern Web Crawler Classification in
-  Commercial Ad Networks}}. In \bibinfo{booktitle}{\emph{Proceedings of The Web
-  Conference (WWW)}}. \bibinfo{pages}{2210--2221}.
+        {ahmad2020apophanies}
+\bibfield{author}{\bibinfo{person}{Syed~Suleman Ahmad},
+  \bibinfo{person}{Muhammad~Daniyal Dar}, \bibinfo{person}{Muhammad~Fareed
+  Zaffar}, \bibinfo{person}{Narseo Vallina-Rodriguez}, {and}
+  \bibinfo{person}{Rishab Nithyanand}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{Apophanies or Epiphanies? How Crawlers Impact Our
+  Understanding of the Web}}. In \bibinfo{booktitle}{\emph{Proceedings of The
+  Web Conference 2020 (WWW '20)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{271--280}.
 \newblock
 
 
 \bibitem[Barysei et~al\mbox{.}(2023)]%
-        {barysei2023imc}
-\bibfield{author}{\bibinfo{person}{Mikhail Barysei},
+        {barysei2023investigating}
+\bibfield{author}{\bibinfo{person}{Artsiom Barysei},
   \bibinfo{person}{Panagiotis Papadopoulos}, {and} \bibinfo{person}{Evangelos
   Markatos}.} \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{{Dissecting the Bidding Mechanics of Programmatic
-  Ad Exchanges}}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM Internet
-  Measurement Conference (IMC)}}. \bibinfo{pages}{112--126}.
+\newblock \showarticletitle{{Investigating the Landscape of Real-Time Bidding
+  Auctions}}. In \bibinfo{booktitle}{\emph{Proceedings of the 2023 ACM Internet
+  Measurement Conference (IMC '23)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{235--248}.
+\newblock
+
+
+\bibitem[Bashir et~al\mbox{.}(2016)]%
+        {bashir2016tracing}
+\bibfield{author}{\bibinfo{person}{Muhammad~Ahmad Bashir},
+  \bibinfo{person}{Sajjad Arshad}, \bibinfo{person}{William Robertson}, {and}
+  \bibinfo{person}{Christo Wilson}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{{Tracing Information Flows Between Ad Exchanges
+  Using Retargeted Ads}}. In \bibinfo{booktitle}{\emph{25th USENIX Security
+  Symposium (USENIX Security 16)}}. \bibinfo{pages}{481--496}.
 \newblock
 
 
 \bibitem[Beales and Eisenach(2014)]%
-        {beales2014navigant}
+        {beales2014empirical}
 \bibfield{author}{\bibinfo{person}{J.~Howard Beales} {and}
   \bibinfo{person}{Jeffrey~A. Eisenach}.} \bibinfo{year}{2014}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{{An Empirical Analysis of the Value of
-  Information in the Online Advertising Ecosystem}}}.
-\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Navigant
-  Economics / Digital Advertising Alliance (DAA)}.
+\newblock \showarticletitle{{An Empirical Analysis of the Value of Information
+  in the Market for Online Advertising}}.
+\newblock \bibinfo{journal}{\emph{Navigant Economics / Digital Advertising
+  Alliance (DAA)}} (\bibinfo{year}{2014}), \bibinfo{pages}{1--36}.
+\newblock
+
+
+\bibitem[{Brave Software}(2025)]%
+        {brave_fingerprinting_protections_2025}
+\bibfield{author}{\bibinfo{person}{{Brave Software}}.}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{{Fingerprinting Protections}}.
+\newblock
+  \bibinfo{howpublished}{\url{https://github.com/brave/brave-browser/wiki/Fingerprinting-Protections}}.
+\newblock
+
+
+\bibitem[Bujlow et~al\mbox{.}(2017)]%
+        {bujlow2017survey}
+\bibfield{author}{\bibinfo{person}{Tomasz Bujlow},
+  \bibinfo{person}{Valent{\'\i}n Carela-Espa{\~n}ol}, \bibinfo{person}{Josep
+  Sole-Pareta}, {and} \bibinfo{person}{Pere Barlet-Ros}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{{A Survey on Web Tracking: Mechanisms,
+  Implications, and Defenses}}.
+\newblock \bibinfo{journal}{\emph{Proc. IEEE}} \bibinfo{volume}{105},
+  \bibinfo{number}{8} (\bibinfo{year}{2017}), \bibinfo{pages}{1476--1510}.
+\newblock
+
+
+\bibitem[Cao et~al\mbox{.}(2017)]%
+        {cao2017cross}
+\bibfield{author}{\bibinfo{person}{Yinzhi Cao}, \bibinfo{person}{Song Li},
+  {and} \bibinfo{person}{Erik Wijmans}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{{(Cross-) Browser Fingerprinting via OS and
+  Hardware Level Features}}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  2017 Network and Distributed System Security Symposium (NDSS '17)}}. Internet
+  Society.
 \newblock
 
 
 \bibitem[Cassel et~al\mbox{.}(2022)]%
         {cassel2022omnicrawl}
-\bibfield{author}{\bibinfo{person}{Erik Cassel} {et~al\mbox{.}}}
-  \bibinfo{year}{2022}\natexlab{}.
-\newblock \showarticletitle{{OmniCrawl: Comprehensive Web Crawling and the
-  Emulation Fallacy}}.
+\bibfield{author}{\bibinfo{person}{Darion Cassel}, \bibinfo{person}{Su-Chin
+  Lin}, \bibinfo{person}{Alessio Buraggina}, \bibinfo{person}{William Wang},
+  \bibinfo{person}{Andrew Zhang}, \bibinfo{person}{Lujo Bauer},
+  \bibinfo{person}{Hsu-Chun Hsiao}, \bibinfo{person}{Limin Jia}, {and}
+  \bibinfo{person}{Timothy Libert}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{OmniCrawl: Comprehensive Measurement of Web
+  Tracking with Real Desktop and Mobile Browsers}}.
 \newblock \bibinfo{journal}{\emph{Proceedings on Privacy Enhancing Technologies
   (PoPETs)}} \bibinfo{volume}{2022}, \bibinfo{number}{3}
   (\bibinfo{year}{2022}), \bibinfo{pages}{189--208}.
 \newblock
 
 
-\bibitem[Cook et~al\mbox{.}(2020)]%
-        {cook2020popets}
-\bibfield{author}{\bibinfo{person}{John Cook} {et~al\mbox{.}}}
-  \bibinfo{year}{2020}\natexlab{}.
-\newblock \showarticletitle{{Inferring User Tracking in Header Bidding via
-  Client-Side Prebid Observability}}.
-\newblock \bibinfo{journal}{\emph{Proceedings on Privacy Enhancing Technologies
-  (PoPETs)}} \bibinfo{volume}{2020}, \bibinfo{number}{4}
-  (\bibinfo{year}{2020}), \bibinfo{pages}{421--440}.
+\bibitem[Castelluccia et~al\mbox{.}(2014)]%
+        {castelluccia2014selling}
+\bibfield{author}{\bibinfo{person}{Claude Castelluccia},
+  \bibinfo{person}{Lukasz Olejnik}, {and} \bibinfo{person}{Tran Minh-Dung}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{{Selling Off Privacy at Auction}}. In
+  \bibinfo{booktitle}{\emph{Network and Distributed System Security Symposium
+  (NDSS '14)}}.
 \newblock
+
+
+\bibitem[Cook et~al\mbox{.}(2020)]%
+        {cook2020inferring}
+\bibfield{author}{\bibinfo{person}{John Cook}, \bibinfo{person}{Rishab
+  Nithyanand}, {and} \bibinfo{person}{Zubair Shafiq}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{Inferring Tracker-Advertiser Relationships in the
+  Online Advertising Ecosystem using Header Bidding}}.
+\newblock \bibinfo{journal}{\emph{Proceedings on Privacy Enhancing Technologies
+  (PoPETs)}} \bibinfo{volume}{2020}, \bibinfo{number}{1}
+  (\bibinfo{year}{2020}), \bibinfo{pages}{65--82}.
+\newblock
+\href{https://doi.org/10.2478/popets-2020-0005}{doi:\nolinkurl{10.2478/popets-2020-0005}}
 
 
 \bibitem[Demir et~al\mbox{.}(2022)]%
         {demir2022reproducibility}
-\bibfield{author}{\bibinfo{person}{Selim Demir} {et~al\mbox{.}}}
-  \bibinfo{year}{2022}\natexlab{}.
-\newblock \showarticletitle{{Reproducibility in Web Measurement: A Systematic
-  Review and Recommendations}}. In \bibinfo{booktitle}{\emph{Proceedings of The
-  Web Conference (WWW)}}. \bibinfo{pages}{3140--3152}.
+\bibfield{author}{\bibinfo{person}{Nurullah Demir}, \bibinfo{person}{Matteo
+  Gro{\ss}e-Kampmann}, \bibinfo{person}{Tobias Urban},
+  \bibinfo{person}{Christian Wressnegger}, \bibinfo{person}{Thorsten Holz},
+  {and} \bibinfo{person}{Norbert Pohlmann}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{Reproducibility and Replicability of Web
+  Measurement Studies}}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM
+  Web Conference 2022 (WWW '22)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{533--544}.
 \newblock
 
 
 \bibitem[Eckersley(2010)]%
-        {eckersley2010panopticlick}
+        {eckersley2010unique}
 \bibfield{author}{\bibinfo{person}{Peter Eckersley}.}
   \bibinfo{year}{2010}\natexlab{}.
 \newblock \showarticletitle{{How Unique Is Your Web Browser?}}. In
-  \bibinfo{booktitle}{\emph{Privacy Enhancing Technologies Symposium (PETS)}}.
-  \bibinfo{pages}{1--18}.
+  \bibinfo{booktitle}{\emph{Privacy Enhancing Technologies Symposium (PETS
+  '10)}}. Springer, \bibinfo{pages}{1--18}.
 \newblock
 
 
@@ -121,23 +215,61 @@
 \bibfield{author}{\bibinfo{person}{Steven Englehardt} {and}
   \bibinfo{person}{Arvind Narayanan}.} \bibinfo{year}{2016}\natexlab{}.
 \newblock \showarticletitle{{Online Tracking: A 1-Million-Site Measurement and
-  Analysis}}. In \bibinfo{booktitle}{\emph{ACM Conference on Computer and
-  Communications Security (CCS)}}. \bibinfo{pages}{1388--1401}.
+  Analysis}}. In \bibinfo{booktitle}{\emph{Proceedings of the 2016 ACM SIGSAC
+  Conference on Computer and Communications Security (CCS '16)}}.
+  \bibinfo{publisher}{ACM}, \bibinfo{pages}{1388--1401}.
 \newblock
+\href{https://doi.org/10.1145/2976749.2978313}{doi:\nolinkurl{10.1145/2976749.2978313}}
+
+
+\bibitem[Fielding et~al\mbox{.}(2022)]%
+        {rfc9110}
+\bibfield{author}{\bibinfo{person}{Roy~T. Fielding}, \bibinfo{person}{Mark
+  Nottingham}, {and} \bibinfo{person}{Julian Reschke}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \bibinfo{title}{{HTTP Semantics}}.
+\newblock \bibinfo{howpublished}{RFC 9110}.
+\newblock
+\href{https://doi.org/10.17487/RFC9110}{doi:\nolinkurl{10.17487/RFC9110}}
+
+
+\bibitem[Fielding and Reschke(2014)]%
+        {rfc7231}
+\bibfield{author}{\bibinfo{person}{Roy~T. Fielding} {and}
+  \bibinfo{person}{Julian Reschke}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \bibinfo{title}{{Hypertext Transfer Protocol (HTTP/1.1): Semantics
+  and Content}}.
+\newblock \bibinfo{howpublished}{RFC 7231}.
+\newblock
+\href{https://doi.org/10.17487/RFC7231}{doi:\nolinkurl{10.17487/RFC7231}}
 
 
 \bibitem[Iqbal et~al\mbox{.}(2021)]%
-        {iqbal2021fpinspector}
-\bibfield{author}{\bibinfo{person}{Umar Iqbal} {et~al\mbox{.}}}
+        {iqbal2021fingerprinting}
+\bibfield{author}{\bibinfo{person}{Umar Iqbal}, \bibinfo{person}{Steven
+  Englehardt}, {and} \bibinfo{person}{Zubair Shafiq}.}
   \bibinfo{year}{2021}\natexlab{}.
-\newblock \showarticletitle{{FP-Inspector: A Machine Learning Approach to
-  Fingerprinting Detection and Mitigation}}. In \bibinfo{booktitle}{\emph{IEEE
-  Symposium on Security and Privacy (S\&P)}}. \bibinfo{pages}{1364--1381}.
+\newblock \showarticletitle{{Fingerprinting the Fingerprinters: Learning to
+  Detect Browser Fingerprinting Behaviors}}. In \bibinfo{booktitle}{\emph{2021
+  IEEE Symposium on Security and Privacy (S\&P '21)}}. IEEE,
+  \bibinfo{pages}{1143--1161}.
+\newblock
+
+
+\bibitem[Iqbal et~al\mbox{.}(2020)]%
+        {iqbal2020adgraph}
+\bibfield{author}{\bibinfo{person}{Umar Iqbal}, \bibinfo{person}{Peter Snyder},
+  \bibinfo{person}{Shitong Zhu}, \bibinfo{person}{Benjamin Livshits},
+  \bibinfo{person}{Zhiyun Qian}, {and} \bibinfo{person}{Zubair Shafiq}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{AdGraph: A Graph-Based Approach to Ad and Tracker
+  Blocking}}. In \bibinfo{booktitle}{\emph{2020 IEEE Symposium on Security and
+  Privacy (S\&P '20)}}. IEEE, \bibinfo{pages}{763--776}.
 \newblock
 
 
 \bibitem[Johnson et~al\mbox{.}(2020)]%
-        {johnson2020marketsci}
+        {johnson2020consumer}
 \bibfield{author}{\bibinfo{person}{Garrett~A. Johnson},
   \bibinfo{person}{Scott~K. Shriver}, {and} \bibinfo{person}{Shaoyin Du}.}
   \bibinfo{year}{2020}\natexlab{}.
@@ -148,6 +280,18 @@
 \newblock
 
 
+\bibitem[Laperdrix et~al\mbox{.}(2020)]%
+        {laperdrix2020browser}
+\bibfield{author}{\bibinfo{person}{Pierre Laperdrix}, \bibinfo{person}{Nataliia
+  Bielova}, \bibinfo{person}{Benoit Baudry}, {and} \bibinfo{person}{Gildas
+  Avoine}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{Browser Fingerprinting: A Survey}}.
+\newblock \bibinfo{journal}{\emph{ACM Transactions on the Web (TWEB)}}
+  \bibinfo{volume}{14}, \bibinfo{number}{2} (\bibinfo{year}{2020}),
+  \bibinfo{pages}{1--33}.
+\newblock
+
+
 \bibitem[Laperdrix et~al\mbox{.}(2016)]%
         {laperdrix2016amiunique}
 \bibfield{author}{\bibinfo{person}{Pierre Laperdrix}, \bibinfo{person}{Walter
@@ -155,51 +299,227 @@
   \bibinfo{year}{2016}\natexlab{}.
 \newblock \showarticletitle{{Beauty and the Beast: Diverting Modern Web
   Browsers to Build Unique Signatures}}. In \bibinfo{booktitle}{\emph{IEEE
-  Symposium on Security and Privacy (S\&P)}}. \bibinfo{pages}{878--894}.
+  Symposium on Security and Privacy (S\&P '16)}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{pages}{878--894}.
+\newblock
+
+
+\bibitem[Lerner et~al\mbox{.}(2016)]%
+        {lerner2016internet}
+\bibfield{author}{\bibinfo{person}{Ada Lerner}, \bibinfo{person}{Anna~Kornfeld
+  Simpson}, \bibinfo{person}{Tadayoshi Kohno}, {and} \bibinfo{person}{Franziska
+  Roesner}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{{Internet Jones and the Raiders of the Lost
+  Trackers: An Archaeological Study of Web Tracking from 1996 to 2016}}. In
+  \bibinfo{booktitle}{\emph{25th USENIX Security Symposium (USENIX Security
+  16)}}. \bibinfo{pages}{997--1013}.
 \newblock
 
 
 \bibitem[Liu et~al\mbox{.}(2025)]%
-        {liu2025fptrace}
-\bibfield{author}{\bibinfo{person}{Yilun Liu} {et~al\mbox{.}}}
+        {liu2025first}
+\bibfield{author}{\bibinfo{person}{Zengrui Liu}, \bibinfo{person}{Jimmy Dani},
+  \bibinfo{person}{Yinzhi Cao}, \bibinfo{person}{Shujiang Wu}, {and}
+  \bibinfo{person}{Nitesh Saxena}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{{The First Early Evidence of the Use of Browser
+  Fingerprinting for Online Tracking}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the ACM on Web Conference 2025 (WWW
+  '25)}}. \bibinfo{publisher}{ACM}, \bibinfo{pages}{4980--4995}.
+\newblock
+
+
+\bibitem[Mowery and Shacham(2012)]%
+        {mowery2012pixel}
+\bibfield{author}{\bibinfo{person}{Keaton Mowery} {and} \bibinfo{person}{Hovav
+  Shacham}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{{Pixel Perfect: Fingerprinting Canvas in HTML5}}.
+  In \bibinfo{booktitle}{\emph{Proceedings of W2SP}},
+  Vol.~\bibinfo{volume}{2012}.
+\newblock
+
+
+\bibitem[{Mozilla}(2025)]%
+        {mozilla_rfp_docs}
+\bibfield{author}{\bibinfo{person}{{Mozilla}}.}
   \bibinfo{year}{2025}\natexlab{}.
-\newblock \showarticletitle{{FPTrace: Gauging Browser Fingerprint Linkability
-  via Real-World Ad Auctions}}. In \bibinfo{booktitle}{\emph{Proceedings of the
-  ACM Web Conference (WWW)}}.
+\newblock \bibinfo{title}{{Resist Fingerprinting}}.
+\newblock
+  \bibinfo{howpublished}{\url{https://support.mozilla.org/kb/resist-fingerprinting}}.
+\newblock
+
+
+\bibitem[Nikiforakis et~al\mbox{.}(2013)]%
+        {nikiforakis2013cookieless}
+\bibfield{author}{\bibinfo{person}{Nick Nikiforakis},
+  \bibinfo{person}{Alexandros Kapravelos}, \bibinfo{person}{Wouter Joosen},
+  \bibinfo{person}{Christopher Kruegel}, \bibinfo{person}{Frank Piessens},
+  {and} \bibinfo{person}{Giovanni Vigna}.} \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{{Cookieless Monster: Exploring the Ecosystem of
+  Web-Based Device Fingerprinting}}. In \bibinfo{booktitle}{\emph{2013 IEEE
+  Symposium on Security and Privacy (S\&P '13)}}. IEEE,
+  \bibinfo{pages}{541--555}.
+\newblock
+
+
+\bibitem[Oh et~al\mbox{.}(2022)]%
+        {oh2022cart}
+\bibfield{author}{\bibinfo{person}{ChangSeok Oh}, \bibinfo{person}{Chris
+  Kanich}, \bibinfo{person}{Damon McCoy}, {and} \bibinfo{person}{Paul Pearce}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{Cart-ology: Intercepting Targeted Advertising via
+  Ad Network Identity Entanglement}}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 2022 ACM SIGSAC Conference on Computer and Communications Security
+  (CCS '22)}}. \bibinfo{publisher}{ACM}, \bibinfo{pages}{2401--2414}.
 \newblock
 
 
 \bibitem[Pachilakis et~al\mbox{.}(2019)]%
-        {pachilakis2019imc}
+        {pachilakis2019no}
 \bibfield{author}{\bibinfo{person}{Michalis Pachilakis},
-  \bibinfo{person}{Xianghang Pan}, \bibinfo{person}{Panagiotis Papadopoulos},
-  {and} \bibinfo{person}{Evangelos Markatos}.} \bibinfo{year}{2019}\natexlab{}.
-\newblock \showarticletitle{{Analyzing the Header Bidding Landscape: An
-  Empirical Study}}. In \bibinfo{booktitle}{\emph{Proceedings of the ACM
-  Internet Measurement Conference (IMC)}}. \bibinfo{pages}{296--310}.
+  \bibinfo{person}{Panagiotis Papadopoulos}, \bibinfo{person}{Evangelos~P.
+  Markatos}, {and} \bibinfo{person}{Nicolas Kourtellis}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{No More Chasing Waterfalls: A Measurement Study of
+  the Header Bidding Ad-Ecosystem}}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 2019 ACM Internet Measurement Conference (IMC '19)}}.
+  \bibinfo{publisher}{ACM}, \bibinfo{pages}{280--293}.
+\newblock
+\href{https://doi.org/10.1145/3355369.3355582}{doi:\nolinkurl{10.1145/3355369.3355582}}
+
+
+\bibitem[Papadogiannakis et~al\mbox{.}(2021)]%
+        {papadogiannakis2021user}
+\bibfield{author}{\bibinfo{person}{Emmanouil Papadogiannakis},
+  \bibinfo{person}{Panagiotis Papadopoulos}, \bibinfo{person}{Nicolas
+  Kourtellis}, {and} \bibinfo{person}{Evangelos~P. Markatos}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{{User Tracking in the Post-Cookie Era: How Websites
+  Bypass {GDPR} Consent to Track Users}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the Web Conference 2021 (WWW '21)}}.
+  \bibinfo{publisher}{ACM}, \bibinfo{pages}{2130--2141}.
 \newblock
 
 
 \bibitem[Papadopoulos et~al\mbox{.}(2019)]%
-        {papadopoulos2019conrad}
+        {papadopoulos2019cookie}
 \bibfield{author}{\bibinfo{person}{Panagiotis Papadopoulos},
-  \bibinfo{person}{Nicolas Kourtellis}, \bibinfo{person}{Pablo Rodriguez},
-  {and} \bibinfo{person}{Evangelos Markatos}.} \bibinfo{year}{2019}\natexlab{}.
+  \bibinfo{person}{Nicolas Kourtellis}, {and} \bibinfo{person}{Evangelos
+  Markatos}.} \bibinfo{year}{2019}\natexlab{}.
 \newblock \showarticletitle{{Cookie Synchronization: Everything You Always
-  Wanted to Know But Were Afraid to Ask}}. In
-  \bibinfo{booktitle}{\emph{Proceedings of the World Wide Web Conference
-  (WWW)}}. \bibinfo{pages}{1432--1442}.
+  Wanted to Know But Were Afraid to Ask}}. In \bibinfo{booktitle}{\emph{The
+  World Wide Web Conference (WWW '19)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{1432--1442}.
+\newblock
+
+
+\bibitem[Perry et~al\mbox{.}(2019)]%
+        {tor_design}
+\bibfield{author}{\bibinfo{person}{Mike Perry}, \bibinfo{person}{Erinn Clark},
+  {and} \bibinfo{person}{Steven Murdoch}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{{The Design and Implementation of the Tor
+  Browser}}}.
+\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Tor
+  Project}.
+\newblock
+\urldef\tempurl%
+\url{https://2019.www.torproject.org/projects/torbrowser/design/}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Randall et~al\mbox{.}(2022)]%
+        {randall2022measuring}
+\bibfield{author}{\bibinfo{person}{Audrey Randall}, \bibinfo{person}{Peter
+  Snyder}, \bibinfo{person}{Alisha Ukani}, \bibinfo{person}{Alex~C. Snoeren},
+  \bibinfo{person}{Geoffrey~M. Voelker}, \bibinfo{person}{Stefan Savage}, {and}
+  \bibinfo{person}{Aaron Schulman}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{Measuring {UID} Smuggling in the Wild}}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 22nd ACM Internet Measurement
+  Conference (IMC '22)}}. \bibinfo{publisher}{ACM}, \bibinfo{pages}{230--243}.
 \newblock
 
 
 \bibitem[Ravichandran and Korula(2019)]%
-        {google2019cookies}
+        {google2019cookie}
 \bibfield{author}{\bibinfo{person}{Deepak Ravichandran} {and}
   \bibinfo{person}{Nitish Korula}.} \bibinfo{year}{2019}\natexlab{}.
 \newblock \bibinfo{booktitle}{\emph{{Effect of Disabling Third-Party Cookies on
-  Publisher Ad Revenues}}}.
+  Publisher Revenue}}}.
 \newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Google
   Research}.
+\newblock
+\urldef\tempurl%
+\url{https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Sanchez-Rola et~al\mbox{.}(2018)]%
+        {sanchez2018clock}
+\bibfield{author}{\bibinfo{person}{Iskander Sanchez-Rola},
+  \bibinfo{person}{Igor Santos}, {and} \bibinfo{person}{Davide Balzarotti}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{{Clock Around the Clock: Time-Based Device
+  Fingerprinting}}. In \bibinfo{booktitle}{\emph{Proceedings of the 2018 ACM
+  SIGSAC Conference on Computer and Communications Security (CCS '18)}}.
+  \bibinfo{publisher}{ACM}, \bibinfo{pages}{1502--1514}.
+\newblock
+
+
+\bibitem[Sj{\"o}sten et~al\mbox{.}(2021)]%
+        {sjosten2021essentialfp}
+\bibfield{author}{\bibinfo{person}{Alexander Sj{\"o}sten},
+  \bibinfo{person}{Daniel Hedin}, {and} \bibinfo{person}{Andrei Sabelfeld}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{{EssentialFP: Exposing the Essence of Browser
+  Fingerprinting}}. In \bibinfo{booktitle}{\emph{2021 IEEE European Symposium
+  on Security and Privacy Workshops (EuroS\&PW '21)}}. IEEE,
+  \bibinfo{pages}{32--48}.
+\newblock
+
+
+\bibitem[Starov et~al\mbox{.}(2019)]%
+        {starov2019unnecessarily}
+\bibfield{author}{\bibinfo{person}{Oleksii Starov}, \bibinfo{person}{Pierre
+  Laperdrix}, \bibinfo{person}{Alexandros Kapravelos}, {and}
+  \bibinfo{person}{Nick Nikiforakis}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{Unnecessarily Identifiable: Quantifying the
+  Fingerprintability of Browser Extensions Due to Bloat}}. In
+  \bibinfo{booktitle}{\emph{The World Wide Web Conference (WWW '19)}}.
+  \bibinfo{publisher}{ACM}, \bibinfo{pages}{3244--3250}.
+\newblock
+
+
+\bibitem[{Tor Project}(2019)]%
+        {torbrowser_normalization_2019}
+\bibfield{author}{\bibinfo{person}{{Tor Project}}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \bibinfo{title}{{Browser Fingerprinting: An Introduction and the
+  Challenges Ahead}}.
+\newblock
+  \bibinfo{howpublished}{\url{https://blog.torproject.org/browser-fingerprinting-introduction-and-challenges-ahead/}}.
+\newblock
+
+
+\bibitem[Vastel et~al\mbox{.}(2018)]%
+        {vastel2018fp}
+\bibfield{author}{\bibinfo{person}{Antoine Vastel}, \bibinfo{person}{Pierre
+  Laperdrix}, \bibinfo{person}{Walter Rudametkin}, {and}
+  \bibinfo{person}{Romain Rouvoy}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{{FP-Stalker: Tracking Browser Fingerprint
+  Evolutions}}. In \bibinfo{booktitle}{\emph{2018 IEEE Symposium on Security
+  and Privacy (S\&P '18)}}. IEEE, \bibinfo{pages}{728--741}.
+\newblock
+
+
+\bibitem[Vastel et~al\mbox{.}(2020)]%
+        {vastel2020fp}
+\bibfield{author}{\bibinfo{person}{Antoine Vastel}, \bibinfo{person}{Walter
+  Rudametkin}, \bibinfo{person}{Romain Rouvoy}, {and} \bibinfo{person}{Xavier
+  Blanc}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{FP-Crawlers: Studying the Resilience of Browser
+  Fingerprinting to Block Crawlers}}. In \bibinfo{booktitle}{\emph{MADWeb '20 -
+  NDSS Workshop on Measurements, Attacks, and Defenses for the Web}}.
 \newblock
 
 
@@ -207,11 +527,34 @@
         {wasserstein2016asa}
 \bibfield{author}{\bibinfo{person}{Ronald~L. Wasserstein} {and}
   \bibinfo{person}{Nicole~A. Lazar}.} \bibinfo{year}{2016}\natexlab{}.
-\newblock \showarticletitle{{The ASA Statement on p-Values: Context, Process,
-  and Purpose}}.
+\newblock \showarticletitle{{The {ASA} Statement on $p$-Values: Context,
+  Process, and Purpose}}.
 \newblock \bibinfo{journal}{\emph{The American Statistician}}
   \bibinfo{volume}{70}, \bibinfo{number}{2} (\bibinfo{year}{2016}),
   \bibinfo{pages}{129--133}.
+\newblock
+\href{https://doi.org/10.1080/00031305.2016.1154108}{doi:\nolinkurl{10.1080/00031305.2016.1154108}}
+
+
+\bibitem[{WHATWG}(2026)]%
+        {whatwg_webstorage}
+\bibfield{author}{\bibinfo{person}{{WHATWG}}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{{{HTML} Living Standard --- Web Storage}}.
+\newblock
+  \bibinfo{howpublished}{\url{https://html.spec.whatwg.org/multipage/webstorage.html\#webstorage}}.
+\newblock
+
+
+\bibitem[Zeber et~al\mbox{.}(2020)]%
+        {zeber2020representativeness}
+\bibfield{author}{\bibinfo{person}{David Zeber}, \bibinfo{person}{Sarah Bird},
+  \bibinfo{person}{Camila Oliveira}, \bibinfo{person}{Walter Rudametkin},
+  \bibinfo{person}{Ilana Segall}, \bibinfo{person}{Fredrik Wolls{\'e}n}, {and}
+  \bibinfo{person}{Martin Lopatka}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{The Representativeness of Automated Web Crawls as
+  a Surrogate for Human Browsing}}. In \bibinfo{booktitle}{\emph{Proceedings of
+  The Web Conference 2020 (WWW '20)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{167--178}.
 \newblock
 
 

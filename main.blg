@@ -14,66 +14,90 @@ Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 4000000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-Warning--empty publisher in ahmad2020crawlers
-Warning--empty address in ahmad2020crawlers
-Warning--empty publisher in barysei2023imc
-Warning--empty address in barysei2023imc
-Warning--empty publisher in demir2022reproducibility
+Warning--empty address in acar2014web
+Warning--empty address in acar2013fpdetective
+Warning--empty address in ahmad2020apophanies
+Warning--empty address in barysei2023investigating
+Warning--empty publisher in bashir2016tracing
+Warning--empty address in bashir2016tracing
+Warning--no number and no volume in beales2014empirical
+Warning--empty publisher in cao2017cross
+Warning--empty address in cao2017cross
+Warning--page numbers missing in both pages and numpages fields in cao2017cross
+Warning--empty publisher in castelluccia2014selling
+Warning--empty address in castelluccia2014selling
+Warning--page numbers missing in both pages and numpages fields in castelluccia2014selling
 Warning--empty address in demir2022reproducibility
-Warning--empty publisher in eckersley2010panopticlick
-Warning--empty address in eckersley2010panopticlick
-Warning--empty publisher in englehardt2016openwpm
+Warning--empty publisher in eckersley2010unique
+Warning--empty address in eckersley2010unique
 Warning--empty address in englehardt2016openwpm
-Warning--empty publisher in iqbal2021fpinspector
-Warning--empty address in iqbal2021fpinspector
-Warning--empty publisher in laperdrix2016amiunique
+Warning--empty publisher in iqbal2021fingerprinting
+Warning--empty address in iqbal2021fingerprinting
+Warning--empty publisher in iqbal2020adgraph
+Warning--empty address in iqbal2020adgraph
 Warning--empty address in laperdrix2016amiunique
-Warning--empty publisher in liu2025fptrace
-Warning--empty address in liu2025fptrace
-Warning--page numbers missing in both pages and numpages fields in liu2025fptrace
-Warning--empty publisher in pachilakis2019imc
-Warning--empty address in pachilakis2019imc
-Warning--empty publisher in papadopoulos2019conrad
-Warning--empty address in papadopoulos2019conrad
-You've used 16 entries,
+Warning--empty publisher in lerner2016internet
+Warning--empty address in lerner2016internet
+Warning--empty address in liu2025first
+Warning--empty publisher in mowery2012pixel
+Warning--empty address in mowery2012pixel
+Warning--page numbers missing in both pages and numpages fields in mowery2012pixel
+Warning--empty publisher in nikiforakis2013cookieless
+Warning--empty address in nikiforakis2013cookieless
+Warning--empty address in oh2022cart
+Warning--empty address in pachilakis2019no
+Warning--empty address in papadogiannakis2021user
+Warning--empty address in papadopoulos2019cookie
+Warning--empty address in randall2022measuring
+Warning--empty address in sanchez2018clock
+Warning--empty publisher in sjosten2021essentialfp
+Warning--empty address in sjosten2021essentialfp
+Warning--empty address in starov2019unnecessarily
+Warning--empty publisher in vastel2018fp
+Warning--empty address in vastel2018fp
+Warning--empty publisher in vastel2020fp
+Warning--empty address in vastel2020fp
+Warning--page numbers missing in both pages and numpages fields in vastel2020fp
+Warning--empty address in zeber2020representativeness
+You've used 43 entries,
             6335 wiz_defined-function locations,
-            1612 strings with 21311 characters,
-and the built_in function-call counts, 19024 in all, are:
-= -- 2356
-> -- 498
+            1762 strings with 28042 characters,
+and the built_in function-call counts, 50761 in all, are:
+= -- 5898
+> -- 1615
 < -- 0
-+ -- 170
-- -- 198
-* -- 1147
-:= -- 1758
-add.period$ -- 81
-call.type$ -- 16
-change.case$ -- 98
-chr.to.int$ -- 16
-cite$ -- 37
-duplicate$ -- 1837
-empty$ -- 1287
-format.name$ -- 234
-if$ -- 4680
++ -- 538
+- -- 539
+* -- 3516
+:= -- 4811
+add.period$ -- 214
+call.type$ -- 43
+change.case$ -- 331
+chr.to.int$ -- 43
+cite$ -- 88
+duplicate$ -- 4816
+empty$ -- 3380
+format.name$ -- 691
+if$ -- 12239
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 66
-newline$ -- 161
-num.names$ -- 112
-pop$ -- 734
+missing$ -- 168
+newline$ -- 373
+num.names$ -- 301
+pop$ -- 1971
 preamble$ -- 1
-purify$ -- 224
+purify$ -- 673
 quote$ -- 0
-skip$ -- 701
+skip$ -- 1793
 stack$ -- 0
-substring$ -- 1512
-swap$ -- 186
+substring$ -- 3884
+swap$ -- 470
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 424
-warning$ -- 21
-while$ -- 131
+type$ -- 1192
+warning$ -- 45
+while$ -- 266
 width$ -- 0
-write$ -- 335
-(There were 21 warnings)
+write$ -- 859
+(There were 45 warnings)

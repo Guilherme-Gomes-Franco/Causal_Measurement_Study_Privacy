@@ -1,97 +1,174 @@
-@inproceedings{liu2025fptrace,
-  author    = {Liu, Yilun and others},
-  title     = {{FPTrace: Gauging Browser Fingerprint Linkability via Real-World Ad Auctions}},
-  booktitle = {Proceedings of the ACM Web Conference (WWW)},
-  year      = {2025}
+% Encoding: UTF-8
+% =========================================================================
+% MASTER BIBLIOGRAPHY FOR THE ACM WEB CONFERENCE (WWW) / MASTER'S THESIS
+% =========================================================================
+
+% -------------------------------------------------------------------------
+% 1. Primary Empirical Ground Truth & Ad-Tech Precedents
+% -------------------------------------------------------------------------
+
+@inproceedings{liu2025first,
+  author    = {Liu, Zengrui and Dani, Jimmy and Cao, Yinzhi and Wu, Shujiang and Saxena, Nitesh},
+  title     = {{The First Early Evidence of the Use of Browser Fingerprinting for Online Tracking}},
+  booktitle = {Proceedings of the ACM on Web Conference 2025 (WWW '25)},
+  pages     = {4980--4995},
+  year      = {2025},
+  publisher = {ACM}
 }
 
-@inproceedings{pachilakis2019imc,
-  author    = {Pachilakis, Michalis and Pan, Xianghang and Papadopoulos, Panagiotis and Markatos, Evangelos},
-  title     = {{Analyzing the Header Bidding Landscape: An Empirical Study}},
-  booktitle = {Proceedings of the ACM Internet Measurement Conference (IMC)},
-  pages     = {296--310},
-  year      = {2019}
+@inproceedings{pachilakis2019no,
+  author    = {Pachilakis, Michalis and Papadopoulos, Panagiotis and Markatos, Evangelos P. and Kourtellis, Nicolas},
+  title     = {{No More Chasing Waterfalls: A Measurement Study of the Header Bidding Ad-Ecosystem}},
+  booktitle = {Proceedings of the 2019 ACM Internet Measurement Conference (IMC '19)},
+  pages     = {280--293},
+  year      = {2019},
+  publisher = {ACM},
+  doi       = {10.1145/3355369.3355582}
 }
 
-@article{cook2020popets,
-  author  = {Cook, John and others},
-  title   = {{Inferring User Tracking in Header Bidding via Client-Side Prebid Observability}},
+@article{cook2020inferring,
+  author  = {Cook, John and Nithyanand, Rishab and Shafiq, Zubair},
+  title   = {{Inferring Tracker-Advertiser Relationships in the Online Advertising Ecosystem using Header Bidding}},
   journal = {Proceedings on Privacy Enhancing Technologies (PoPETs)},
   volume  = {2020},
-  number  = {4},
-  pages   = {421--440},
-  year    = {2020}
-}
-
-@techreport{beales2014navigant,
-  author      = {Beales, J. Howard and Eisenach, Jeffrey A.},
-  title       = {{An Empirical Analysis of the Value of Information in the Online Advertising Ecosystem}},
-  institution = {Navigant Economics / Digital Advertising Alliance (DAA)},
-  year        = {2014}
-}
-
-@article{johnson2020marketsci,
-  author  = {Johnson, Garrett A. and Shriver, Scott K. and Du, Shaoyin},
-  title   = {{Consumer Privacy Choice in Online Advertising: Who Opts Out and at What Cost to Advertisers?}},
-  journal = {Marketing Science},
-  volume  = {39},
   number  = {1},
-  pages   = {33--51},
-  year    = {2020}
+  pages   = {65--82},
+  year    = {2020},
+  doi     = {10.2478/popets-2020-0005}
 }
 
-@techreport{google2019cookies,
+@inproceedings{barysei2023investigating,
+  author    = {Barysei, Artsiom and Papadopoulos, Panagiotis and Markatos, Evangelos},
+  title     = {{Investigating the Landscape of Real-Time Bidding Auctions}},
+  booktitle = {Proceedings of the 2023 ACM Internet Measurement Conference (IMC '23)},
+  pages     = {235--248},
+  year      = {2023},
+  publisher = {ACM}
+}
+
+% -------------------------------------------------------------------------
+% 2. Econometric Targeting Valuation Literature
+% -------------------------------------------------------------------------
+
+@article{beales2014empirical,
+  author  = {Beales, J. Howard and Eisenach, Jeffrey A.},
+  title   = {{An Empirical Analysis of the Value of Information in the Market for Online Advertising}},
+  journal = {Navigant Economics / Digital Advertising Alliance (DAA)},
+  pages   = {1--36},
+  year    = {2014}
+}
+
+@article{johnson2020consumer,
+  author    = {Johnson, Garrett A. and Shriver, Scott K. and Du, Shaoyin},
+  title     = {{Consumer Privacy Choice in Online Advertising: Who Opts Out and at What Cost to Advertisers?}},
+  journal   = {Marketing Science},
+  volume    = {39},
+  number    = {1},
+  pages     = {33--51},
+  year      = {2020},
+  publisher = {INFORMS}
+}
+
+@techreport{google2019cookie,
   author      = {Ravichandran, Deepak and Korula, Nitish},
-  title       = {{Effect of Disabling Third-Party Cookies on Publisher Ad Revenues}},
+  title       = {{Effect of Disabling Third-Party Cookies on Publisher Revenue}},
   institution = {Google Research},
-  year        = {2019}
-}
-
-@inproceedings{barysei2023imc,
-  author    = {Barysei, Mikhail and Papadopoulos, Panagiotis and Markatos, Evangelos},
-  title     = {{Dissecting the Bidding Mechanics of Programmatic Ad Exchanges}},
-  booktitle = {Proceedings of the ACM Internet Measurement Conference (IMC)},
-  pages     = {112--126},
-  year      = {2023}
+  year        = {2019},
+  url         = {https://services.google.com/fh/files/misc/disabling_third-party_cookies_publisher_revenue.pdf}
 }
 
 @article{wasserstein2016asa,
-  author  = {Wasserstein, Ronald L. and Lazar, Nicole A.},
-  title   = {{The ASA Statement on p-Values: Context, Process, and Purpose}},
-  journal = {The American Statistician},
-  volume  = {70},
-  number  = {2},
-  pages   = {129--133},
-  year    = {2016}
+  author    = {Wasserstein, Ronald L. and Lazar, Nicole A.},
+  title     = {{The {ASA} Statement on $p$-Values: Context, Process, and Purpose}},
+  journal   = {The American Statistician},
+  volume    = {70},
+  number    = {2},
+  pages     = {129--133},
+  year      = {2016},
+  publisher = {Taylor \& Francis},
+  doi       = {10.1080/00031305.2016.1154108}
 }
 
-@inproceedings{papadopoulos2019conrad,
-  author    = {Papadopoulos, Panagiotis and Kourtellis, Nicolas and Rodriguez, Pablo and Markatos, Evangelos},
+% -------------------------------------------------------------------------
+% 3. Identity Diffusion: Cookie Syncing, UID Smuggling, & Entanglement
+% -------------------------------------------------------------------------
+
+@inproceedings{papadopoulos2019cookie,
+  author    = {Papadopoulos, Panagiotis and Kourtellis, Nicolas and Markatos, Evangelos},
   title     = {{Cookie Synchronization: Everything You Always Wanted to Know But Were Afraid to Ask}},
-  booktitle = {Proceedings of the World Wide Web Conference (WWW)},
+  booktitle = {The World Wide Web Conference (WWW '19)},
   pages     = {1432--1442},
-  year      = {2019}
+  year      = {2019},
+  publisher = {ACM}
 }
 
-@inproceedings{randall2022crumbcruncher,
-  author    = {Randall, Audrey and others},
-  title     = {{CrumbCruncher: Tracking UID Smuggling via Navigant Link Decoration}},
-  booktitle = {Proceedings of the ACM Internet Measurement Conference (IMC)},
-  pages     = {512--526},
-  year      = {2022}
+@inproceedings{randall2022measuring,
+  author    = {Randall, Audrey and Snyder, Peter and Ukani, Alisha and Snoeren, Alex C. and Voelker, Geoffrey M. and Savage, Stefan and Schulman, Aaron},
+  title     = {{Measuring {UID} Smuggling in the Wild}},
+  booktitle = {Proceedings of the 22nd ACM Internet Measurement Conference (IMC '22)},
+  pages     = {230--243},
+  year      = {2022},
+  publisher = {ACM}
 }
 
-@inproceedings{iqbal2021fpinspector,
-  author    = {Iqbal, Umar and others},
-  title     = {{FP-Inspector: A Machine Learning Approach to Fingerprinting Detection and Mitigation}},
-  booktitle = {IEEE Symposium on Security and Privacy (S\&P)},
-  pages     = {1364--1381},
-  year      = {2021}
+@inproceedings{oh2022cart,
+  author    = {Oh, ChangSeok and Kanich, Chris and McCoy, Damon and Pearce, Paul},
+  title     = {{Cart-ology: Intercepting Targeted Advertising via Ad Network Identity Entanglement}},
+  booktitle = {Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security (CCS '22)},
+  pages     = {2401--2414},
+  year      = {2022},
+  publisher = {ACM}
+}
+
+@inproceedings{bashir2016tracing,
+  author    = {Bashir, Muhammad Ahmad and Arshad, Sajjad and Robertson, William and Wilson, Christo},
+  title     = {{Tracing Information Flows Between Ad Exchanges Using Retargeted Ads}},
+  booktitle = {25th USENIX Security Symposium (USENIX Security 16)},
+  pages     = {481--496},
+  year      = {2016}
+}
+
+@inproceedings{castelluccia2014selling,
+  author    = {Castelluccia, Claude and Olejnik, Lukasz and Minh-Dung, Tran},
+  title     = {{Selling Off Privacy at Auction}},
+  booktitle = {Network and Distributed System Security Symposium (NDSS '14)},
+  year      = {2014}
+}
+
+@inproceedings{papadogiannakis2021user,
+  author    = {Papadogiannakis, Emmanouil and Papadopoulos, Panagiotis and Kourtellis, Nicolas and Markatos, Evangelos P.},
+  title     = {{User Tracking in the Post-Cookie Era: How Websites Bypass {GDPR} Consent to Track Users}},
+  booktitle = {Proceedings of the Web Conference 2021 (WWW '21)},
+  pages     = {2130--2141},
+  year      = {2021},
+  publisher = {ACM}
+}
+
+@inproceedings{wills2012understanding,
+  author    = {Wills, Craig E. and Tatar, Can},
+  title     = {{Understanding What They Do with What They Know}},
+  booktitle = {Proceedings of the 2012 ACM Workshop on Privacy in the Electronic Society (WPES '12)},
+  pages     = {13--18},
+  year      = {2012}
+}
+
+% -------------------------------------------------------------------------
+% 4. Web Measurement Platforms, Crawler Evasion, & Reproducibility
+% -------------------------------------------------------------------------
+
+@inproceedings{englehardt2016openwpm,
+  author    = {Englehardt, Steven and Narayanan, Arvind},
+  title     = {{Online Tracking: A 1-Million-Site Measurement and Analysis}},
+  booktitle = {Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (CCS '16)},
+  pages     = {1388--1401},
+  year      = {2016},
+  publisher = {ACM},
+  doi       = {10.1145/2976749.2978313}
 }
 
 @article{cassel2022omnicrawl,
-  author  = {Cassel, Erik and others},
-  title   = {{OmniCrawl: Comprehensive Web Crawling and the Emulation Fallacy}},
+  author  = {Cassel, Darion and Lin, Su-Chin and Buraggina, Alessio and Wang, William and Zhang, Andrew and Bauer, Lujo and Hsiao, Hsu-Chun and Jia, Limin and Libert, Timothy},
+  title   = {{OmniCrawl: Comprehensive Measurement of Web Tracking with Real Desktop and Mobile Browsers}},
   journal = {Proceedings on Privacy Enhancing Technologies (PoPETs)},
   volume  = {2022},
   number  = {3},
@@ -99,42 +176,277 @@
   year    = {2022}
 }
 
-@inproceedings{ahmad2020crawlers,
-  author    = {Ahmad, Sadia and others},
-  title     = {{Bot or Not: Modern Web Crawler Classification in Commercial Ad Networks}},
-  booktitle = {Proceedings of The Web Conference (WWW)},
-  pages     = {2210--2221},
-  year      = {2020}
+@inproceedings{ahmad2020apophanies,
+  author    = {Ahmad, Syed Suleman and Dar, Muhammad Daniyal and Zaffar, Muhammad Fareed and Vallina-Rodriguez, Narseo and Nithyanand, Rishab},
+  title     = {{Apophanies or Epiphanies? How Crawlers Impact Our Understanding of the Web}},
+  booktitle = {Proceedings of The Web Conference 2020 (WWW '20)},
+  pages     = {271--280},
+  year      = {2020},
+  publisher = {ACM}
 }
 
 @inproceedings{demir2022reproducibility,
-  author    = {Demir, Selim and others},
-  title     = {{Reproducibility in Web Measurement: A Systematic Review and Recommendations}},
-  booktitle = {Proceedings of The Web Conference (WWW)},
-  pages     = {3140--3152},
-  year      = {2022}
+  author    = {Demir, Nurullah and Gro{\ss}e-Kampmann, Matteo and Urban, Tobias and Wressnegger, Christian and Holz, Thorsten and Pohlmann, Norbert},
+  title     = {{Reproducibility and Replicability of Web Measurement Studies}},
+  booktitle = {Proceedings of the ACM Web Conference 2022 (WWW '22)},
+  pages     = {533--544},
+  year      = {2022},
+  publisher = {ACM}
 }
 
-@inproceedings{eckersley2010panopticlick,
-  author    = {Eckersley, Peter},
-  title     = {{How Unique Is Your Web Browser?}},
-  booktitle = {Privacy Enhancing Technologies Symposium (PETS)},
-  pages     = {1--18},
-  year      = {2010}
+@inproceedings{zeber2020representativeness,
+  author    = {Zeber, David and Bird, Sarah and Oliveira, Camila and Rudametkin, Walter and Segall, Ilana and Wolls{\'e}n, Fredrik and Lopatka, Martin},
+  title     = {{The Representativeness of Automated Web Crawls as a Surrogate for Human Browsing}},
+  booktitle = {Proceedings of The Web Conference 2020 (WWW '20)},
+  pages     = {167--178},
+  year      = {2020},
+  publisher = {ACM}
+}
+
+@inproceedings{vastel2020fp,
+  author    = {Vastel, Antoine and Rudametkin, Walter and Rouvoy, Romain and Blanc, Xavier},
+  title     = {{FP-Crawlers: Studying the Resilience of Browser Fingerprinting to Block Crawlers}},
+  booktitle = {MADWeb '20 - NDSS Workshop on Measurements, Attacks, and Defenses for the Web},
+  year      = {2020}
+}
+
+@inproceedings{lerner2016internet,
+  author    = {Lerner, Ada and Simpson, Anna Kornfeld and Kohno, Tadayoshi and Roesner, Franziska},
+  title     = {{Internet Jones and the Raiders of the Lost Trackers: An Archaeological Study of Web Tracking from 1996 to 2016}},
+  booktitle = {25th USENIX Security Symposium (USENIX Security 16)},
+  pages     = {997--1013},
+  year      = {2016}
+}
+
+% -------------------------------------------------------------------------
+% 5. Stateless Fingerprinting Lineage & Detection
+% -------------------------------------------------------------------------
+
+@inproceedings{eckersley2010unique,
+  author       = {Eckersley, Peter},
+  title        = {{How Unique Is Your Web Browser?}},
+  booktitle    = {Privacy Enhancing Technologies Symposium (PETS '10)},
+  pages        = {1--18},
+  year         = {2010},
+  organization = {Springer}
+}
+
+@article{laperdrix2020browser,
+  author    = {Laperdrix, Pierre and Bielova, Nataliia and Baudry, Benoit and Avoine, Gildas},
+  title     = {{Browser Fingerprinting: A Survey}},
+  journal   = {ACM Transactions on the Web (TWEB)},
+  volume    = {14},
+  number    = {2},
+  pages     = {1--33},
+  year      = {2020},
+  publisher = {ACM}
 }
 
 @inproceedings{laperdrix2016amiunique,
   author    = {Laperdrix, Pierre and Rudametkin, Walter and Baudry, Benoit},
   title     = {{Beauty and the Beast: Diverting Modern Web Browsers to Build Unique Signatures}},
-  booktitle = {IEEE Symposium on Security and Privacy (S\&P)},
+  booktitle = {IEEE Symposium on Security and Privacy (S\&P '16)},
   pages     = {878--894},
-  year      = {2016}
+  year      = {2016},
+  publisher = {IEEE}
 }
 
-@inproceedings{englehardt2016openwpm,
-  author    = {Englehardt, Steven and Narayanan, Arvind},
-  title     = {{Online Tracking: A 1-Million-Site Measurement and Analysis}},
-  booktitle = {ACM Conference on Computer and Communications Security (CCS)},
-  pages     = {1388--1401},
-  year      = {2016}
+@inproceedings{iqbal2021fingerprinting,
+  author       = {Iqbal, Umar and Englehardt, Steven and Shafiq, Zubair},
+  title        = {{Fingerprinting the Fingerprinters: Learning to Detect Browser Fingerprinting Behaviors}},
+  booktitle    = {2021 IEEE Symposium on Security and Privacy (S\&P '21)},
+  pages        = {1143--1161},
+  year         = {2021},
+  organization = {IEEE}
+}
+
+@inproceedings{mowery2012pixel,
+  author    = {Mowery, Keaton and Shacham, Hovav},
+  title     = {{Pixel Perfect: Fingerprinting Canvas in HTML5}},
+  booktitle = {Proceedings of W2SP},
+  volume    = {2012},
+  year      = {2012}
+}
+
+@inproceedings{nikiforakis2013cookieless,
+  author       = {Nikiforakis, Nick and Kapravelos, Alexandros and Joosen, Wouter and Kruegel, Christopher and Piessens, Frank and Vigna, Giovanni},
+  title        = {{Cookieless Monster: Exploring the Ecosystem of Web-Based Device Fingerprinting}},
+  booktitle    = {2013 IEEE Symposium on Security and Privacy (S\&P '13)},
+  pages        = {541--555},
+  year         = {2013},
+  organization = {IEEE}
+}
+
+@inproceedings{acar2013fpdetective,
+  author    = {Acar, Gunes and Juarez, Marc and Nikiforakis, Nick and Diaz, Claudia and G{\"u}rses, Seda and Piessens, Frank and Preneel, Bart},
+  title     = {{FPDetective: Dusting the Web for Fingerprinters}},
+  booktitle = {Proceedings of the 2013 ACM SIGSAC Conference on Computer \& Communications Security (CCS '13)},
+  pages     = {1129--1140},
+  year      = {2013},
+  publisher = {ACM}
+}
+
+@inproceedings{acar2014web,
+  author    = {Acar, Gunes and Eubank, Christian and Englehardt, Steven and Juarez, Marc and Narayanan, Arvind and Diaz, Claudia},
+  title     = {{The Web Never Forgets: Persistent Tracking Mechanisms in the Wild}},
+  booktitle = {Proceedings of the 2014 ACM SIGSAC Conference on Computer and Communications Security (CCS '14)},
+  pages     = {674--689},
+  year      = {2014},
+  publisher = {ACM}
+}
+
+@inproceedings{cao2017cross,
+  author       = {Cao, Yinzhi and Li, Song and Wijmans, Erik},
+  title        = {{(Cross-) Browser Fingerprinting via OS and Hardware Level Features}},
+  booktitle    = {Proceedings of the 2017 Network and Distributed System Security Symposium (NDSS '17)},
+  year         = {2017},
+  organization = {Internet Society}
+}
+
+@inproceedings{sanchez2018clock,
+  author    = {Sanchez-Rola, Iskander and Santos, Igor and Balzarotti, Davide},
+  title     = {{Clock Around the Clock: Time-Based Device Fingerprinting}},
+  booktitle = {Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security (CCS '18)},
+  pages     = {1502--1514},
+  year      = {2018},
+  publisher = {ACM}
+}
+
+@inproceedings{vastel2018fp,
+  author       = {Vastel, Antoine and Laperdrix, Pierre and Rudametkin, Walter and Rouvoy, Romain},
+  title        = {{FP-Stalker: Tracking Browser Fingerprint Evolutions}},
+  booktitle    = {2018 IEEE Symposium on Security and Privacy (S\&P '18)},
+  pages        = {728--741},
+  year         = {2018},
+  organization = {IEEE}
+}
+
+@inproceedings{starov2019unnecessarily,
+  author    = {Starov, Oleksii and Laperdrix, Pierre and Kapravelos, Alexandros and Nikiforakis, Nick},
+  title     = {{Unnecessarily Identifiable: Quantifying the Fingerprintability of Browser Extensions Due to Bloat}},
+  booktitle = {The World Wide Web Conference (WWW '19)},
+  pages     = {3244--3250},
+  year      = {2019},
+  publisher = {ACM}
+}
+
+@inproceedings{olejnik2017battery,
+  author    = {Olejnik, Lukasz and Englehardt, Steven and Narayanan, Arvind},
+  title     = {{Battery Status Not Included: Assessing Privacy in Web Standards}},
+  booktitle = {2017 International Workshop on Privacy Engineering (IWPE '17)},
+  year      = {2017}
+}
+
+@inproceedings{das2018web,
+  author    = {Das, Anupam and Acar, Gunes and Borisov, Nikita and Pradeep, Amogh},
+  title     = {{The Web's Sixth Sense: A Study of Scripts Accessing Smartphone Sensors}},
+  booktitle = {Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security (CCS '18)},
+  pages     = {1515--1532},
+  year      = {2018},
+  publisher = {ACM}
+}
+
+@article{bujlow2017survey,
+  author    = {Bujlow, Tomasz and Carela-Espa{\~n}ol, Valent{\'\i}n and Sole-Pareta, Josep and Barlet-Ros, Pere},
+  title     = {{A Survey on Web Tracking: Mechanisms, Implications, and Defenses}},
+  journal   = {Proceedings of the IEEE},
+  volume    = {105},
+  number    = {8},
+  pages     = {1476--1510},
+  year      = {2017},
+  publisher = {IEEE}
+}
+
+@inproceedings{sjosten2021essentialfp,
+  author       = {Sj{\"o}sten, Alexander and Hedin, Daniel and Sabelfeld, Andrei},
+  title        = {{EssentialFP: Exposing the Essence of Browser Fingerprinting}},
+  booktitle    = {2021 IEEE European Symposium on Security and Privacy Workshops (EuroS\&PW '21)},
+  pages        = {32--48},
+  year         = {2021},
+  organization = {IEEE}
+}
+
+@inproceedings{iqbal2020adgraph,
+  author       = {Iqbal, Umar and Snyder, Peter and Zhu, Shitong and Livshits, Benjamin and Qian, Zhiyun and Shafiq, Zubair},
+  title        = {{AdGraph: A Graph-Based Approach to Ad and Tracker Blocking}},
+  booktitle    = {2020 IEEE Symposium on Security and Privacy (S\&P '20)},
+  pages        = {763--776},
+  year         = {2020},
+  organization = {IEEE}
+}
+
+% -------------------------------------------------------------------------
+% 6. Technical Standards & Browser Vendor Implementations
+% -------------------------------------------------------------------------
+
+@techreport{tor_design,
+  author      = {Perry, Mike and Clark, Erinn and Murdoch, Steven},
+  title       = {{The Design and Implementation of the Tor Browser}},
+  institution = {Tor Project},
+  year        = {2019},
+  url         = {https://2019.www.torproject.org/projects/torbrowser/design/}
+}
+
+@misc{torbrowser_normalization_2019,
+  author       = {{Tor Project}},
+  title        = {{Browser Fingerprinting: An Introduction and the Challenges Ahead}},
+  howpublished = {\url{https://blog.torproject.org/browser-fingerprinting-introduction-and-challenges-ahead/}},
+  year         = {2019}
+}
+
+@misc{mozilla_rfp_docs,
+  author       = {{Mozilla}},
+  title        = {{Resist Fingerprinting}},
+  howpublished = {\url{https://support.mozilla.org/kb/resist-fingerprinting}},
+  year         = {2025}
+}
+
+@misc{brave_fingerprinting_protections_2025,
+  author       = {{Brave Software}},
+  title        = {{Fingerprinting Protections}},
+  howpublished = {\url{https://github.com/brave/brave-browser/wiki/Fingerprinting-Protections}},
+  year         = {2025}
+}
+
+@misc{rfc9110,
+  series       = {Request for Comments},
+  number       = 9110,
+  howpublished = {RFC 9110},
+  publisher    = {RFC Editor},
+  doi          = {10.17487/RFC9110},
+  author       = {Roy T. Fielding and Mark Nottingham and Julian Reschke},
+  title        = {{HTTP Semantics}},
+  year         = 2022,
+  month        = jun
+}
+
+@misc{rfc6265,
+  series       = {Request for Comments},
+  number       = 6265,
+  howpublished = {RFC 6265},
+  publisher    = {RFC Editor},
+  doi          = {10.17487/RFC6265},
+  author       = {Adam Barth},
+  title        = {{HTTP State Management Mechanism}},
+  year         = 2011,
+  month        = apr
+}
+
+@misc{rfc7231,
+  series       = {Request for Comments},
+  number       = 7231,
+  howpublished = {RFC 7231},
+  publisher    = {RFC Editor},
+  doi          = {10.17487/RFC7231},
+  author       = {Roy T. Fielding and Julian Reschke},
+  title        = {{Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content}},
+  year         = 2014,
+  month        = jun
+}
+
+@misc{whatwg_webstorage,
+  author       = {{WHATWG}},
+  title        = {{{HTML} Living Standard --- Web Storage}},
+  howpublished = {\url{https://html.spec.whatwg.org/multipage/webstorage.html\#webstorage}},
+  year         = {2026}
 }
