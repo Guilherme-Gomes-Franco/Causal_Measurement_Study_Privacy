@@ -59,45 +59,45 @@ Warning--empty publisher in vastel2020fp
 Warning--empty address in vastel2020fp
 Warning--page numbers missing in both pages and numpages fields in vastel2020fp
 Warning--empty address in zeber2020representativeness
-You've used 43 entries,
+You've used 44 entries,
             6335 wiz_defined-function locations,
-            1762 strings with 28042 characters,
-and the built_in function-call counts, 50761 in all, are:
-= -- 5898
-> -- 1615
+            1769 strings with 28124 characters,
+and the built_in function-call counts, 51491 in all, are:
+= -- 5986
+> -- 1632
 < -- 0
-+ -- 538
-- -- 539
-* -- 3516
-:= -- 4811
-add.period$ -- 214
-call.type$ -- 43
-change.case$ -- 331
-chr.to.int$ -- 43
-cite$ -- 88
-duplicate$ -- 4816
-empty$ -- 3380
-format.name$ -- 691
-if$ -- 12239
++ -- 542
+- -- 546
+* -- 3556
+:= -- 4889
+add.period$ -- 219
+call.type$ -- 44
+change.case$ -- 336
+chr.to.int$ -- 44
+cite$ -- 89
+duplicate$ -- 4886
+empty$ -- 3430
+format.name$ -- 698
+if$ -- 12400
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 168
-newline$ -- 373
-num.names$ -- 301
-pop$ -- 1971
+newline$ -- 382
+num.names$ -- 308
+pop$ -- 1989
 preamble$ -- 1
-purify$ -- 673
+purify$ -- 686
 quote$ -- 0
-skip$ -- 1793
+skip$ -- 1822
 stack$ -- 0
-substring$ -- 3884
-swap$ -- 470
+substring$ -- 3943
+swap$ -- 474
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1192
+type$ -- 1222
 warning$ -- 45
-while$ -- 266
+while$ -- 273
 width$ -- 0
-write$ -- 859
+write$ -- 878
 (There were 45 warnings)

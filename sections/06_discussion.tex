@@ -7,8 +7,7 @@ Here, we deconstruct why naive composite metrics break under these dynamics, pre
 \subsection{Deconstructing the Usability Trap}
 \label{subsec:usability_trap}
 
-Initial privacy measurement frameworks often model the trade-off between tracking mitigation and usability via intuitive composite quotients. 
-We initially benchmarked browser configurations using the formulation:
+Initial privacy measurement frameworks often model the trade-off between tracking mitigation and usability via intuitive composite quotients:
 \begin{equation}
 \etrinit = \frac{(1 - \rid) \times \left( \frac{1}{\ln(D_{\text{ID}} + e)} \right)}{1 + \ucost}
 \label{eq:etr_initial}
@@ -20,17 +19,12 @@ Evaluating our empirical corpus under Equation~\ref{eq:etr_initial} produced an 
 \end{align*}
 This formulation ranked unhardened Chrome ($0.0395$) \textit{higher} than Brave Hardened ($0.0347$), despite the latter reducing median clearing prices by $60\%$ and capping the upper quartile at $Q_3 = 0.00\%$. 
 Forensic analysis revealed three mathematical pathologies:
-
-\paragraph{1. Binary Disruption Insensitivity}
-The binary re-identification rate $\rid$ registers an active domain as ``tracked'' if $\Delta\cpm \ge -10\%$. This threshold creates a step-function discontinuity that ignores deep economic disruption: a minor drop of $-11\%$ is treated identically to complete bid suppression ($-100.0\%$). 
-Consequently, Brave Hardened's median collapse ($-59.98\%$) and $25\%$ bid suppression rate were uncaptured by the numerator.
-
-\paragraph{2. Linear Denominator Penalty}
-The linear denominator ($1 + \ucost = 1.44$) penalized Brave Hardened by $44\%$, disproportionately degrading its score and drowning out its substantial tracking disruption.
-
-\paragraph{3. The Retry-Storm Inversion}
-Equation~\ref{eq:etr_initial} uses raw identity diffusion events ($D_{\text{ID}}$) in the logarithmic denominator. As revealed in Section~\ref{subsec:silo_network}, blocking tracker endpoints triggers client-side retry storms: client scripts repeatedly re-trigger cookie synchronization~\cite{papadopoulos2019cookie} and UID decoration loops~\cite{randall2022measuring} within recursive event handlers~\cite{iqbal2020adgraph}. 
-This paradoxically inflated Hardened Firefox's diffusion volume to 28,976 total events (6,006 cookie syncs and 22,970 smuggled UIDs), penalizing the browser for effectively blocking third-party endpoints.
+\begin{itemize}
+    \item \textbf{Binary Disruption Insensitivity:} The binary threshold ($\Delta\cpm \ge -10\%$) creates a step-function discontinuity where a minor drop of $-11\%$ is treated identically to complete bid suppression ($-100.0\%$), leaving Brave Hardened's median collapse ($-59.98\%$) and $25\%$ bid suppression rate uncaptured by the numerator;
+    \item \textbf{Linear Denominator Penalty:} The linear denominator ($1 + \ucost = 1.44$) penalized Brave Hardened by $44\%$, disproportionately degrading its score despite substantial tracking disruption;
+    \item \textbf{The Retry-Storm Inversion:} Equation~\ref{eq:etr_initial} uses raw diffusion events ($D_{\text{ID}}$) in the logarithmic denominator. Blocking tracker endpoints triggers client-side retry storms: tracking scripts repeatedly re-trigger cookie synchronization~\cite{papadopoulos2019cookie} and UID decoration loops~\cite{randall2022measuring} within recursive event handlers~\cite{iqbal2020adgraph}. 
+    This inflated Hardened Firefox's volume to 28,976 total events (6,006 cookie syncs and 22,970 smuggled UIDs), penalizing the browser for effectively blocking third-party endpoints.
+\end{itemize}
 
 \subsection{Axiomatic Formulation of $\etr$}
 \label{subsec:etr_star}
@@ -41,27 +35,19 @@ To resolve these distortions, we formulate the \textbf{Refined Effective Trackin
 \label{eq:etr_refined}
 \end{equation}
 where each component satisfies strict axiomatic requirements:
-
-\paragraph{Continuous Economic Disruption ($\Phi_{\text{econ}}$)}
-We replace the binary factor $(1 - \rid)$ with a composite economic index that integrates binary resistance, high-tier disruption, and median price decay:
-\begin{equation}
-\Phi_{\text{econ}} = \frac{(1 - \rid) + \htr + \max(0, -\widetilde{\Delta\cpm})}{3}
-\end{equation}
-where $\widetilde{\Delta\cpm}$ is the median relative bid shift. $\Phi_{\text{econ}} \in [0, 1]$ scales monotonically with both the breadth ($\htr$) and depth ($-\widetilde{\Delta\cpm}$) of tracking disruption.
-
-\paragraph{Entity Density Containment ($\Psi_{\text{containment}}$)}
-To eliminate retry-storm artifacts, we replace raw request counts with the density of unique tracking entities contacted per publisher:
-\begin{equation}
-\Psi_{\text{containment}} = \frac{1}{\ln\left(\frac{D_{\text{entity}}}{N_{\text{sites}}} + e\right)}
-\end{equation}
-where $D_{\text{entity}}$ is the count of deduplicated third-party hosts and $N_{\text{sites}} = 150$. By evaluating host density ($d = D_{\text{entity}} / 150$), $\Psi$ rewards browsers that restrict communication across distinct corporate tracking entities~\cite{bashir2016tracing, cook2020inferring}, remaining invariant to local script retry loops. As $D_{\text{entity}} \to 0$, $\Psi \to 1.0$.
-
-\paragraph{Sub-Linear Usability Dampening ($\Omega_{\text{usability}}$)}
-To prevent script exceptions from disproportionately penalizing privacy gains, we dampen the usability penalty logarithmically:
-\begin{equation}
-\Omega_{\text{usability}} = 1 + \ln(1 + \ucost)
-\end{equation}
-This dampens the impact of script errors, ensuring that browsers achieving deep privacy protection are not penalized below unhardened baselines.
+\begin{itemize}
+    \item \textbf{Continuous Economic Disruption ($\Phi_{\text{econ}}$):} Integrates binary resistance, high-tier disruption, and median price decay:
+    \begin{equation}
+    \Phi_{\text{econ}} = \frac{(1 - \rid) + \htr + \max(0, -\widetilde{\Delta\cpm})}{3}
+    \end{equation}
+    where $\Phi_{\text{econ}} \in [0, 1]$ scales monotonically with tracking disruption.
+    \item \textbf{Entity Density Containment ($\Psi_{\text{containment}}$):} Evaluates unique tracking entities contacted per publisher ($d = D_{\text{entity}} / 150$):
+    \begin{equation}
+    \Psi_{\text{containment}} = \frac{1}{\ln\left(\frac{D_{\text{entity}}}{N_{\text{sites}}} + e\right)}
+    \end{equation}
+    rewarding browsers that restrict communication across distinct corporate tracking entities~\cite{bashir2016tracing, cook2020inferring} while remaining invariant to script retry loops. As $D_{\text{entity}} \to 0$, $\Psi \to 1.0$.
+    \item \textbf{Sub-Linear Usability Dampening ($\Omega_{\text{usability}}$):} Dampens the usability penalty logarithmically ($\Omega_{\text{usability}} = 1 + \ln(1 + \ucost)$) so that script errors do not drown out deep privacy protections.
+\end{itemize}
 
 \begin{table}[t]
 \centering

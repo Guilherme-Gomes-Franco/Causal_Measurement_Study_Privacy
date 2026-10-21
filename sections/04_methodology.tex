@@ -43,11 +43,7 @@ For each configuration $c \in \mathcal{C}$, our cluster infrastructure executes 
 \end{figure*}
 
 \paragraph{Phase 1A: Persona Training ($t_0 \to t_1$)}
-A fresh browser profile navigates across 14 high-value commercial seed domains structured across four advertising verticals:
-(1)~\textit{Financial \& Insurance (High CPM):} \url{geico.com}, \url{progressive.com}, \url{statefarm.com}, \url{allstate.com}, \url{nerdwallet.com}, \url{investopedia.com};
-(2)~\textit{Automotive Research (High Intent):} \url{kbb.com}, \url{autotrader.com};
-(3)~\textit{Luxury Retail \& Lifestyle (Retargeting):} \url{architecturaldigest.com}, \url{robbreport.com};
-(4)~\textit{High-End Travel \& Real Estate:} \url{fourseasons.com}, \url{ritzcarlton.com}, \url{remax.com}, \url{century21.com}.
+A fresh browser profile navigates across 14 high-value commercial seed domains structured across four high-yield advertising verticals: Financial \& Insurance, Automotive Research, Luxury Retail \& Lifestyle, and High-End Travel \& Real Estate (domain corpus detailed in Appendix~\ref{sec:appendix_seeders}). 
 On each domain, the crawler resolves consent via the 3-Tier Consent Engine, dispatches hardware-level cursor movements, and waits for tracking pixels to register. 
 This induces ad network identity entanglement~\cite{oh2022cart} and initializes cross-exchange retargeting profiles~\cite{bashir2016tracing}, establishing an ``Affluent Consumer'' persona in commercial device graphs.
 
@@ -74,10 +70,12 @@ alongside runtime JavaScript exceptions and network tracking flows.
 
 To ensure auctions are observable, publishers must run client-side header bidding rather than opaque server-side auctions~\cite{pachilakis2019no, cook2020inferring}. 
 We curated $\mathcal{S}$ ($|\mathcal{S}| = 150$) from top Tranco ledger entries via a 4-stage filter:
-(1)~\textbf{TLD Selection:} Restrict domains to primary commercial English TLDs (\texttt{.com}, \texttt{.net}, \texttt{.org}, \texttt{.uk}, \texttt{.ca}, \texttt{.au}, \texttt{.nz}, \texttt{.ie});
-(2)~\textbf{Walled-Garden Elimination:} Filter out a 40-domain blacklist of platforms that monetize inventory exclusively through proprietary internal ad tech without OpenRTB (e.g., Google, Facebook, Amazon, Apple, Netflix, Wikipedia, StackOverflow);
-(3)~\textbf{Header Bidding Signature Detection:} Inspect landing-page source HTML for active wrappers (\texttt{prebid.js}, \texttt{pbjs.que}, \texttt{pubfood}, \texttt{apstag.js}, or \texttt{gpt.js});
-(4)~\textbf{Supply-Chain Validation (\texttt{ads.txt}):} Query \path{https://{domain}/ads.txt} and require an HTTP 200 status containing \texttt{"DIRECT"} authorized exchange relationships.
+\begin{enumerate}
+    \item \textbf{TLD Selection:} Restrict domains to primary commercial English TLDs (\texttt{.com}, \texttt{.net}, \texttt{.org}, \texttt{.uk}, \texttt{.ca}, \texttt{.au}, \texttt{.nz}, \texttt{.ie});
+    \item \textbf{Walled-Garden Elimination:} Filter out a 40-domain blacklist of platforms that monetize inventory exclusively through proprietary internal ad tech without OpenRTB (e.g., Google, Facebook, Amazon, Apple, Netflix, Wikipedia, StackOverflow);
+    \item \textbf{Header Bidding Signature Detection:} Inspect landing-page source HTML for active wrappers (\texttt{prebid.js}, \texttt{pbjs.que}, \texttt{pubfood}, \texttt{apstag.js}, or \texttt{gpt.js});
+    \item \textbf{Supply-Chain Validation (\texttt{ads.txt}):} Query \path{https://{domain}/ads.txt} and require an HTTP 200 status containing \texttt{"DIRECT"} authorized exchange relationships.
+\end{enumerate}
 
 \paragraph{The Paired Observability Filter ($\mathcal{S}_{\text{active}}$)}
 Because production auctions can suffer transient exchange timeouts or dynamic allocation shifts, we enforce a strict Paired Observability Filter:
@@ -91,12 +89,13 @@ Workloads were parallelized across three Docker containers (50 domains/batch, 4\
 \label{subsec:browser_matrix}
 
 We evaluate five browser configurations across Blink and Gecko rendering engines:
-(1)~\textbf{\texttt{chrome\_baseline}:} Vanilla Google Chrome operating under default settings, acting as our unhardened control group;
-(2)~\textbf{\texttt{firefox\_baseline}:} Standard Mozilla Firefox with Enhanced Tracking Protection (ETP Standard);
-(3)~\textbf{\texttt{firefox\_hardened}:} Multi-layered hardened Firefox combining ETP Strict (\path{browser.contentblocking.category = "strict"}), Total Cookie Protection (\path{network.cookie.cookieBehavior = 5}, dFPI) and query parameter stripping~\cite{randall2022measuring}, with Tor-derived Resist Fingerprinting (\path{privacy.resistFingerprinting = true})~\cite{tor_design, torbrowser_normalization_2019, mozilla_rfp_docs};
-(4)~\textbf{\texttt{brave\_baseline}:} Standard Brave Browser with default Shields (Canvas and Audio Farbling enabled; standard network blocking)~\cite{brave_fingerprinting_protections_2025};
-(5)~\textbf{\texttt{brave\_hardened}:} Brave Browser with ``Strict'' Shields (farbling combined with aggressive network request blocking)~\cite{brave_fingerprinting_protections_2025}.
-
+\begin{enumerate}
+    \item \textbf{\texttt{chrome\_baseline}:} Vanilla Google Chrome operating under default settings, acting as our unhardened control group;
+    \item \textbf{\texttt{firefox\_baseline}:} Standard Mozilla Firefox with Enhanced Tracking Protection (ETP Standard);
+    \item \textbf{\texttt{firefox\_hardened}:} Multi-layered hardened Firefox combining ETP Strict (\path{browser.contentblocking.category} = ``strict''), Total Cookie Protection (\path{network.cookie.cookieBehavior} = 5, dFPI), and query parameter stripping~\cite{randall2022measuring}. It also uses Tor-derived Resist Fingerprinting (\path{privacy.resistFingerprinting = true})~\cite{tor_design, torbrowser_normalization_2019, mozilla_rfp_docs};
+    \item \textbf{\texttt{brave\_baseline}:} Standard Brave Browser with default Shields (Canvas and Audio Farbling enabled; standard network blocking)~\cite{brave_fingerprinting_protections_2025};
+    \item \textbf{\texttt{brave\_hardened}:} Brave Browser with ``Strict'' Shields (farbling combined with aggressive network request blocking)~\cite{brave_fingerprinting_protections_2025}.
+\end{enumerate}
 \subsection{Metrics \& Econometric Ground Truth}
 \label{subsec:metrics}
 
@@ -108,9 +107,11 @@ For each active domain $s \in \mathcal{S}_{\text{active}}$:
 
 \paragraph{Econometric Resistance Thresholds}
 Drawing on digital advertising econometric literature, we partition observed responses into three regimes:
-(1)~\textbf{Tracked / Low Resistance ($\Delta\cpm \ge -10\%$):} RTB auctions display $5\%$--$10\%$ natural volatility from DSP budget pacing, time-of-day bid throttling, and latency fluctuations~\cite{barysei2023investigating}; shifts within this boundary indicate stateless identity persistence.
-(2)~\textbf{High Tracking Resistance ($\htr$, $\Delta\cpm \le -30\%$):} Behavioral targeting yields a documented $30\%$--$60\%+$ premium over untargeted contextual inventory~\cite{beales2014empirical, johnson2020consumer, google2019cookie}; drops exceeding $30\%$ indicate that cross-site behavioral tracking was disrupted.
-(3)~\textbf{Partial Resistance ($-30\% < \Delta\cpm < -10\%$):} Represents intermediate valuation, partial graph matching, or algorithmic bid shading.
+\begin{itemize}
+    \item \textbf{Tracked / Low Resistance ($\Delta\cpm \ge -10\%$):} RTB auctions display $5\%$--$10\%$ natural volatility from DSP budget pacing, time-of-day bid throttling, and latency fluctuations~\cite{barysei2023investigating}; shifts within this boundary indicate stateless identity persistence.
+    \item \textbf{High Tracking Resistance ($\htr$, $\Delta\cpm \le -30\%$):} Behavioral targeting yields a documented $30\%$--$60\%+$ premium over untargeted contextual inventory~\cite{beales2014empirical, johnson2020consumer, google2019cookie}; drops exceeding $30\%$ indicate that cross-site behavioral tracking was disrupted.
+    \item \textbf{Partial Resistance ($-30\% < \Delta\cpm < -10\%$):} Represents intermediate valuation, partial graph matching, or algorithmic bid shading.
+\end{itemize}
 
 \paragraph{Re-Identification Rate ($\rid$)}
 The proportion of active publishers where the client is successfully re-identified:

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{43}
+\begin{thebibliography}{44}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -77,6 +77,16 @@
   Web Conference 2020 (WWW '20)}}. \bibinfo{publisher}{ACM},
   \bibinfo{pages}{271--280}.
 \newblock
+
+
+\bibitem[Barth(2011)]%
+        {rfc6265}
+\bibfield{author}{\bibinfo{person}{Adam Barth}.}
+  \bibinfo{year}{2011}\natexlab{}.
+\newblock \bibinfo{title}{{HTTP State Management Mechanism}}.
+\newblock \bibinfo{howpublished}{RFC 6265}.
+\newblock
+\href{https://doi.org/10.17487/RFC6265}{doi:\nolinkurl{10.17487/RFC6265}}
 
 
 \bibitem[Barysei et~al\mbox{.}(2023)]%

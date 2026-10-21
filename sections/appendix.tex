@@ -22,3 +22,28 @@ EXCLUDED_PATTERNS = shutil.ignore_patterns(
 \end{small}
 
 Furthermore, for Firefox configurations, the sanitizer extracts and purges ephemeral SQLite identity stores (\path{cert9.db}, \path{key4.db}, \path{pkcs11.txt}) before injecting fresh sidecar certificates. This ensures that post-break browser profiles initialize from a completely clean storage slate while maintaining exact defensive configurations.
+
+
+\section{Commercial Persona Seed Domains}
+\label{sec:appendix_seeders}
+
+Table~\ref{tab:seeders} lists the 14 high-value commercial seed domains used during Phase 1A to synthesize the ``Affluent Consumer'' behavioral persona.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Commercial seed domains visited during Phase 1A.}
+\label{tab:seeders}
+\begin{tabular}{ll}
+\toprule
+\textbf{Commercial Vertical} & \textbf{Target Domains} \\
+\midrule
+Financial \& Insurance & \url{geico.com}, \url{progressive.com}, \url{statefarm.com}, \\
+                       & \url{allstate.com}, \url{nerdwallet.com}, \url{investopedia.com} \\
+Automotive Research    & \url{kbb.com}, \url{autotrader.com} \\
+Luxury Retail          & \url{architecturaldigest.com}, \url{robbreport.com} \\
+Travel \& Real Estate  & \url{fourseasons.com}, \url{ritzcarlton.com}, \\
+                       & \url{remax.com}, \url{century21.com} \\
+\bottomrule
+\end{tabular}
+\end{table}

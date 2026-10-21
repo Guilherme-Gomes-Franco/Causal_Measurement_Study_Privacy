@@ -3,42 +3,20 @@
 
 \subsection{Programmatic Advertising \& Header Bidding}
 Modern web publishers monetize digital inventory via programmatic Real-Time Bidding (RTB)~\cite{castelluccia2014selling, bashir2016tracing}. 
-While legacy display monetization relied on monolithic waterfall ad servers (e.g., Google Ad Manager), modern publishers deploy \textbf{Header Bidding} wrappers, principally the open-source \texttt{Prebid.js} framework, embedded directly in the client-side DOM to conduct parallel auctions prior to ad-server calls~\cite{pachilakis2019no, cook2020inferring}.
+While legacy display monetization relied on monolithic waterfall ad servers (e.g., Google Ad Manager), modern publishers deploy \textbf{Header Bidding} wrappers—principally the open-source \texttt{Prebid.js} framework—embedded directly in the client-side DOM to conduct parallel auctions prior to ad-server calls~\cite{pachilakis2019no, cook2020inferring}.
 
-\begin{figure}[t]
-\centering
-\resizebox{\columnwidth}{!}{
-\begin{tikzpicture}[
-    box/.style={draw, text width=7.4cm, fill=gray!5, inner sep=3.5pt, font=\footnotesize},
-    arrow/.style={thick, ->, >=stealth}
-]
-    \node (p1) [box] {\textbf{1. Page Init \& Prebid Execution:}\\ Client lands on publisher; Prebid.js parses ad units, attaches identity tokens, and triggers parallel bid requests.};
-    \node (p2) [box, below=0.18cm of p1] {\textbf{2. OpenRTB Bid Distribution:}\\ SSPs route bid requests to DSPs with User-Agent, IP, and extracted client fingerprint hashes.};
-    \node (p3) [box, below=0.18cm of p2] {\textbf{3. DSP Identity Graph Resolution:}\\ DSP algorithms interrogate device graphs: Known user yields premium bid (\$2.50--\$15.00); unknown retreats to contextual floor (\$0.05--\$0.25).};
-    \node (p4) [box, below=0.18cm of p3] {\textbf{4. Client-Side Auction Resolution:}\\ Prebid.js aggregates responses, resolves highest clearing CPM, and injects winning creative via \texttt{iframe}.};
-
-    \draw [arrow] (p1) -- (p2);
-    \draw [arrow] (p2) -- (p3);
-    \draw [arrow] (p3) -- (p4);
-\end{tikzpicture}
-}
-\caption{Client-side Prebid.js auction lifecycle, illustrating DSP identity queries and clearing event resolution~\cite{pachilakis2019no, barysei2023investigating}.}
-\label{fig:ad_lifecycle}
-\end{figure}
-
-As illustrated in Figure~\ref{fig:ad_lifecycle}, when a client navigates to a publisher:
+When a client navigates to a publisher, the programmatic auction resolves through four sequential stages~\cite{pachilakis2019no, barysei2023investigating}:
 \begin{enumerate}
-    \item \texttt{Prebid.js} reads configuration tags, identifies active ad slots, and dispatches parallel, asynchronous HTTP bid requests to configured Supply-Side Platform (SSP) adapters (e.g., Rubicon, OpenX, AppNexus)~\cite{cook2020inferring}.
-    \item Each SSP adapter forwards the bid request via OpenRTB protocols to participating Demand-Side Platforms (DSPs). This payload encapsulates user signals: geographic IP localization, viewport dimensions, historical cookie-synchronization tokens~\cite{papadopoulos2019cookie}, smuggled navigational identifiers~\cite{randall2022measuring}, and stateless device fingerprint hashes extracted by embedded scripts~\cite{papadogiannakis2021user}.
-    \item DSP bidding algorithms parse the payload and query internal identity graphs. If the payload matches an affluent or high-intent user persona, the DSP bids aggressively. If the payload cannot be linked to historical profile data, the DSP bids at generic contextual reserve floors~\cite{barysei2023investigating}.
+    \item \texttt{Prebid.js} reads configuration tags, identifies active ad slots, and dispatches parallel, asynchronous HTTP bid requests to configured Supply-Side Platform (SSP) adapters (e.g., Rubicon, OpenX, AppNexus)~\cite{cook2020inferring};
+    \item Each SSP adapter forwards the bid request via OpenRTB protocols to participating Demand-Side Platforms (DSPs), encapsulating client attributes: geographic IP localization, viewport dimensions, historical cookie-synchronization tokens~\cite{papadopoulos2019cookie}, smuggled navigational identifiers~\cite{randall2022measuring}, and stateless device fingerprint hashes extracted by embedded scripts~\cite{papadogiannakis2021user};
+    \item DSP bidding algorithms parse the payload and query internal identity graphs: matching an affluent persona triggers aggressive premium bidding (\$2.50--\$15.00 CPM), whereas unresolved identities retreat to generic contextual reserve floors (\$0.05--\$0.25 CPM)~\cite{barysei2023investigating};
     \item Winning bids return to the browser, where \texttt{Prebid.js} resolves the highest clearing \cpm, surfaces it to the publisher's ad server, and renders the winning creative inside an isolated \texttt{iframe}.
 \end{enumerate}
 
 \subsection{The Economic Targeting Premium}
 \label{subsec:targeting_premium}
 
-The foundation of programmatic digital advertising is that identified users command significantly higher clearing prices than un-profiled users~\cite{castelluccia2014selling, bashir2016tracing}. 
-Longitudinal empirical analysis by Beales and Eisenach established that behavioral-targeted advertising sells for a $2.68\times$ price premium over non-targeted contextual advertising ($+168\%$)~\cite{beales2014empirical}. 
+The foundation of programmatic digital advertising is that identified users command significantly higher clearing prices than un-profiled users~\cite{castelluccia2014selling, bashir2016tracing}. Longitudinal empirical analysis by Beales and Eisenach established that behavioral-targeted advertising sells for a $2.68\times$ price premium over non-targeted contextual advertising ($+168\%$)~\cite{beales2014empirical}. 
 
 Subsequent field trials by Google confirmed that stripping user identifiers decreases publisher ad revenue by an average of $52\%$~\cite{google2019cookie}, an empirical finding corroborated by Johnson et al., who documented an identical $52\%$ ad revenue loss when consumers opt out of behavioral profiling~\cite{johnson2020consumer}. 
 
@@ -60,14 +38,16 @@ Embedded third-party scripts participate in header bidding auctions and attempt 
 The adversary leverages standard stateless fingerprinting vectors documented in the literature: Canvas pixel extraction~\cite{mowery2012pixel, acar2014web}, WebGL parameter enumeration~\cite{cao2017cross}, AudioContext oscillator decay~\cite{englehardt2016openwpm, laperdrix2020browser}, clock skew timing attacks~\cite{sanchez2018clock}, browser extension profiling~\cite{starov2019unnecessarily}, and WebRTC candidate harvesting.
 
 \paragraph{Adversarial Boundaries}
-The adversary \textit{cannot} compromise the underlying operating system kernel, inspect process memory, forge TLS cryptographic certificates, or mount active machine-in-the-middle network tampering. 
+The adversary \textit{cannot} compromise the operating system kernel, inspect process memory, forge TLS cryptographic certificates, or mount active machine-in-the-middle network tampering. 
 IP-based location clustering is constrained by residential IP subnet variance. Server-side identity synthesis entirely detached from client-observable hardware signals is considered orthogonal to browser defense efficacy.
 
 \paragraph{Client Defenses}
 The client executes a modern web browser equipped with anti-fingerprinting defenses:
-(1)~\textbf{API Normalization:} Tor Browser~\cite{tor_design, torbrowser_normalization_2019} and Firefox RFP~\cite{mozilla_rfp_docs}, which homogenize hardware attributes to standardized anonymity sets;
-(2)~\textbf{API Randomization:} Brave Farbling~\cite{brave_fingerprinting_protections_2025}, which injects cryptographic noise into Web API returns; and
-(3)~\textbf{Defensive Network Filtering:} Request-level blocking via tracking protection lists and graph-based filters~\cite{iqbal2020adgraph}.
+\begin{enumerate}
+    \item \textbf{API Normalization:} Tor Browser~\cite{tor_design, torbrowser_normalization_2019} and Firefox RFP~\cite{mozilla_rfp_docs}, which homogenize hardware attributes to standardized anonymity sets;
+    \item \textbf{API Randomization:} Brave Farbling~\cite{brave_fingerprinting_protections_2025}, which injects cryptographic noise into Web API returns; and
+    \item \textbf{Defensive Network Filtering:} Request-level blocking via tracking protection lists and graph-based filters~\cite{iqbal2020adgraph}.
+\end{enumerate}
 
 The user's objective is to enforce an \textit{identity break} by programmatically flushing all stateful storage and verifying whether stateless defenses prevent commercial DSPs from re-linking the profile. 
-However, capturing this economic signal requires a measurement platform that can interact with live auctions without alerting anti-fraud filters.
+However, capturing this economic signal requires an evasion-resilient measurement platform, as detailed next.

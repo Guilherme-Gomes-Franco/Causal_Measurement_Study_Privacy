@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1792273138.37079 "main.aux" "main.bbl" "main" 1792273266.88669 0
+["bibtex main"] 1792600986.2911 "main.aux" "main.bbl" "main" 1792600989.16353 0
   "./references.bib" 1792266127.65902 18355 50eea028b72dbd52f18f71f030e12dc3 ""
   "/home/gfranco/.miktex/texmfs/install/bibtex/bst/acmart/ACM-Reference-Format.bst" 1791389581.30943 94292 6c9c536013d461258ea4a4813fe90aa8 ""
-  "main.aux" 1792273266.22684 23732 16799dcde5baca9f7c77a75c27f99bfb "pdflatex"
+  "main.aux" 1792600988.39664 21435 5bc018c430cd1090340ba6db5eb06429 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1792273264.51188 "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" "main.pdf" "main" 1792273266.88694 0
+["pdflatex"] 1792600986.55652 "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" "main.pdf" "main" 1792600989.16385 0
   "/home/gfranco/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1791836035.42628 294906 180d8bb794436614bb74cdbbb1361ec0 ""
   "/home/gfranco/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1784561634.86694 10186746 6b7c249f8f59231068cc8d0a8a9ac482 ""
   "/home/gfranco/.miktex/texmfs/install/fonts/enc/dvips/inconsolata/i4-t1-4.enc" 1791391129.32458 7693 0f2dce6d313c82989ec3a67fc24df2a0 ""
@@ -330,20 +330,20 @@
   "/home/gfranco/.miktex/texmfs/install/tex/latex/xkeyval/xkeyval.sty" 1769029770.26791 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/home/gfranco/.miktex/texmfs/install/tex/latex/xstring/xstring.sty" 1768490833.49191 123 a302f2c651a95033260db60e51527ae8 ""
   "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" 1792273263.98131 3489 044741d6f6ae8b6e744414e548a2363a ""
-  "main.aux" 1792273266.22684 23732 16799dcde5baca9f7c77a75c27f99bfb "pdflatex"
-  "main.bbl" 1792273138.55567 24392 99a5f3d3dd19f845ce81f3f0ef893568 "bibtex main"
-  "main.out" 1792273266.22884 7421 921abecdfd140752dde611ae3268f2a8 "pdflatex"
+  "main.aux" 1792600988.39664 21435 5bc018c430cd1090340ba6db5eb06429 "pdflatex"
+  "main.bbl" 1792600986.48516 24709 b7e6429787cd040663bc29aea5bdec0e "bibtex main"
+  "main.out" 1792600988.39864 7643 0ac646539dbd7eda5a1e7451b5fbc0bb "pdflatex"
   "main.tex" 1792273263.98131 3489 044741d6f6ae8b6e744414e548a2363a ""
   "sections/00_abstract.tex" 1792273101.84075 2301 f3cb919de6e53cec97f5e596d088061b ""
-  "sections/01_intro.tex" 1792273101.842 6305 9ee5b49c6df9f11ca4d32387207d151e ""
-  "sections/02_background.tex" 1792273101.84252 7354 936038159c0080789846b10454b59cab ""
-  "sections/03_platform.tex" 1792273101.84301 6762 fa07a0338ba05b1e58b937e387cb30f1 ""
-  "sections/04_methodology.tex" 1792273101.84351 11623 403a6ed63d804a4618ad2c47064849c3 ""
-  "sections/05_evaluation.tex" 1792273101.84412 13912 2d1f71b62590664fef81e5af5a972bde ""
-  "sections/06_discussion.tex" 1792273101.84466 11009 65c3295352253f31d38f73933bbc18bd ""
+  "sections/01_intro.tex" 1792600982.25914 5327 101cdbfa01079d47c7261f2fa426a363 ""
+  "sections/02_background.tex" 1792600849.1718 6068 39e659772f5b528566727b83f45d2e1c ""
+  "sections/03_platform.tex" 1792600702.40048 6083 2b432b10b22965c0a51519fafd162f52 ""
+  "sections/04_methodology.tex" 1792600418.60249 11491 4408a942e2b75da46efb79a20ff2c51c ""
+  "sections/05_evaluation.tex" 1792599790.22127 12631 c25e95b548af64c403f8ddb92685c30a ""
+  "sections/06_discussion.tex" 1792599229.16579 10240 cedf33d3f5aaba71a1d66828e3dbf48c ""
   "sections/07_threats.tex" 1792273101.84506 2865 624a847bb7b21145f1b4d7950c65bb0f ""
-  "sections/08_conclusion.tex" 1792273101.84549 1774 2c97e17bada637cb8f23ea843622c3a3 ""
-  "sections/appendix.tex" 1792273101.84577 1934 138567b12df6b7c330c6388019da6fcb ""
+  "sections/08_conclusion.tex" 1792599106.61023 1816 c9d5e94dc44fc2bef2825123adb27965 ""
+  "sections/appendix.tex" 1792597863.19927 2875 d69185a9adbffcb77d21366bf963aac6 ""
   (generated)
   "main.aux"
   "main.log"
