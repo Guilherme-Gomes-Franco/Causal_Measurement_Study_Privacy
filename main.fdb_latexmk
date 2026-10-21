@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1792268780.80922 "main.aux" "main.bbl" "main" 1792268800.27578 0
+["bibtex main"] 1792273138.37079 "main.aux" "main.bbl" "main" 1792273266.88669 0
   "./references.bib" 1792266127.65902 18355 50eea028b72dbd52f18f71f030e12dc3 ""
   "/home/gfranco/.miktex/texmfs/install/bibtex/bst/acmart/ACM-Reference-Format.bst" 1791389581.30943 94292 6c9c536013d461258ea4a4813fe90aa8 ""
-  "main.aux" 1792268798.9034 23214 4f2230b1ad3cac6874b6fac455858db2 "pdflatex"
+  "main.aux" 1792273266.22684 23732 16799dcde5baca9f7c77a75c27f99bfb "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1792268794.89004 "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" "main.pdf" "main" 1792268800.27618 0
+["pdflatex"] 1792273264.51188 "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" "main.pdf" "main" 1792273266.88694 0
   "/home/gfranco/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1791836035.42628 294906 180d8bb794436614bb74cdbbb1361ec0 ""
   "/home/gfranco/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1784561634.86694 10186746 6b7c249f8f59231068cc8d0a8a9ac482 ""
   "/home/gfranco/.miktex/texmfs/install/fonts/enc/dvips/inconsolata/i4-t1-4.enc" 1791391129.32458 7693 0f2dce6d313c82989ec3a67fc24df2a0 ""
@@ -329,20 +329,21 @@
   "/home/gfranco/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty" 1768490807.39848 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/home/gfranco/.miktex/texmfs/install/tex/latex/xkeyval/xkeyval.sty" 1769029770.26791 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/home/gfranco/.miktex/texmfs/install/tex/latex/xstring/xstring.sty" 1768490833.49191 123 a302f2c651a95033260db60e51527ae8 ""
-  "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" 1791394720.75316 3504 eed27abb67cfa2a713c302efa86217dd ""
-  "main.aux" 1792268798.9034 23214 4f2230b1ad3cac6874b6fac455858db2 "pdflatex"
-  "main.bbl" 1792268781.06531 24392 99a5f3d3dd19f845ce81f3f0ef893568 "bibtex main"
-  "main.out" 1792268798.9064 7159 4badd11a5e8af9a419137147e503dca6 "pdflatex"
-  "main.tex" 1791394720.75316 3504 eed27abb67cfa2a713c302efa86217dd ""
-  "sections/00_abstract.tex" 1792235453.6206 2293 fb5de7fdf1a10cfb4fe6c8308bbe4b9b ""
-  "sections/01_intro.tex" 1792268030.77701 6297 eb93b3d4c05311ea3fd34407d169f930 ""
-  "sections/02_background.tex" 1792266721.10026 7094 e8bbfc5b879bd9a3af775450c31ec139 ""
-  "sections/03_platform.tex" 1792267361.88323 7567 2e24ce973a4a18b872ad31f3c441c981 ""
-  "sections/04_methodology.tex" 1792267698.7955 11517 731201d98bf87eb0f6e1f95a086db3aa ""
-  "sections/05_evaluation.tex" 1792268247.80447 13132 b85246fad125e8a9ac88ac81a4b59712 ""
-  "sections/06_discussion.tex" 1792268521.85223 10635 f6d29ed93d5f7c843697a8f985a1a404 ""
-  "sections/07_threats.tex" 1792268754.09338 1905 7a571e3c6dbec6a00eed00fe37e64328 ""
-  "sections/08_conclusion.tex" 1792268793.88544 1766 8b975ff043c21c2c8cc2dfa17e87abac ""
+  "/home/gfranco/Desktop/Causal_Measurement_Study_Privacy/main.tex" 1792273263.98131 3489 044741d6f6ae8b6e744414e548a2363a ""
+  "main.aux" 1792273266.22684 23732 16799dcde5baca9f7c77a75c27f99bfb "pdflatex"
+  "main.bbl" 1792273138.55567 24392 99a5f3d3dd19f845ce81f3f0ef893568 "bibtex main"
+  "main.out" 1792273266.22884 7421 921abecdfd140752dde611ae3268f2a8 "pdflatex"
+  "main.tex" 1792273263.98131 3489 044741d6f6ae8b6e744414e548a2363a ""
+  "sections/00_abstract.tex" 1792273101.84075 2301 f3cb919de6e53cec97f5e596d088061b ""
+  "sections/01_intro.tex" 1792273101.842 6305 9ee5b49c6df9f11ca4d32387207d151e ""
+  "sections/02_background.tex" 1792273101.84252 7354 936038159c0080789846b10454b59cab ""
+  "sections/03_platform.tex" 1792273101.84301 6762 fa07a0338ba05b1e58b937e387cb30f1 ""
+  "sections/04_methodology.tex" 1792273101.84351 11623 403a6ed63d804a4618ad2c47064849c3 ""
+  "sections/05_evaluation.tex" 1792273101.84412 13912 2d1f71b62590664fef81e5af5a972bde ""
+  "sections/06_discussion.tex" 1792273101.84466 11009 65c3295352253f31d38f73933bbc18bd ""
+  "sections/07_threats.tex" 1792273101.84506 2865 624a847bb7b21145f1b4d7950c65bb0f ""
+  "sections/08_conclusion.tex" 1792273101.84549 1774 2c97e17bada637cb8f23ea843622c3a3 ""
+  "sections/appendix.tex" 1792273101.84577 1934 138567b12df6b7c330c6388019da6fcb ""
   (generated)
   "main.aux"
   "main.log"

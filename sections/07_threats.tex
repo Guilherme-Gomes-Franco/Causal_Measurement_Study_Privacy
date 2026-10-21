@@ -2,15 +2,22 @@
 \label{sec:threats}
 
 \paragraph{Client-Side vs.\ Server-Side Bidding Observability}
-Our causal oracle intercepts client-side \texttt{Prebid.js} header auctions. Transactions routed via proprietary Server-to-Server (S2S) frameworks (e.g., Google Open Bidding, Amazon TAM) remain opaque behind publisher ad servers~\cite{pachilakis2019no, cook2020inferring}. 
-While client-side bids establish direct market demand, server-side auctions may access proprietary cross-site identity graphs not fully observable in the DOM.
+Our causal oracle intercepts client-side \texttt{Prebid.js} header auctions. Transactions routed via proprietary Server-to-Server (S2S) frameworks (e.g., Google Open Bidding, Amazon TAM) remain opaque behind ad servers~\cite{pachilakis2019no, cook2020inferring}. 
+While client-side bids reflect market demand, server-side auctions may access proprietary cross-site identity graphs not fully observable in the DOM.
 
-\paragraph{Synthetic Persona vs.\ Longitudinal Browsing}
-Our behavioral profiles were synthesized via automated crawls across 14 high-intent commercial seeders. While sufficient to initialize commercial DSP device graphs and trigger premium bid pacing in production exchanges, this profile lacks the longitudinal entropy of multi-month human browsing (e.g., sporadic search histories and latent social logins)~\cite{zeber2020representativeness, lerner2016internet}.
+\paragraph{Usability Breakage Heuristics ($U_{\text{cost}}$)}
+We quantify usability breakage using deduplicated runtime JavaScript exceptions normalized to the Chrome baseline. While runtime exceptions capture severed script dependencies and broken event chains~\cite{iqbal2020adgraph}, they remain an indirect proxy for human-perceived functional breakage. 
+Certain unhandled exceptions may be silently caught by framework error boundaries without degrading visual presentation, whereas other errors break essential user flows (e.g., checkout buttons). We treat our breakage index as a reproducible initial baseline rather than a definitive standard. 
+Potential directions could explore metrics such as visual layout shift analysis, synthetic user journey completion rates, or visual regression diffing; we would like to encourage the research community and peer reviewers to propose alternative methodologies to establish a standardized benchmark for real-world web breakage.
+
+\paragraph{Synthetic Personas vs.\ Longitudinal Browsing}
+Our behavioral profiles were synthesized via automated crawls across 14 commercial seeders. 
+While sufficient to initialize commercial DSP device graphs and trigger premium bid pacing in production exchanges~\cite{bashir2016tracing, oh2022cart}, this profile lacks the longitudinal entropy of multi-month human browsing (e.g., sporadic search histories and latent social logins)~\cite{zeber2020representativeness, lerner2016internet}.
 
 \paragraph{Software Rasterization Trade-offs}
-Standardizing graphics pipelines to Mesa software rasterization (\texttt{swrast}) was methodologically necessary to enforce determinism across cluster workers and avoid physical GPU confounding. 
+Standardizing rendering to Mesa software rasterization (\texttt{swrast}) was methodologically necessary to enforce determinism across cluster workers and eliminate GPU confounding. 
 However, commercial fingerprinting scripts occasionally probe bare-metal GPU driver signatures (e.g., unmasked renderer strings via \path{WEBGL_debug_renderer_info}) that software rasterization inherently normalizes~\cite{mowery2012pixel, cao2017cross}.
 
-\paragraph{Geographic \& Regulatory Vantage}
-Measurement workers operated from European academic IP ranges (Portugal). Due to European GDPR and ePrivacy enforcement, programmatic exchanges may deploy more conservative bid throttling and stricter CMP gates than in jurisdictions lacking unified data protection frameworks~\cite{papadogiannakis2021user, barysei2023investigating}.
+\paragraph{Geographic Vantage}
+Measurement workers operated from European academic IP ranges (Portugal). 
+Due to European GDPR and ePrivacy enforcement, programmatic exchanges may deploy more conservative bid throttling and stricter CMP gates than in jurisdictions lacking unified data protection frameworks~\cite{papadogiannakis2021user, barysei2023investigating}.

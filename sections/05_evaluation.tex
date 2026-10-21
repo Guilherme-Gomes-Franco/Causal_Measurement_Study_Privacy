@@ -1,13 +1,14 @@
 \section{Empirical Evaluation}
 \label{sec:evaluation}
 
-Across all five browser configurations, our distributed measurement infrastructure achieved a \textbf{100.0\% crawl yield}, evaluating all 150 target publishers across both experimental phases. 
-Table~\ref{tab:master_results} presents the empirical results across the three measurement silos: economic valuation distributions, network identity diffusion, and client-side usability overheads.
+Operating our causal measurement platform across all five browser configurations, our testbed completed crawls over all 150 curated publisher domains across both phases ($100.0\%$ completion yield). 
+Table~\ref{tab:master_results} presents the empirical results structured across our three measurement silos: economic bid valuation, network identity diffusion, and client-side usability overheads.
 
 \begin{table*}[t]
 \centering
 \small
-\caption{Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta\cpm$ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text{post}}$) and Smuggled UIDs ($U_{\text{post}}$); Usability Cost ($\ucost$) is normalized to the Chrome control group.}
+\caption{Master Empirical Evaluation Matrix across 150 Commercial Publishers. 
+Absolute bids reflect Pre/Post medians; $\Delta\cpm$ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text{post}}$) and Smuggled UIDs ($U_{\text{post}}$); Usability Cost ($\ucost$) is normalized to the Chrome control group.}
 \label{tab:master_results}
 \resizebox{\textwidth}{!}{%
 \setlength{\tabcolsep}{4pt}
@@ -84,14 +85,15 @@ Figure~\ref{fig:iqr_spread} plots the full distributional spread of relative bid
 
 \paragraph{Negative Control Validation (\texttt{chrome\_baseline})}
 In unhardened Chrome, clearing stateful storage resulted in a negligible median bid shift of \textbf{$-1.12\%$} ($p = 0.4832$, fail to reject $H_0$). 
-The distribution displayed massive variance ($\text{IQR} = 198.11\%$), with the third quartile surging to $+123.11\%$. Over $60.61\%$ of domains re-identified the client within the noise threshold ($\rid = 0.606$). 
+The distribution displayed substantial dispersion ($\text{IQR} = 198.11\%$), with the third quartile surging to $+123.11\%$. Over $60.61\%$ of domains re-identified the client within the noise threshold ($\rid = 0.606$). 
 
-While individual domains saw drops (e.g., \url{allrecipes.com} dropping from $\$10.00 \to \$0.00$), other domains maintained or increased bids (e.g., \url{archdaily.com} clearing at $\$26.00$), demonstrating that commercial DSPs routinely bridge stateful resets using stateless device graphs~\cite{acar2014web, liu2025first}.
+While individual domains saw bid reductions (e.g., \url{allrecipes.com} dropping from $\$10.00 \to \$0.00$), other domains maintained or increased bids (e.g., \url{archdaily.com} clearing at $\$26.00$), demonstrating that commercial DSPs routinely bridge stateful storage resets using stateless device graphs~\cite{acar2014web, liu2025first}.
 
 \paragraph{Baseline Defenses (\texttt{firefox\_baseline} \& \texttt{brave\_baseline})}
 Standard Firefox (ETP Standard) produced a minor median shift of \textbf{$-4.11\%$} ($p = 0.3445$, $\rid = 0.543$). Standard blocklists do not restrict active Canvas or Audio API calls, leaving identity graphs intact.
 
-Standard Brave (default Farbling) reduced median bids by \textbf{$-21.39\%$}, reducing the median clearing price from $\$0.15 \to \$0.08$. However, the upper quartile remained positive ($Q_3 = +46.95\%$), showing that farbling alone introduces algorithmic valuation uncertainty (bid shading)~\cite{barysei2023investigating} without completely severing device linkage.
+Standard Brave (default Farbling) reduced median bids by \textbf{$-21.39\%$}, reducing the median clearing price from $\$0.15 \to \$0.08$. 
+However, the upper quartile remained positive ($Q_3 = +46.95\%$), showing that farbling alone introduces algorithmic valuation uncertainty (bid shading)~\cite{barysei2023investigating} without completely severing device linkage.
 
 \paragraph{The Stealth Optimum (\texttt{firefox\_hardened})}
 Hardened Firefox achieved a \textbf{$-26.86\%$} median bid reduction, collapsing the median clearing price from $\$0.09$ to \textbf{\$0.02} (a $77.8\%$ absolute median decline). 
@@ -100,46 +102,44 @@ Crucially, the upper quartile compressed to \textbf{$Q_3 = +1.20\%$}: over $75\%
 The paired Wilcoxon test confirmed statistical significance at the marginal $\alpha = 0.10$ level ($W = 472.0, p = \textbf{0.0734}$). This was achieved with zero measurable usability breakage ($\ucost = 0.00$).
 
 \paragraph{The Apex Disruption (\texttt{brave\_hardened})}
-Hardened Brave produced the most severe economic drop: a median price collapse of \textbf{$-59.98\%$}, dropping the median clearing bid from $\$0.15 \to \$0.06$. The distribution demonstrates substantial tracking severance:
+Hardened Brave produced the most pronounced economic drop: a median price collapse of \textbf{$-59.98\%$}, dropping the median clearing bid from $\$0.15 \to \$0.06$. The distribution demonstrates substantial tracking severance:
 \begin{itemize}
-    \item \textbf{Total Collapse in $Q_1$:} The first quartile dropped to \textbf{$-100.00\%$}, indicating that over $25\%$ of active domains experienced complete auction wipeouts (e.g., \url{dailymail.co.uk} falling from $\$0.07 \to \$0.00$, \url{cricbuzz.com} from $\$0.01 \to \$0.00$).
-    \item \textbf{Negative Upper Quartile Ceiling:} The third quartile was capped at \textbf{$Q_3 = 0.00\%$}. Exactly $75\%$ of all evaluated domains saw non-positive bid deltas ($\le 0.00\%$), driving the re-identification rate down to $\rid = 0.500$.
+    \item \textbf{First Quartile Collapse:} The first quartile dropped to \textbf{$-100.00\%$}, indicating that over $25\%$ of active domains experienced complete bid suppression ($\Delta\cpm = -100.0\%$, e.g., \url{dailymail.co.uk} falling from $\$0.07 \to \$0.00$, \url{cricbuzz.com} from $\$0.01 \to \$0.00$).
+    \item \textbf{Upper Quartile Suppression:} The third quartile was capped at \textbf{$Q_3 = 0.00\%$}. Exactly $75\%$ of all evaluated domains saw non-positive bid deltas ($\le 0.00\%$), driving the re-identification rate down to $\rid = 0.500$.
 \end{itemize}
 
 \subsection{Ad-Tech Pricing \& Non-Parametric Rank Dilution}
 \label{subsec:rank_dilution}
 
-Despite Brave Hardened's $-59.98\%$ median collapse and $Q_3 \le 0.00\%$ compression, its paired Wilcoxon test yielded $W = 361.5, p = 0.1192$. 
-This dynamic illustrates two critical properties of programmatic ad markets:
+Despite Brave Hardened's $-59.98\%$ median collapse and $Q_3 \le 0.00\%$ compression, its paired Wilcoxon test yielded $W = 361.5, p = 0.1192$. This dynamic illustrates two critical properties of programmatic ad markets:
 
 \begin{enumerate}
-    \item \textbf{Left-Censored Reserve Floors:} SSP price floors enforce minimum clearing bids ($\$0.01$--$\$0.05$)~\cite{barysei2023investigating}. 
-    Consequently, negative shifts cannot decay below zero, truncating the absolute magnitude of negative differences ($|D_i| \le \$0.15$).
-    \item \textbf{Heteroskedastic Video Ad Outliers (Rank Dilution):} The Wilcoxon Signed-Rank test ranks observations by the absolute magnitude of their dollar shift ($|D_i|$). 
-    On \url{standard.co.uk}, an un-targeted outstream video ad unit cleared at $\$0.04$ Pre-Break and spiked to $\$16.00$ Post-Break ($+41,137\%$). Because $|D_i| = \$15.96$, this single video outlier received the maximum possible rank ($R_i = 46$). 
-    In a sample of $N=46$, a single large positive outlier offsets dozens of consistent display ad drops where bids collapsed from $\$0.50 \to \$0.01$ ($|D_i| = \$0.49$)~\cite{barysei2023investigating}.
+    \item \textbf{Left-Censored Reserve Floors:} SSP price floors enforce minimum clearing bids ($\$0.01$--$\$0.05$)~\cite{barysei2023investigating}. Consequently, negative shifts cannot decay below zero, truncating the absolute magnitude of negative differences ($|D_i| \le \$0.15$).
+    \item \textbf{Heteroskedastic Video Ad Outliers (Rank Dilution):} The Wilcoxon Signed-Rank test ranks observations by the absolute magnitude of their dollar shift ($|D_i|$). On \url{standard.co.uk}, an un-targeted outstream video ad unit cleared at $\$0.04$ Pre-Break and spiked to $\$16.00$ Post-Break ($+41,137\%$). Because $|D_i| = \$15.96$, this single video outlier received the maximum possible rank ($R_i = 46$). In a sample of $N=46$, a single large positive outlier offsets dozens of consistent display ad drops where bids collapsed from $\$0.50 \to \$0.01$ ($|D_i| = \$0.49$)~\cite{barysei2023investigating}.
 \end{enumerate}
-A similar dynamic occurred on \texttt{firefox\_hardened}, where a single video spike on \url{verywellhealth.com} ($\$0.10 \to \$22.00$) diluted the rank sum. 
-Following the American Statistical Association (ASA) guidelines on $p$-values~\cite{wasserstein2016asa}, real-world economic significance must be evaluated via effect size and quartile compression ($Q_3 \le 0.00\%$) rather than rank-sum symmetry alone.
+A similar dynamic occurred on \texttt{firefox\_hardened}, where an isolated video spike on \url{verywellhealth.com} ($\$0.10 \to \$22.00$) diluted the rank sum. Following the American Statistical Association (ASA) guidelines on statistical reporting~\cite{wasserstein2016asa}, real-world economic significance must be evaluated via effect size and quartile compression ($Q_3 \le 0.00\%$) rather than rank-sum symmetry alone.
 
 \subsection{Silo 2: Identity Diffusion \& The Retry Storm}
 \label{subsec:silo_network}
 
-Decomposing Identity Diffusion ($D_{\text{ID}}$) into Cookie Synchronizations ($S_{\text{post}}$)~\cite{papadopoulos2019cookie} and Smuggled Navigational Identifiers ($U_{\text{post}}$)~\cite{randall2022measuring} reveals an important operational insight:
+While clearing prices reveal identity certainty from the buyer's perspective, inspecting underlying network flows demonstrates how browser defenses alter tracker coordination in the background.
+
+Decomposing Identity Diffusion ($D_{\text{ID}}$) into Cookie Synchronizations ($S_{\text{post}}$)~\cite{papadopoulos2019cookie} and Smuggled Navigational Identifiers ($U_{\text{post}}$)~\cite{randall2022measuring} reveals an unexpected operational divergence across configurations:
 
 Across \texttt{chrome\_baseline}, \texttt{firefox\_baseline}, and both Brave configurations, syncs and smuggled UIDs remained remarkably stable: $S_{\text{post}} \in [2,461, 3,302]$ and $U_{\text{post}} \in [18,359, 18,885]$.
 
-In stark contrast, \texttt{firefox\_hardened} exhibited a massive surge: \textbf{Cookie Synchronizations more than doubled to $S_{\text{post}} = 6,006$}, and \textbf{Smuggled UIDs surged to $U_{\text{post}} = 22,970$}, driving total diffusion events to $D_{\text{ID}} = 28,976$. 
+In stark contrast, \texttt{firefox\_hardened} exhibited a pronounced surge: \textbf{Cookie Synchronizations more than doubled to $S_{\text{post}} = 6,006$}, and \textbf{Smuggled UIDs surged to $U_{\text{post}} = 22,970$}, driving total diffusion events to $D_{\text{ID}} = 28,976$. 
 
 Inspection of proxy logs reveals this was driven by a \textbf{stateless blocking retry storm}: when Firefox's multi-layered defenses (Total Cookie Protection, RFP canvas blanking, and query parameter stripping) blocked tracker endpoints and sanitized link decorations, client-side tracking scripts threw exceptions and repeatedly re-triggered synchronization requests within recursive event loops~\cite{iqbal2020adgraph}. 
 
-Crucially, deduplicating target endpoints revealed that Hardened Firefox communicated with the fewest distinct tracking hosts (\textbf{810 hosts}, vs. 872 in Chrome and 888 in Brave Hardened). Thus, while request \textbf{frequency} spiked due to client-side retries, Firefox successfully restricted the \textbf{diffusion} of identifiers across unique commercial entities.
+Crucially, deduplicating target endpoints revealed that Hardened Firefox communicated with the fewest distinct tracking hosts (\textbf{810 hosts}, vs. 872 in Chrome and 888 in Brave Hardened). Thus, while request *frequency* spiked due to client-side retries, Firefox successfully restricted the *diffusion* of identifiers across unique commercial entities.
 
 \subsection{Silo 3: Usability Cost \& Runtime Breakage}
 \label{subsec:silo_usability}
 
-Client-side error logging captured 45,000+ unhandled runtime JavaScript exceptions across our crawls. 
-Cross-engine normalization reveals key differences between defense approaches:
+While normalized defenses contained entity diffusion without modifying DOM layouts, blocking network requests introduced measurable client-side breakage.
+
+Client-side error logging captured 45,000+ unhandled runtime JavaScript exceptions across our crawls. Cross-engine normalization reveals key differences between defense approaches:
 
 \paragraph{Gecko Engine Performance}
 Standard Firefox recorded 1,590 exceptions, while Hardened Firefox recorded 2,400 exceptions ($+50.9\%$). 
@@ -148,4 +148,5 @@ However, because RFP's timer quantization and canvas blanking return syntactical
 \paragraph{Chromium Engine Performance}
 Chrome Baseline recorded 12,816 exceptions. Brave Baseline logged 13,309 exceptions ($\ucost = 0.31$), and Brave Hardened logged 14,882 exceptions ($\ucost = 0.44$). 
 
-Brave's aggressive network-layer request blocking severs script dependency chains, causing downstream publisher scripts to throw unhandled \texttt{TypeError} and null-pointer exceptions that degrade site features~\cite{iqbal2020adgraph}.
+Brave's aggressive network-layer request blocking severs script dependency chains, causing downstream publisher scripts to throw unhandled \texttt{TypeError} and null-pointer exceptions that degrade site features~\cite{iqbal2020adgraph}. 
+These empirical results reveal an operational paradox: defensive blocking triggers network retry storms that artificially inflate raw request counts, while aggressive filtering incurs substantial usability breakage. In Section~\ref{sec:discussion}, we deconstruct how naive composite metrics fail to capture these trade-offs, motivating the formulation of $\etr$.

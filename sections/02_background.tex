@@ -53,10 +53,11 @@ where $\alpha$ represents the behavioral targeting premium ($\alpha > 0$)~\cite{
 \label{subsec:threat_model}
 
 \paragraph{Adversarial Capabilities}
-We model commercial tracking consortiums, SSPs, and DSPs as curious-but-honest commercial observers operating across the programmatic advertising mesh~\cite{papadopoulos2019cookie, oh2022cart}. 
-The adversary operates client-side JavaScript embedded within publisher domains, participates in header bidding auctions, and seeks to persist user identities across disjoint first-party administrative domains ($s_i \neq s_j$) without user consent~\cite{papadogiannakis2021user}. 
+We model commercial tracking consortiums, SSPs, and DSPs under the classical \textbf{honest-but-curious} (semi-honest) adversarial model operating across the programmatic advertising mesh~\cite{papadopoulos2019cookie, oh2022cart}. 
+The adversary operates within standard unprivileged client execution contexts, possessing legitimate access to standard DOM and Web APIs~\cite{bujlow2017survey, laperdrix2020browser}. 
+Embedded third-party scripts participate in header bidding auctions and attempt to persist user identities across disjoint first-party administrative domains ($s_i \neq s_j$) without user consent~\cite{papadogiannakis2021user}. 
 
-The adversary has full access to standard Web APIs within the browser DOM and executes stateless fingerprinting techniques documented in the literature: Canvas pixel extraction~\cite{mowery2012pixel, acar2014web}, WebGL parameter enumeration~\cite{cao2017cross}, AudioContext oscillator decay~\cite{englehardt2016openwpm, laperdrix2020browser}, clock skew timing attacks~\cite{sanchez2018clock}, browser extension profiling~\cite{starov2019unnecessarily}, and WebRTC candidate harvesting.
+The adversary leverages standard stateless fingerprinting vectors documented in the literature: Canvas pixel extraction~\cite{mowery2012pixel, acar2014web}, WebGL parameter enumeration~\cite{cao2017cross}, AudioContext oscillator decay~\cite{englehardt2016openwpm, laperdrix2020browser}, clock skew timing attacks~\cite{sanchez2018clock}, browser extension profiling~\cite{starov2019unnecessarily}, and WebRTC candidate harvesting.
 
 \paragraph{Adversarial Boundaries}
 The adversary \textit{cannot} compromise the underlying operating system kernel, inspect process memory, forge TLS cryptographic certificates, or mount active machine-in-the-middle network tampering. 
@@ -68,4 +69,5 @@ The client executes a modern web browser equipped with anti-fingerprinting defen
 (2)~\textbf{API Randomization:} Brave Farbling~\cite{brave_fingerprinting_protections_2025}, which injects cryptographic noise into Web API returns; and
 (3)~\textbf{Defensive Network Filtering:} Request-level blocking via tracking protection lists and graph-based filters~\cite{iqbal2020adgraph}.
 
-The user's objective is to enforce an \textit{identity break} by programmatically flushing all stateful storage and verifying whether stateless defenses prevent commercial DSPs from re-linking the profile.
+The user's objective is to enforce an \textit{identity break} by programmatically flushing all stateful storage and verifying whether stateless defenses prevent commercial DSPs from re-linking the profile. 
+However, capturing this economic signal requires a measurement platform that can interact with live auctions without alerting anti-fraud filters.

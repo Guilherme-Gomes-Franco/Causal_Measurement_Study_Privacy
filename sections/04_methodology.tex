@@ -1,8 +1,8 @@
 \section{Causal Measurement Methodology}
 \label{sec:methodology}
 
-To evaluate anti-fingerprinting defenses without relying on static code heuristics or theoretical entropy proxies, we formulate our measurement as an empirical causal inference pipeline. 
-By training high-value behavioral personas and capturing clearing prices in programmatic ad auctions, we test whether clearing stateful storage causes bid values to drop to generic floor levels (indicating tracking disruption) or remain elevated (proving stateless identity persistence)~\cite{castelluccia2014selling, liu2025first}.
+Operating on the hardened cluster testbed described in Section~\ref{sec:platform}, we formulate our evaluation as an empirical causal measurement pipeline. 
+By training high-intent behavioral personas and capturing clearing prices in live programmatic ad auctions, we test whether clearing stateful storage causes bid values to decay to generic floor levels (indicating tracking disruption) or remain elevated (demonstrating stateless identity persistence)~\cite{castelluccia2014selling, liu2025first}.
 
 \subsection{Causal Experimental Design}
 \label{subsec:causal_design}
@@ -52,7 +52,7 @@ On each domain, the crawler resolves consent via the 3-Tier Consent Engine, disp
 This induces ad network identity entanglement~\cite{oh2022cart} and initializes cross-exchange retargeting profiles~\cite{bashir2016tracing}, establishing an ``Affluent Consumer'' persona in commercial device graphs.
 
 \paragraph{Phase 1B: Pre-Break Baseline Measurement ($t_1 \to t_2$)}
-Holding this persona, the browser navigates the 150 publisher targets. Upon reaching each domain, the crawler dispatches synthetic cursor events, resolves consent, and maintains a strict \textbf{15.0-second auction observation window} to allow asynchronous Prebid bid adjustments to settle~\cite{cook2020inferring}. 
+Holding this persona, the browser navigates the 150 publisher targets. Upon reaching each domain, the crawler dispatches synthetic cursor events, resolves consent, and enforces a 15.0-second auction observation window to allow asynchronous Prebid bid adjustments to settle~\cite{cook2020inferring}. 
 The network proxy intercepts clearing prices:
 \begin{equation}
 \cpm_{\text{Pre}}(s) = \max_{b \in \mathcal{B}_s} \{\cpm(b)\}
@@ -60,7 +60,7 @@ The network proxy intercepts clearing prices:
 where $\mathcal{B}_s$ is the set of all valid bids returned across active SSP adapters.
 
 \paragraph{Phase 2: The Enforced Identity Break ($t_2 \to t_3$)}
-The browser process is closed, releasing operating system file locks. The Atomic Profile Sanitizer purges all stateful directories (\texttt{Cookies*}, \texttt{Local Storage}, \texttt{IndexedDB}, \texttt{Session Storage}, \texttt{Sessions}, \texttt{Cache*}, and NSS databases)~\cite{whatwg_webstorage, acar2014web}, while preserving extension configurations, anti-fingerprinting shields, and browser preferences.
+The browser process is terminated, releasing file locks. The Atomic Profile Sanitizer removes all stateful storage primitives (cookies, web storage, cache partitions, and LevelDB journals; detailed in Appendix~\ref{sec:appendix_sanitizer})~\cite{whatwg_webstorage, acar2014web}, while strictly preserving client defensive configurations, flags, and certificates.
 
 \paragraph{Phase 3: Efficacy Measurement ($t_3 \to t_4$)}
 The sanitized browser revisits the exact same 150 publisher domains in identical order under the same network routing. The platform records the post-break clearing price:
@@ -84,7 +84,8 @@ Because production auctions can suffer transient exchange timeouts or dynamic al
 \begin{equation}
 \mathcal{S}_{\text{active}}(c) = \left\{ s \in \mathcal{S} \;\middle|\; \cpm_{\text{Pre}}(s) > 0 \;\land\; \cpm_{\text{Post}}(s) > 0 \right\}
 \end{equation}
-Across configurations, $|\mathcal{S}_{\text{active}}|$ ranges from 33 to 54 domains ($22.0\%$ to $36.0\%$ transparency), ensuring that all calculated deltas represent valid, paired transactions. Workloads were parallelized across three Docker containers (50 domains/batch, 4\,GB shared memory) on dual Intel Xeon E5-2609 v4 and AMD EPYC 7343 nodes.
+Across configurations, $|\mathcal{S}_{\text{active}}|$ ranges from 33 to 54 domains ($22.0\%$ to $36.0\%$ transparency), ensuring that all calculated deltas represent valid, paired transactions. 
+Workloads were parallelized across three Docker containers (50 domains/batch, 4\,GB shared memory) on dual Intel Xeon E5-2609 v4 and AMD EPYC 7343 nodes.
 
 \subsection{Evaluated Browser Configurations}
 \label{subsec:browser_matrix}
@@ -108,7 +109,7 @@ For each active domain $s \in \mathcal{S}_{\text{active}}$:
 \paragraph{Econometric Resistance Thresholds}
 Drawing on digital advertising econometric literature, we partition observed responses into three regimes:
 (1)~\textbf{Tracked / Low Resistance ($\Delta\cpm \ge -10\%$):} RTB auctions display $5\%$--$10\%$ natural volatility from DSP budget pacing, time-of-day bid throttling, and latency fluctuations~\cite{barysei2023investigating}; shifts within this boundary indicate stateless identity persistence.
-(2)~\textbf{High Tracking Resistance ($\htr$, $\Delta\cpm \le -30\%$):} Behavioral targeting yields a documented $30\%$--$60\%+$ premium over untargeted contextual inventory~\cite{beales2014empirical, johnson2020consumer, google2019cookie}; drops exceeding $30\%$ prove cross-site tracking was severed.
+(2)~\textbf{High Tracking Resistance ($\htr$, $\Delta\cpm \le -30\%$):} Behavioral targeting yields a documented $30\%$--$60\%+$ premium over untargeted contextual inventory~\cite{beales2014empirical, johnson2020consumer, google2019cookie}; drops exceeding $30\%$ indicate that cross-site behavioral tracking was disrupted.
 (3)~\textbf{Partial Resistance ($-30\% < \Delta\cpm < -10\%$):} Represents intermediate valuation, partial graph matching, or algorithmic bid shading.
 
 \paragraph{Re-Identification Rate ($\rid$)}
@@ -128,12 +129,11 @@ where excess exceptions reflect broken DOM dependency chains triggered by blocke
 \subsection{Statistical Hypothesis Testing}
 \label{subsec:stats}
 
-Because auction prices follow right-skewed, heavy-tailed distributions with left-censored reserve floors, parametric tests are invalid~\cite{barysei2023investigating}. 
-We apply the non-parametric \textbf{Paired Wilcoxon Signed-Rank Test}:
+Because auction prices follow right-skewed, heavy-tailed distributions with left-censored reserve floors, parametric tests are invalid~\cite{barysei2023investigating}. We apply the non-parametric \textbf{Paired Wilcoxon Signed-Rank Test}:
 \begin{equation}
 H_0: \text{median}(\Delta\cpm) = 0 \quad \text{vs.} \quad H_1: \text{median}(\Delta\cpm) < 0
 \end{equation}
 calculated over the signed ranks of non-zero absolute differences $|D_s| = |\cpm_{\text{Post}}(s) - \cpm_{\text{Pre}}(s)|$. 
 
 Following the American Statistical Association guidelines on statistical inference~\cite{wasserstein2016asa}, we interpret non-parametric rank tests in conjunction with real-world effect sizes ($\Delta\cpm$). 
-To test whether the five browser configurations diverge systematically across the complete parameter space, we compute an omnibus \textbf{Kruskal-Wallis test} across all groups.
+To test whether the five browser configurations diverge systematically across the complete parameter space, we compute an omnibus \textbf{Kruskal-Wallis test} across all groups. With the causal protocol and econometric thresholds established, we deploy this experimental design to evaluate the empirical performance of each defense configuration.

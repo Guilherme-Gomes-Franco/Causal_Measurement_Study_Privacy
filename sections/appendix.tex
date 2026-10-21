@@ -1,0 +1,24 @@
+\section{Atomic Profile Sanitizer Implementation}
+\label{sec:appendix_sanitizer}
+
+During preliminary test crawls, standard profile cloning routines leaked persistent state across phases. Specifically, Blink- and Gecko-based browsers maintain internal LevelDB transaction journals, HTTP Strict Transport Security (HSTS) state caches, and persistent Service Worker registrations that survive standard cookie-clearing routines~\cite{acar2014web, whatwg_webstorage}. When profiles were copied naively between Phase 1B and Phase 3, these background stores re-hydrated tracking tokens, resulting in artificial $0.0\%$ bid shifts.
+
+To ensure a provably clean storage state while preserving client defense configurations (e.g., Brave Shield levels, Firefox \path{about:config} preferences, and installed extension certificates), the platform executes an \textbf{Atomic Profile Sanitizer}. 
+
+Before Phase 3 initializes, the orchestrator terminates the browser process, waits for operating system file locks to clear, and replicates the user profile directory while enforcing strict directory and file exclusion patterns via Python's \texttt{shutil}:
+
+\begin{small}
+\begin{verbatim}
+EXCLUDED_PATTERNS = shutil.ignore_patterns(
+    'SingletonLock', 'SingletonSocket', 'SingletonCookie',
+    'parent.lock', 'lock', '.parentlock',
+    'Cookies*', 'Cache*', 'Local Storage', 
+    'IndexedDB', 'Session Storage', 'Sessions',
+    'Network Persistent State', 'TransportSecurity',
+    'QuotaManager', 'Service Worker', 'shared_proto_db',
+    'BrowserMetrics*', 'Crashpad'
+)
+\end{verbatim}
+\end{small}
+
+Furthermore, for Firefox configurations, the sanitizer extracts and purges ephemeral SQLite identity stores (\path{cert9.db}, \path{key4.db}, \path{pkcs11.txt}) before injecting fresh sidecar certificates. This ensures that post-break browser profiles initialize from a completely clean storage slate while maintaining exact defensive configurations.

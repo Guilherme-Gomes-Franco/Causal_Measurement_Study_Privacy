@@ -42,6 +42,7 @@
 \citation{beales2014empirical,johnson2020consumer}
 \citation{barysei2023investigating}
 \citation{papadopoulos2019cookie,oh2022cart}
+\citation{bujlow2017survey,laperdrix2020browser}
 \citation{papadogiannakis2021user}
 \@writefile{toc}{\contentsline {paragraph}{Contributions}{2}{section*.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background \& Threat Model}{2}{section.2}\protected@file@percent }
@@ -73,6 +74,7 @@
 \citation{ahmad2020apophanies}
 \citation{ahmad2020apophanies,vastel2020fp}
 \citation{rfc7231,rfc9110}
+\citation{papadogiannakis2021user}
 \@writefile{toc}{\contentsline {paragraph}{Adversarial Boundaries}{3}{section*.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Client Defenses}{3}{section*.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Measurement Platform Architecture}{3}{section.3}\protected@file@percent }
@@ -89,7 +91,6 @@
 \@writefile{toc}{\contentsline {paragraph}{Transport-Layer Fingerprint Evasion}{3}{section*.18}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Causal Anti-Cache Enforcement}{3}{section*.19}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Out-of-Band IPC \& Referrer Concealment}{3}{section*.20}\protected@file@percent }
-\citation{papadogiannakis2021user}
 \citation{acar2014web,whatwg_webstorage}
 \citation{castelluccia2014selling,liu2025first}
 \citation{oh2022cart}
@@ -111,6 +112,7 @@
 \@writefile{toc}{\contentsline {paragraph}{Phase 3: Efficacy Measurement ($t_3 \to t_4$)}{4}{section*.25}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Publisher Curation Pipeline}{4}{subsection.4.2}\protected@file@percent }
 \newlabel{subsec:curation}{{4.2}{4}{Publisher Curation Pipeline}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{The Paired Observability Filter ($\mathcal  {S}_{\text  {active}}$)}{4}{section*.26}\protected@file@percent }
 \citation{randall2022measuring}
 \citation{tor_design,torbrowser_normalization_2019,mozilla_rfp_docs}
 \citation{brave_fingerprinting_protections_2025}
@@ -120,9 +122,9 @@
 \citation{iqbal2020adgraph}
 \citation{barysei2023investigating}
 \citation{wasserstein2016asa}
+\citation{pachilakis2019no,cook2020inferring}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$).}}{5}{figure.caption.21}\protected@file@percent }
 \newlabel{fig:causal_lifecycle}{{2}{5}{The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$)}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {paragraph}{The Paired Observability Filter ($\mathcal  {S}_{\text  {active}}$)}{5}{section*.26}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Evaluated Browser Configurations}{5}{subsection.4.3}\protected@file@percent }
 \newlabel{subsec:browser_matrix}{{4.3}{5}{Evaluated Browser Configurations}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Metrics \& Econometric Ground Truth}{5}{subsection.4.4}\protected@file@percent }
@@ -135,19 +137,17 @@
 \newlabel{subsec:stats}{{4.5}{5}{Statistical Hypothesis Testing}{subsection.4.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Empirical Evaluation}{5}{section.5}\protected@file@percent }
 \newlabel{sec:evaluation}{{5}{5}{Empirical Evaluation}{section.5}{}}
-\citation{pachilakis2019no,cook2020inferring}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Dataset Integrity \& CMP Consent Yield}{5}{subsection.5.1}\protected@file@percent }
+\newlabel{subsec:observability_yield}{{5.1}{5}{Dataset Integrity \& CMP Consent Yield}{subsection.5.1}{}}
 \citation{papadogiannakis2021user}
 \citation{acar2014web,liu2025first}
 \citation{barysei2023investigating}
 \citation{barysei2023investigating}
 \citation{barysei2023investigating}
-\citation{wasserstein2016asa}
-\citation{papadopoulos2019cookie}
-\citation{randall2022measuring}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta \text  {CPM}\xspace  $ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text  {post}}$) and Smuggled UIDs ($U_{\text  {post}}$); Usability Cost ($U_{\text  {cost}}\xspace  $) is normalized to the Chrome control group.}}{6}{table.caption.31}\protected@file@percent }
+\newlabel{tab:master_results}{{1}{6}{Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta \cpm $ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text {post}}$) and Smuggled UIDs ($U_{\text {post}}$); Usability Cost ($\ucost $) is normalized to the Chrome control group}{table.caption.31}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Distributional spread of relative price shifts ($\Delta \text  {CPM}\xspace  $) across configurations. Points indicate median values; error bars denote the Interquartile Range ($Q_1$ to $Q_3$). Red dashed lines indicate the $-10\%$ noise and $-30\%$ \text  {HTR}\xspace  boundaries.}}{6}{figure.caption.32}\protected@file@percent }
 \newlabel{fig:iqr_spread}{{3}{6}{Distributional spread of relative price shifts ($\Delta \cpm $) across configurations. Points indicate median values; error bars denote the Interquartile Range ($Q_1$ to $Q_3$). Red dashed lines indicate the $-10\%$ noise and $-30\%$ \htr boundaries}{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Dataset Integrity \& CMP Consent Yield}{6}{subsection.5.1}\protected@file@percent }
-\newlabel{subsec:observability_yield}{{5.1}{6}{Dataset Integrity \& CMP Consent Yield}{subsection.5.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Silo 1: Economic Valuation Analysis}{6}{subsection.5.2}\protected@file@percent }
 \newlabel{subsec:silo_econ}{{5.2}{6}{Silo 1: Economic Valuation Analysis}{subsection.5.2}{}}
 \@writefile{toc}{\contentsline {paragraph}{Negative Control Validation (\texttt  {chrome\_baseline})}{6}{section*.33}\protected@file@percent }
@@ -156,13 +156,14 @@
 \@writefile{toc}{\contentsline {paragraph}{The Apex Disruption (\texttt  {brave\_hardened})}{6}{section*.36}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Ad-Tech Pricing \& Non-Parametric Rank Dilution}{6}{subsection.5.3}\protected@file@percent }
 \newlabel{subsec:rank_dilution}{{5.3}{6}{Ad-Tech Pricing \& Non-Parametric Rank Dilution}{subsection.5.3}{}}
+\citation{wasserstein2016asa}
+\citation{papadopoulos2019cookie}
+\citation{randall2022measuring}
 \citation{iqbal2020adgraph}
 \citation{iqbal2020adgraph}
 \citation{papadopoulos2019cookie}
 \citation{randall2022measuring}
 \citation{iqbal2020adgraph}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta \text  {CPM}\xspace  $ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text  {post}}$) and Smuggled UIDs ($U_{\text  {post}}$); Usability Cost ($U_{\text  {cost}}\xspace  $) is normalized to the Chrome control group.}}{7}{table.caption.31}\protected@file@percent }
-\newlabel{tab:master_results}{{1}{7}{Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta \cpm $ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text {post}}$) and Smuggled UIDs ($U_{\text {post}}$); Usability Cost ($\ucost $) is normalized to the Chrome control group}{table.caption.31}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Silo 2: Identity Diffusion \& The Retry Storm}{7}{subsection.5.4}\protected@file@percent }
 \newlabel{subsec:silo_network}{{5.4}{7}{Silo 2: Identity Diffusion \& The Retry Storm}{subsection.5.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Silo 3: Usability Cost \& Runtime Breakage}{7}{subsection.5.5}\protected@file@percent }
@@ -201,6 +202,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Methodological Post-Mortem}{8}{subsection.6.4}\protected@file@percent }
 \newlabel{subsec:post_mortem}{{6.4}{8}{Methodological Post-Mortem}{subsection.6.4}{}}
 \citation{pachilakis2019no,cook2020inferring}
+\citation{iqbal2020adgraph}
+\citation{bashir2016tracing,oh2022cart}
 \citation{zeber2020representativeness,lerner2016internet}
 \citation{mowery2012pixel,cao2017cross}
 \citation{papadogiannakis2021user,barysei2023investigating}
@@ -221,6 +224,16 @@
 \bibcite{cassel2022omnicrawl}{{10}{2022}{{Cassel et~al\mbox  {.}}}{{}}}
 \bibcite{castelluccia2014selling}{{11}{2014}{{Castelluccia et~al\mbox  {.}}}{{}}}
 \bibcite{cook2020inferring}{{12}{2020}{{Cook et~al\mbox  {.}}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Threats to Validity \& Limitations}{9}{section.7}\protected@file@percent }
+\newlabel{sec:threats}{{7}{9}{Threats to Validity \& Limitations}{section.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Client-Side vs.\ Server-Side Bidding Observability}{9}{section*.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Usability Breakage Heuristics ($U_{\text  {cost}}$)}{9}{section*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Synthetic Personas vs.\ Longitudinal Browsing}{9}{section*.50}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Software Rasterization Trade-offs}{9}{section*.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Geographic Vantage}{9}{section*.52}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{9}{section.8}\protected@file@percent }
+\newlabel{sec:conclusion}{{8}{9}{Conclusion}{section.8}{}}
+\@writefile{toc}{\contentsline {section}{References}{9}{section*.54}\protected@file@percent }
 \bibcite{demir2022reproducibility}{{13}{2022}{{Demir et~al\mbox  {.}}}{{}}}
 \bibcite{eckersley2010unique}{{14}{2010}{{Eckersley}}{{}}}
 \bibcite{englehardt2016openwpm}{{15}{2016}{{Englehardt and Narayanan}}{{}}}
@@ -230,15 +243,6 @@
 \bibcite{iqbal2020adgraph}{{19}{2020}{{Iqbal et~al\mbox  {.}}}{{}}}
 \bibcite{johnson2020consumer}{{20}{2020}{{Johnson et~al\mbox  {.}}}{{}}}
 \bibcite{laperdrix2020browser}{{21}{2020}{{Laperdrix et~al\mbox  {.}}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Threats to Validity \& Limitations}{9}{section.7}\protected@file@percent }
-\newlabel{sec:threats}{{7}{9}{Threats to Validity \& Limitations}{section.7}{}}
-\@writefile{toc}{\contentsline {paragraph}{Client-Side vs.\ Server-Side Bidding Observability}{9}{section*.48}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Synthetic Persona vs.\ Longitudinal Browsing}{9}{section*.49}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Software Rasterization Trade-offs}{9}{section*.50}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Geographic \& Regulatory Vantage}{9}{section*.51}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{9}{section.8}\protected@file@percent }
-\newlabel{sec:conclusion}{{8}{9}{Conclusion}{section.8}{}}
-\@writefile{toc}{\contentsline {section}{References}{9}{section*.53}\protected@file@percent }
 \bibcite{laperdrix2016amiunique}{{22}{2016}{{Laperdrix et~al\mbox  {.}}}{{}}}
 \bibcite{lerner2016internet}{{23}{2016}{{Lerner et~al\mbox  {.}}}{{}}}
 \bibcite{liu2025first}{{24}{2025}{{Liu et~al\mbox  {.}}}{{}}}
@@ -261,6 +265,7 @@
 \bibcite{wasserstein2016asa}{{41}{2016}{{Wasserstein and Lazar}}{{}}}
 \bibcite{whatwg_webstorage}{{42}{2026}{{WHATWG}}{{}}}
 \bibcite{zeber2020representativeness}{{43}{2020}{{Zeber et~al\mbox  {.}}}{{}}}
+\citation{acar2014web,whatwg_webstorage}
 \newlabel{tocindent-1}{0pt}
 \newlabel{tocindent0}{0pt}
 \newlabel{tocindent1}{4.185pt}
@@ -268,5 +273,7 @@
 \newlabel{tocindent3}{0pt}
 \newlabel{tocindent4}{0pt}
 \newlabel{tocindent5}{0pt}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Atomic Profile Sanitizer Implementation}{10}{appendix.A}\protected@file@percent }
+\newlabel{sec:appendix_sanitizer}{{A}{10}{Atomic Profile Sanitizer Implementation}{appendix.A}{}}
 \newlabel{TotPages}{{10}{10}{}{page.10}{}}
 \gdef \@abspage@last{10}

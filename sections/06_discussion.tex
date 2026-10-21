@@ -1,13 +1,14 @@
 \section{Discussion: The Usability Trap \& Metric Refinement}
 \label{sec:discussion}
 
-The interplay between identity disruption, network containment, and client breakage exposes structural deficiencies in naive privacy-usability metrics. 
-Here, we deconstruct the failure of our initial metric formulation, present the axiomatic derivation of the Refined Effectiveness-to-Risk metric ($\etr$), and map the empirical Pareto frontier governing browser privacy.
+The empirical findings in Section~\ref{sec:evaluation} expose an operational paradox: defensive blocking triggers network retry storms that artificially inflate raw request volumes, while aggressive request filtering imposes measurable usability breakage. 
+Here, we deconstruct why naive composite metrics break under these dynamics, present the axiomatic derivation of the Refined Effective Tracking Resistance metric ($\etr$), and map the empirical Pareto frontier governing browser privacy.
 
 \subsection{Deconstructing the Usability Trap}
 \label{subsec:usability_trap}
 
-Initial privacy measurement frameworks often model the trade-off between tracking mitigation and usability via intuitive composite quotients. We initially benchmarked browser configurations using the formulation:
+Initial privacy measurement frameworks often model the trade-off between tracking mitigation and usability via intuitive composite quotients. 
+We initially benchmarked browser configurations using the formulation:
 \begin{equation}
 \etrinit = \frac{(1 - \rid) \times \left( \frac{1}{\ln(D_{\text{ID}} + e)} \right)}{1 + \ucost}
 \label{eq:etr_initial}
@@ -17,15 +18,15 @@ Evaluating our empirical corpus under Equation~\ref{eq:etr_initial} produced an 
 \etrinit: \; & \text{FF Base (0.046)} > \text{FF Hard (0.042)} > \text{Chrome (0.040)} \\
 & > \text{Brave Base (0.035)} > \text{Brave Hard (0.035)}
 \end{align*}
-This formulation ranked completely unhardened Chrome ($0.0395$) \textit{higher} than Brave Hardened ($0.0347$), despite the latter destroying $60\%$ of auction clearing revenue and capping the upper quartile at $Q_3 = 0.00\%$. 
+This formulation ranked unhardened Chrome ($0.0395$) \textit{higher} than Brave Hardened ($0.0347$), despite the latter reducing median clearing prices by $60\%$ and capping the upper quartile at $Q_3 = 0.00\%$. 
 Forensic analysis revealed three mathematical pathologies:
 
 \paragraph{1. Binary Disruption Insensitivity}
-The binary re-identification rate $\rid$ registers an active domain as ``tracked'' if $\Delta\cpm \ge -10\%$. This threshold creates a step-function discontinuity that ignores deep economic disruption: a minor drop of $-11\%$ is treated identically to complete market annihilation ($-100.0\%$). 
-Consequently, Brave Hardened's median collapse ($-59.98\%$) and $25\%$ total wipeout rate were completely discarded by the numerator.
+The binary re-identification rate $\rid$ registers an active domain as ``tracked'' if $\Delta\cpm \ge -10\%$. This threshold creates a step-function discontinuity that ignores deep economic disruption: a minor drop of $-11\%$ is treated identically to complete bid suppression ($-100.0\%$). 
+Consequently, Brave Hardened's median collapse ($-59.98\%$) and $25\%$ bid suppression rate were uncaptured by the numerator.
 
 \paragraph{2. Linear Denominator Penalty}
-The linear denominator ($1 + \ucost = 1.44$) penalized Brave Hardened by $44\%$, disproportionately degrading its score and drowning out its substantial privacy gains.
+The linear denominator ($1 + \ucost = 1.44$) penalized Brave Hardened by $44\%$, disproportionately degrading its score and drowning out its substantial tracking disruption.
 
 \paragraph{3. The Retry-Storm Inversion}
 Equation~\ref{eq:etr_initial} uses raw identity diffusion events ($D_{\text{ID}}$) in the logarithmic denominator. As revealed in Section~\ref{subsec:silo_network}, blocking tracker endpoints triggers client-side retry storms: client scripts repeatedly re-trigger cookie synchronization~\cite{papadopoulos2019cookie} and UID decoration loops~\cite{randall2022measuring} within recursive event handlers~\cite{iqbal2020adgraph}. 
@@ -34,7 +35,7 @@ This paradoxically inflated Hardened Firefox's diffusion volume to 28,976 total 
 \subsection{Axiomatic Formulation of $\etr$}
 \label{subsec:etr_star}
 
-To resolve these distortions, we formulate the \textbf{Refined Effectiveness-to-Risk Metric} ($\etr$):
+To resolve these distortions, we formulate the \textbf{Refined Effective Tracking Resistance Metric} ($\etr$):
 \begin{equation}
 \etr = \frac{\Phi_{\text{econ}} \times \Psi_{\text{containment}}}{\Omega_{\text{usability}}}
 \label{eq:etr_refined}
@@ -159,5 +160,5 @@ As mapped in Figure~\ref{fig:pareto}, defense strategies define an empirical fro
 During platform validation, we identified a critical experimental failure mode: naive filesystem profile cloning leaked persistent identifiers across phases. 
 Chromium caches session descriptors and HSTS tokens within binary LevelDB transaction logs and service worker quotas. In early test runs, unpurged LevelDB files preserved cross-phase identity state, producing artificial $0.0\%$ bid shifts.
 
-This failure confirms empirical findings by Acar et al.~\cite{acar2014web} and Lerner et al.~\cite{lerner2016internet}, who demonstrated that commercial tracking networks exploit persistent HTML5 Web Storage~\cite{whatwg_webstorage} and HSTS supercookies to respawn deleted identifiers. 
-Standard browser ``Clear Browsing Data'' routines are insufficient for rigorous web measurement; reliable causal interventions require deterministic profile sanitization that wipes underlying LevelDB stores while preserving anti-fingerprinting defenses.
+This failure confirms empirical findings by Acar et al.~\cite{acar2014web} and Lerner et al.~\cite{lerner2016internet}, who demonstrated that commercial tracking networks exploit persistent HTML5 Web Storage~\cite{whatwg_webstorage} and HSTS supercookies to respawn deleted identifiers. Standard browser ``Clear Browsing Data'' routines are insufficient for rigorous web measurement; reliable causal interventions require deterministic profile sanitization that wipes underlying LevelDB stores while preserving anti-fingerprinting defenses (Appendix~\ref{sec:appendix_sanitizer}). 
+While our causal pipeline and refined metric isolate stateless tracking along this Pareto boundary, several ecological constraints govern the generalizability of these findings, as examined next in Section~\ref{sec:threats}.
