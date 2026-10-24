@@ -3,7 +3,7 @@
 
 Automated web privacy measurement platforms frequently succumb to the \textbf{Emulation Fallacy}~\cite{cassel2022omnicrawl}: headless automation frameworks (e.g., Puppeteer, vanilla Selenium) leak telltale execution artifacts (\texttt{navigator.webdriver}, missing rendering contexts, anomalous clock skews)~\cite{vastel2020fp}. 
 Commercial ad-fraud filters detect these anomalies and silently drop bid requests or serve synthetic filler ads, causing crawlers to record artificial auction artifacts~\cite{ahmad2020apophanies, demir2022reproducibility}. 
-To guarantee experimental fidelity, we designed and deployed a hardened, distributed measurement cluster running native Linux binaries over virtual displays.
+To ensure experimental fidelity, we designed and deployed a hardened, distributed measurement cluster running native Linux binaries over virtual displays.
 
 \subsection{Cluster Execution \& Environment Hardening}
 \label{subsec:cluster_hardening}
@@ -26,7 +26,6 @@ Network interception is managed via an upstream \texttt{mitmproxy} sidecar insta
     \item \textbf{Transport-Layer Fingerprint Evasion:} Python-based proxy engines emit distinctive HTTP/2 frame multiplexing sequences that commercial Web Application Firewalls (Cloudflare, Akamai) classify as crawler traffic~\cite{ahmad2020apophanies, vastel2020fp};
     we enforce an HTTP/1.1 transport downgrade on upstream pipelines to neutralize proxy-specific TLS/H2 fingerprinting; 
     \item \textbf{Causal Anti-Cache Enforcement:} To guarantee that post-intervention measurements represent genuine live network transactions rather than disk cache hits, the proxy strips conditional validation headers (\texttt{If-Modified-Since}, \texttt{If-None-Match})~\cite{rfc7231, rfc9110}, forcing origin servers to return explicit HTTP 200 responses;
-    \item \textbf{Out-of-Band IPC:} The automation harness communicates with the proxy using an unallocated non-routable IP address (\path{240.240.240.240}); target navigation is executed via synthetic anchor redirection to prevent control URLs from polluting outbound \texttt{Referer} headers, while runtime exceptions are flushed out-of-band directly to the proxy, bypassing client DOM listeners.
 \end{itemize}
 
 \subsection{3-Tier Hybrid CMP Auto-Consent Engine}
@@ -37,7 +36,7 @@ To resolve this, we engineered an asynchronous 3-tier hybrid consent engine:
 \begin{enumerate}
     \item \textbf{Tier 1 (API-First Settlement):} Inspects the global \texttt{window} context and directly triggers official framework handlers (\path{OneTrust.AllowAll()}, \path{Didomi.setUserAgreeToAll()}, or \path{Cookiebot.dialog.submit()});
     \item \textbf{Tier 2 (Targeted CSS Mutators):} Dispatches synthetic mouse events to common consent selectors (\texttt{\#onetrust-\allowbreak{}accept-\allowbreak{}btn-\allowbreak{}handler}, \texttt{.cmp-\allowbreak{}agree-\allowbreak{}all}, or \texttt{button[id*="consent"]}), then performs programmatic wheel scrolling;
-    \item \textbf{Tier 3 (Heuristic DOM Regex Traversal):} Recursively traverses the DOM and consent \texttt{iframe} scopes to match affirmative multilingual strings (English, Portuguese, Spanish: e.g., \path{/(Accept All|Aceitar Todos|Aceptar Todo)/i}) bounded strictly by character length ($2 \le \text{length} < 35$).
+    \item \textbf{Tier 3 (Heuristic DOM Regex Traversal):} Recursively traverses the DOM and consent \texttt{iframe} scopes to match affirmative multilingual strings (English, Portuguese: e.g., \path{/(Accept All|Aceitar Todos|Aceptar Todo)/i}) bounded strictly by character length ($2 \le \text{length} < 35$).
 \end{enumerate}
 
 \subsection{Atomic Profile Sanitization}

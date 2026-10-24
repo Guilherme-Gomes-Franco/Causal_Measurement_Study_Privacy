@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{44}
+\begin{thebibliography}{45}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -252,6 +252,19 @@
 \newblock \bibinfo{howpublished}{RFC 7231}.
 \newblock
 \href{https://doi.org/10.17487/RFC7231}{doi:\nolinkurl{10.17487/RFC7231}}
+
+
+\bibitem[Hannak et~al\mbox{.}(2014)]%
+        {hannak2014ecommerce}
+\bibfield{author}{\bibinfo{person}{Aniko Hannak}, \bibinfo{person}{Gary
+  Soeller}, \bibinfo{person}{David Lazer}, \bibinfo{person}{Alan Mislove},
+  {and} \bibinfo{person}{Christo Wilson}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{{Measuring Price Discrimination and Steering on
+  E-commerce Web Sites}}. In \bibinfo{booktitle}{\emph{Proceedings of the 2014
+  ACM Internet Measurement Conference (IMC '14)}}. \bibinfo{publisher}{ACM},
+  \bibinfo{pages}{305--318}.
+\newblock
+\href{https://doi.org/10.1145/2663716.2663744}{doi:\nolinkurl{10.1145/2663716.2663744}}
 
 
 \bibitem[Iqbal et~al\mbox{.}(2021)]%

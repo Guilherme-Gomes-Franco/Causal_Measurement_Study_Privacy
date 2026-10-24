@@ -3,11 +3,11 @@ Third-party cookie deprecation and client-side storage partitioning have acceler
 Existing empirical benchmarks evaluate anti-fingerprinting defenses through passive script detection or synthetic Shannon entropy calculations, metrics that capture tracking intent or theoretical variance, but fail to establish whether defenses prevent client re-identification in production ad tech.
 
 We present an outcome-oriented causal measurement framework that uses programmatic ad-auction clearing prices as an empirical ground-truth oracle for identity certainty, conducting a systematic evaluation of modern anti-fingerprinting defenses in production ad tech. 
-Deploying an automated infrastructure across 150 commercial publishers under native browser execution, we enforce a three-phase intervention: training high-intent behavioral profiles, capturing baseline Prebid.js bids, purging all client-side stateful storage, and measuring post-purge bid trajectories across five hardened and baseline browser configurations.
+Deploying an automated infrastructure across 150 commercial publishers under native browser execution, we enforce a three-phase intervention: creating high-intent behavioral profiles, capturing baseline Prebid.js bids, purging all client-side stateful storage, and measuring post-purge bid trajectories across five browser configurations, hardened/baseline.
 
 Our framework reveals that stateful clearing alone is ineffective: unhardened Google Chrome exhibits an unperturbed median bid shift of $-1.12\%$ ($p = 0.4832$, Re-ID rate $R_{\text{ID}} = 0.606$), proving commercial Demand-Side Platforms (DSPs) seamlessly bridge storage resets via stateless fingerprints. 
 Conversely, anti-fingerprinting defenses construct an empirical Pareto frontier. Hardened Mozilla Firefox (combining RFP normalization with state partitioning) emerges as a zero-cost defense, yielding a $-26.87\%$ median bid collapse ($p = 0.0734$) with zero runtime exception overhead ($U_{\text{cost}} = 0.00$). 
-Hardened Brave Browser achieves the apex of tracking disruption ($-59.97\%$ median collapse, $R_{\text{ID}} = 0.500$), but imposes a $+44\%$ increase in runtime script breakage ($U_{\text{cost}} = 0.44$).
+Hardened Brave Browser achieves the apex of tracking disruption ($-59.97\%$ median collapse, $R_{\text{ID}} = 0.500$), but imposes a $+44\%$ increase in runtime script exceptions ($U_{\text{cost}} = 0.44$).
 
 Finally, we deconstruct the ``Usability Trap'', showing how defensive network blocking triggers tracker retry loops that distort naive tracking metrics and formulate the Refined Effective Tracking Resistance metric ($\text{ETR}^*$), providing a mathematically robust benchmark for privacy-preserving web engineering.
 \end{abstract}

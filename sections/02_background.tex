@@ -3,7 +3,7 @@
 
 \subsection{Programmatic Advertising \& Header Bidding}
 Modern web publishers monetize digital inventory via programmatic Real-Time Bidding (RTB)~\cite{castelluccia2014selling, bashir2016tracing}. 
-While legacy display monetization relied on monolithic waterfall ad servers (e.g., Google Ad Manager), modern publishers deploy \textbf{Header Bidding} wrappers—principally the open-source \texttt{Prebid.js} framework—embedded directly in the client-side DOM to conduct parallel auctions prior to ad-server calls~\cite{pachilakis2019no, cook2020inferring}.
+While legacy display monetization relied on monolithic waterfall ad servers (e.g., Google Ad Manager), modern publishers deploy \textbf{Header Bidding} wrappers, principally the open-source \texttt{Prebid.js} framework, embedded directly in the client-side DOM to conduct parallel auctions prior to ad-server calls~\cite{pachilakis2019no, cook2020inferring}.
 
 When a client navigates to a publisher, the programmatic auction resolves through four sequential stages~\cite{pachilakis2019no, barysei2023investigating}:
 \begin{enumerate}
@@ -38,14 +38,16 @@ Embedded third-party scripts participate in header bidding auctions and attempt 
 The adversary leverages standard stateless fingerprinting vectors documented in the literature: Canvas pixel extraction~\cite{mowery2012pixel, acar2014web}, WebGL parameter enumeration~\cite{cao2017cross}, AudioContext oscillator decay~\cite{englehardt2016openwpm, laperdrix2020browser}, clock skew timing attacks~\cite{sanchez2018clock}, browser extension profiling~\cite{starov2019unnecessarily}, and WebRTC candidate harvesting.
 
 \paragraph{Adversarial Boundaries}
-The adversary \textit{cannot} compromise the operating system kernel, inspect process memory, forge TLS cryptographic certificates, or mount active machine-in-the-middle network tampering. 
-IP-based location clustering is constrained by residential IP subnet variance. Server-side identity synthesis entirely detached from client-observable hardware signals is considered orthogonal to browser defense efficacy.
+Following the canonical web tracking threat model established in the literature~\cite{tor_design, englehardt2016openwpm, laperdrix2020browser}, the adversary is strictly bounded by the browser client-side execution sandbox and standard web protocol guarantees. 
+Specifically, the adversary \textit{cannot} compromise the underlying operating system kernel, inspect browser process memory, forge TLS cryptographic primitives, or mount active machine-in-the-middle network tampering~\cite{bujlow2017survey}. 
+Coarse IP-based location clustering is constrained by dynamic residential subnet reassignment and carrier-grade NAT variance~\cite{eckersley2010unique, englehardt2016openwpm}. 
+Finally, server-side identity synthesis entirely detached from client-observable hardware signals (e.g., first-party authenticated CRM matching) is orthogonal to client-side browser defense efficacy~\cite{bashir2016tracing, cook2020inferring}.
 
 \paragraph{Client Defenses}
 The client executes a modern web browser equipped with anti-fingerprinting defenses:
 \begin{enumerate}
     \item \textbf{API Normalization:} Tor Browser~\cite{tor_design, torbrowser_normalization_2019} and Firefox RFP~\cite{mozilla_rfp_docs}, which homogenize hardware attributes to standardized anonymity sets;
-    \item \textbf{API Randomization:} Brave Farbling~\cite{brave_fingerprinting_protections_2025}, which injects cryptographic noise into Web API returns; and
+    \item \textbf{API Randomization:} Brave Farbling~\cite{brave_fingerprinting_protections_2025}, which injects cryptographic noise into Web API returns;
     \item \textbf{Defensive Network Filtering:} Request-level blocking via tracking protection lists and graph-based filters~\cite{iqbal2020adgraph}.
 \end{enumerate}
 

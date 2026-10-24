@@ -91,9 +91,9 @@ While default Brave farbling induces valuation uncertainty ($\Delta\cpm = -21.39
 
 \paragraph{Hardened Defenses: Normalization vs.\ Disruption}
 Hardened configurations alter auction dynamics substantially, establishing two distinct operational profiles. Hardened Firefox achieves a $-26.86\%$ median bid collapse ($p = 0.0734$, $W = 472.0$), driving the median clearing bid from $\$0.09$ down to $\$0.02$ ($77.8\%$ decline) with the upper quartile compressed to $Q_3 = +1.20\%$. 
-Crucially, Tor-derived RFP normalization achieves this disruption with zero client-side script breakage ($\ucost = 0.00$). In contrast, Hardened Brave enforces the most aggressive economic intervention: median bids collapse by $-59.98\%$ ($\$0.15 \to \$0.06$, $\rid = 0.500$). 
+Crucially, Tor-derived RFP normalization achieves this disruption with zero excess exception overhead ($\ucost = 0.00$). In contrast, Hardened Brave enforces the most aggressive economic intervention: median bids collapse by $-59.98\%$ ($\$0.15 \to \$0.06$, $\rid = 0.500$). 
 Its lower quartile drops to complete bid suppression ($Q_1 = -100.0\%$, with domains like \url{dailymail.co.uk} and \url{cricbuzz.com} falling to $\$0.00$), while the upper quartile is capped at $Q_3 = 0.00\%$, indicating non-positive bid shifts across $75\%$ of active inventory. 
-However, this tracking severance comes at the expense of severe script dependency breakage ($\ucost = 0.44$).
+However, this tracking severance comes at the expense of a $+44\%$ surge in unhandled script exceptions  ($\ucost = 0.44$).
 
 \subsection{Ad-Tech Pricing \& Non-Parametric Rank Dilution}
 \label{subsec:rank_dilution}
@@ -109,13 +109,11 @@ Per ASA inference guidelines~\cite{wasserstein2016asa}, real-world economic sign
 \label{subsec:silo_network}
 
 While clearing prices reveal identity certainty from the buyer's perspective, inspecting underlying network flows demonstrates how browser defenses alter tracker coordination in the background.
-Decomposing Identity Diffusion ($D_{\text{ID}}$) into Cookie Synchronizations ($S_{\text{post}}$)~\cite{papadopoulos2019cookie} and Smuggled Navigational Identifiers ($U_{\text{post}}$)~\cite{randall2022measuring} reveals an unexpected operational divergence across configurations:
-Across \texttt{chrome\_baseline}, \texttt{firefox\_baseline}, and both Brave configurations, syncs and smuggled UIDs remained remarkably stable: $S_{\text{post}} \in [2,461, 3,302]$ and $U_{\text{post}} \in [18,359, 18,885]$.
-In stark contrast, \texttt{firefox\_hardened} exhibited a pronounced surge: \textbf{Cookie Synchronizations more than doubled to $S_{\text{post}} = 6,006$}, and \textbf{Smuggled UIDs surged to $U_{\text{post}} = 22,970$}, driving total diffusion events to $D_{\text{ID}} = 28,976$. 
+Decomposing Identity Diffusion ($D_{\text{ID}}$) into Cookie Synchronizations ($S_{\text{post}}$)~\cite{papadopoulos2019cookie} and Smuggled Navigational Identifiers ($U_{\text{post}}$)~\cite{randall2022measuring} reveals an unexpected operational divergence across configurations: across \texttt{chrome\_baseline}, \texttt{firefox\_baseline}, and both Brave configurations, syncs and smuggled UIDs remained stable, with $S_{\text{post}}$ ranging from 2,461 to 3,302 and $U_{\text{post}}$ ranging from 18,359 to 18,885.
+In stark contrast, \texttt{firefox\_hardened} exhibited a pronounced surge: Cookie Synchronizations more than doubled to $S_{\text{post}} = 6,006$, while Smuggled UIDs rose to $U_{\text{post}} = 22,970$, driving total diffusion events to $D_{\text{ID}} = 28,976$. 
 Inspection of proxy logs reveals this was driven by a \textbf{stateless blocking retry storm}: when Firefox's multi-layered defenses (Total Cookie Protection, RFP canvas blanking, and query parameter stripping) blocked tracker endpoints and sanitized link decorations, client-side tracking scripts threw exceptions and repeatedly re-triggered synchronization requests within recursive event loops~\cite{iqbal2020adgraph}. 
-Crucially, deduplicating target endpoints revealed that Hardened Firefox communicated with the fewest distinct tracking hosts (\textbf{810 hosts}, vs. 872 in Chrome and 888 in Brave Hardened). Thus, while request \textbf{frequency} spiked due to client-side retries, Firefox successfully restricted the \textbf{diffusion} of identifiers across unique commercial entities.
-
-\subsection{Silo 3: Usability Cost \& Runtime Breakage}
+Crucially, deduplicating target endpoints revealed that Hardened Firefox communicated with the fewest distinct tracking hosts (810 hosts, vs.\ 872 in Chrome and 888 in Brave Hardened). Thus, while request frequency spiked due to client-side retries, Firefox successfully restricted the diffusion of identifiers across unique commercial entities.
+\subsection{Silo 3: Usability Cost \& Runtime Exception Overhead}
 \label{subsec:silo_usability}
 
 While normalized defenses contained entity diffusion without modifying DOM layouts, blocking network requests introduced measurable client-side breakage.
@@ -128,4 +126,4 @@ However, because RFP's timer quantization and canvas blanking return syntactical
 \end{itemize}
 
 Brave's aggressive network-layer request blocking severs script dependency chains, causing downstream publisher scripts to throw unhandled \texttt{TypeError} and null-pointer exceptions that degrade site features~\cite{iqbal2020adgraph}. 
-These empirical results reveal an operational paradox: defensive blocking triggers network retry storms that artificially inflate raw request counts, while aggressive filtering incurs substantial usability breakage. In Section~\ref{sec:discussion}, we deconstruct how naive composite metrics fail to capture these trade-offs, motivating the formulation of $\etr$.
+These empirical results reveal an operational paradox: defensive blocking triggers network retry storms that artificially inflate raw request counts, while aggressive filtering incurs substantial runtime script exception overhead. In Section~\ref{sec:discussion}, we deconstruct how naive composite metrics fail to capture these trade-offs, motivating the formulation of $\etr$.

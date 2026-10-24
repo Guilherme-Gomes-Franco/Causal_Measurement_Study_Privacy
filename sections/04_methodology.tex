@@ -43,27 +43,17 @@ For each configuration $c \in \mathcal{C}$, our cluster infrastructure executes 
 \end{figure*}
 
 \paragraph{Phase 1A: Persona Training ($t_0 \to t_1$)}
-A fresh browser profile navigates across 14 high-value commercial seed domains structured across four high-yield advertising verticals: Financial \& Insurance, Automotive Research, Luxury Retail \& Lifestyle, and High-End Travel \& Real Estate (domain corpus detailed in Appendix~\ref{sec:appendix_seeders}). 
-On each domain, the crawler resolves consent via the 3-Tier Consent Engine, dispatches hardware-level cursor movements, and waits for tracking pixels to register. 
-This induces ad network identity entanglement~\cite{oh2022cart} and initializes cross-exchange retargeting profiles~\cite{bashir2016tracing}, establishing an ``Affluent Consumer'' persona in commercial device graphs.
+A fresh browser profile navigates across 14 seed domains (Appendix~\ref{sec:appendix_seeders}) spanning four IAB categories (Finance, Automotive, Luxury, Travel) chosen for high LTV clearing ceilings~\cite{beales2014empirical, barysei2023investigating} and dense retargeting beacons~\cite{oh2022cart, bashir2016tracing}. 
+The crawler resolves consent, dispatches cursor events, and settles for tracking pixels to establish an ``Affluent Consumer'' persona in commercial DSP device graphs.
 
 \paragraph{Phase 1B: Pre-Break Baseline Measurement ($t_1 \to t_2$)}
-Holding this persona, the browser navigates the 150 publisher targets. Upon reaching each domain, the crawler dispatches synthetic cursor events, resolves consent, and enforces a 15.0-second auction observation window to allow asynchronous Prebid bid adjustments to settle~\cite{cook2020inferring}. 
-The network proxy intercepts clearing prices:
-\begin{equation}
-\cpm_{\text{Pre}}(s) = \max_{b \in \mathcal{B}_s} \{\cpm(b)\}
-\end{equation}
-where $\mathcal{B}_s$ is the set of all valid bids returned across active SSP adapters.
+Holding this persona, the crawler visits the 150 publishers, enforces a 15-second Prebid settling window (calibrated against 1--3\,s bidder timeouts and CMP delays~\cite{pachilakis2019no, papadogiannakis2021user, cook2020inferring}), and records the winning clearing price: $\cpm_{\text{Pre}}(s) = \max_{b \in \mathcal{B}_s} \{\cpm(b)\}$.
 
 \paragraph{Phase 2: The Enforced Identity Break ($t_2 \to t_3$)}
-The browser process is terminated, releasing file locks. The Atomic Profile Sanitizer removes all stateful storage primitives (cookies, web storage, cache partitions, and LevelDB journals; detailed in Appendix~\ref{sec:appendix_sanitizer})~\cite{whatwg_webstorage, acar2014web}, while strictly preserving client defensive configurations, flags, and certificates.
+The browser terminates, and the Atomic Profile Sanitizer purges stateful storage primitives (cookies, web storage, LevelDB journals; Appendix~\ref{sec:appendix_sanitizer})~\cite{whatwg_webstorage, acar2014web} while preserving client defense configurations.
 
 \paragraph{Phase 3: Efficacy Measurement ($t_3 \to t_4$)}
-The sanitized browser revisits the exact same 150 publisher domains in identical order under the same network routing. The platform records the post-break clearing price:
-\begin{equation}
-\cpm_{\text{Post}}(s) = \max_{b \in \mathcal{B}_s'} \{\cpm(b)\}
-\end{equation}
-alongside runtime JavaScript exceptions and network tracking flows.
+The sanitized browser revisits the 150 publishers in identical order, recording winning post-break clearing prices, $\cpm_{\text{Post}}(s) = \max_{b \in \mathcal{B}_s'} \{\cpm(b)\}$, alongside runtime script exceptions and network tracking flows.
 
 \subsection{Publisher Curation Pipeline}
 \label{subsec:curation}
@@ -96,7 +86,7 @@ We evaluate five browser configurations across Blink and Gecko rendering engines
     \item \textbf{\texttt{brave\_baseline}:} Standard Brave Browser with default Shields (Canvas and Audio Farbling enabled; standard network blocking)~\cite{brave_fingerprinting_protections_2025};
     \item \textbf{\texttt{brave\_hardened}:} Brave Browser with ``Strict'' Shields (farbling combined with aggressive network request blocking)~\cite{brave_fingerprinting_protections_2025}.
 \end{enumerate}
-\subsection{Metrics \& Econometric Ground Truth}
+\subsection{Metrics \& Economic Ground Truth}
 \label{subsec:metrics}
 
 \paragraph{Relative Economic Bid Shift ($\Delta\cpm$)}
@@ -104,8 +94,10 @@ For each active domain $s \in \mathcal{S}_{\text{active}}$:
 \begin{equation}
 \Delta\cpm(s) = \frac{\cpm_{\text{Post}}(s) - \cpm_{\text{Pre}}(s)}{\cpm_{\text{Pre}}(s)}
 \end{equation}
+While individual domain clearing prices reflect the winning auction bid ($\max$), summarizing price trajectories across the publisher corpus requires robust aggregation. 
+Because programmatic bids across heterogeneous domains exhibit heavy-tailed distributions and extreme video ad unit outliers, we evaluate corpus-wide central tendency using the \textbf{median relative shift} ($\widetilde{\Delta\cpm}$) rather than parametric means.
 
-\paragraph{Econometric Resistance Thresholds}
+\paragraph{Economic Resistance Thresholds}
 Drawing on digital advertising econometric literature, we partition observed responses into three regimes:
 \begin{itemize}
     \item \textbf{Tracked / Low Resistance ($\Delta\cpm \ge -10\%$):} RTB auctions display $5\%$--$10\%$ natural volatility from DSP budget pacing, time-of-day bid throttling, and latency fluctuations~\cite{barysei2023investigating}; shifts within this boundary indicate stateless identity persistence.
@@ -120,21 +112,24 @@ The proportion of active publishers where the client is successfully re-identifi
 \end{equation}
 
 \paragraph{Usability Cost ($\ucost$)}
-Using the Site Breakage Index (SBI), runtime errors captured via our out-of-band logger are deduplicated by MD5 hashing normalized error strings and stack locations ($U_e$). 
-To account for cross-engine variations between Gecko and Blink, we normalize against the control group (\texttt{chrome\_baseline}):
+To quantify the functional overhead imposed by client-side defenses, we compute the \textbf{Runtime Exception Overhead} ($\ucost$). 
+Let $\mathcal{U}_e(c)$ denote the \textbf{set} of unique runtime JavaScript exceptions observed under browser configuration $c$, deduplicated by computing an MD5 hash over normalized error messages and execution stack traces~\cite{iqbal2020adgraph}. 
+We define the scalar exception count as the cardinality of this set: $U_e(c) = |\mathcal{U}_e(c)|$. To eliminate baseline rendering engine divergence between Gecko and Blink, the usability cost $\ucost$ is computed as the \textbf{dimensionless normalized relative increase} in unique exceptions over the unhardened control group (\texttt{chrome\_baseline}):
 \begin{equation}
 \ucost = \max\left(0.0,\; \frac{U_e(\text{Test}) - U_e(\text{Chrome})}{U_e(\text{Chrome})}\right)
 \end{equation}
-where excess exceptions reflect broken DOM dependency chains triggered by blocked tracking endpoints~\cite{iqbal2020adgraph}.
+where $\ucost = 0.00$ indicates zero excess exception overhead, and $\ucost > 0.00$ reflects broken DOM dependency chains triggered by blocked tracking endpoints.
 
 \subsection{Statistical Hypothesis Testing}
 \label{subsec:stats}
 
-Because auction prices follow right-skewed, heavy-tailed distributions with left-censored reserve floors, parametric tests are invalid~\cite{barysei2023investigating}. We apply the non-parametric \textbf{Paired Wilcoxon Signed-Rank Test}:
+Because auction clearing prices follow right-skewed, heavy-tailed distributions with left-censored reserve floors, parametric assumptions (e.g., Student's $t$-test) are invalid~\cite{barysei2023investigating}. 
+Following methodological precedents in online price discrimination and algorithmic auditing (e.g., Hannak et al.~\cite{hannak2014ecommerce}), we evaluate paired within-domain price shifts using the non-parametric \textbf{Paired Wilcoxon Signed-Rank Test}:
 \begin{equation}
 H_0: \text{median}(\Delta\cpm) = 0 \quad \text{vs.} \quad H_1: \text{median}(\Delta\cpm) < 0
 \end{equation}
 calculated over the signed ranks of non-zero absolute differences $|D_s| = |\cpm_{\text{Post}}(s) - \cpm_{\text{Pre}}(s)|$. 
 
-Following the American Statistical Association guidelines on statistical inference~\cite{wasserstein2016asa}, we interpret non-parametric rank tests in conjunction with real-world effect sizes ($\Delta\cpm$). 
-To test whether the five browser configurations diverge systematically across the complete parameter space, we compute an omnibus \textbf{Kruskal-Wallis test} across all groups. With the causal protocol and econometric thresholds established, we deploy this experimental design to evaluate the empirical performance of each defense configuration.
+Following the American Statistical Association guidelines on statistical inference~\cite{wasserstein2016asa}, we interpret rank tests alongside empirical effect sizes ($\Delta\cpm$). 
+Furthermore, following web measurement studies comparing metric distributions across multiple crawling configurations (e.g., Zeber et al.~\cite{zeber2020representativeness}), we evaluate omnibus variance across all five browser environments using the non-parametric \textbf{Kruskal-Wallis test}. 
+With the causal protocol and econometric thresholds established, we deploy this experimental design to evaluate the empirical performance of each defense configuration.

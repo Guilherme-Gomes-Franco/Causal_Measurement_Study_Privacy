@@ -47,13 +47,13 @@
 \citation{englehardt2016openwpm,laperdrix2020browser}
 \citation{sanchez2018clock}
 \citation{starov2019unnecessarily}
+\citation{tor_design,englehardt2016openwpm,laperdrix2020browser}
+\citation{bujlow2017survey}
+\citation{eckersley2010unique,englehardt2016openwpm}
+\citation{bashir2016tracing,cook2020inferring}
 \citation{tor_design,torbrowser_normalization_2019}
 \citation{mozilla_rfp_docs}
 \citation{brave_fingerprinting_protections_2025}
-\citation{iqbal2020adgraph}
-\citation{cassel2022omnicrawl}
-\citation{vastel2020fp}
-\citation{ahmad2020apophanies,demir2022reproducibility}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background \& Threat Model}{2}{section.2}\protected@file@percent }
 \newlabel{sec:background}{{2}{2}{Background \& Threat Model}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Programmatic Advertising \& Header Bidding}{2}{subsection.2.1}\protected@file@percent }
@@ -65,6 +65,10 @@
 \@writefile{toc}{\contentsline {paragraph}{Adversarial Capabilities}{2}{section*.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Adversarial Boundaries}{2}{section*.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Client Defenses}{2}{section*.9}\protected@file@percent }
+\citation{iqbal2020adgraph}
+\citation{cassel2022omnicrawl}
+\citation{vastel2020fp}
+\citation{ahmad2020apophanies,demir2022reproducibility}
 \citation{cassel2022omnicrawl,vastel2020fp}
 \citation{mowery2012pixel,cao2017cross}
 \citation{ahmad2020apophanies}
@@ -73,8 +77,6 @@
 \citation{papadogiannakis2021user}
 \citation{acar2014web,whatwg_webstorage}
 \citation{castelluccia2014selling,liu2025first}
-\citation{oh2022cart}
-\citation{bashir2016tracing}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Measurement Platform Architecture}{3}{section.3}\protected@file@percent }
 \newlabel{sec:platform}{{3}{3}{Measurement Platform Architecture}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Cluster Execution \& Environment Hardening}{3}{subsection.3.1}\protected@file@percent }
@@ -89,18 +91,20 @@
 \newlabel{subsec:profile_sanitization}{{3.4}{3}{Atomic Profile Sanitization}{subsection.3.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Causal Measurement Methodology}{3}{section.4}\protected@file@percent }
 \newlabel{sec:methodology}{{4}{3}{Causal Measurement Methodology}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Causal Experimental Design}{3}{subsection.4.1}\protected@file@percent }
-\newlabel{subsec:causal_design}{{4.1}{3}{Causal Experimental Design}{subsection.4.1}{}}
-\citation{cook2020inferring}
+\citation{beales2014empirical,barysei2023investigating}
+\citation{oh2022cart,bashir2016tracing}
+\citation{pachilakis2019no,papadogiannakis2021user,cook2020inferring}
 \citation{whatwg_webstorage,acar2014web}
 \citation{pachilakis2019no,cook2020inferring}
 \citation{randall2022measuring}
 \citation{tor_design,torbrowser_normalization_2019,mozilla_rfp_docs}
 \citation{brave_fingerprinting_protections_2025}
 \citation{brave_fingerprinting_protections_2025}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$).}}{4}{figure.caption.12}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:causal_lifecycle}{{1}{4}{The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$)}{figure.caption.12}{}}
+\citation{barysei2023investigating}
+\citation{beales2014empirical,johnson2020consumer,google2019cookie}
+\citation{iqbal2020adgraph}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Causal Experimental Design}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{subsec:causal_design}{{4.1}{4}{Causal Experimental Design}{subsection.4.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{Phase 1A: Persona Training ($t_0 \to t_1$)}{4}{section*.13}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Phase 1B: Pre-Break Baseline Measurement ($t_1 \to t_2$)}{4}{section*.14}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Phase 2: The Enforced Identity Break ($t_2 \to t_3$)}{4}{section*.15}\protected@file@percent }
@@ -110,21 +114,23 @@
 \@writefile{toc}{\contentsline {paragraph}{The Paired Observability Filter ($\mathcal  {S}_{\text  {active}}$)}{4}{section*.17}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Evaluated Browser Configurations}{4}{subsection.4.3}\protected@file@percent }
 \newlabel{subsec:browser_matrix}{{4.3}{4}{Evaluated Browser Configurations}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Metrics \& Economic Ground Truth}{4}{subsection.4.4}\protected@file@percent }
+\newlabel{subsec:metrics}{{4.4}{4}{Metrics \& Economic Ground Truth}{subsection.4.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Relative Economic Bid Shift ($\Delta \text  {CPM}\xspace  $)}{4}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Economic Resistance Thresholds}{4}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Re-Identification Rate ($R_{\text  {ID}}\xspace  $)}{4}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Usability Cost ($U_{\text  {cost}}\xspace  $)}{4}{section*.21}\protected@file@percent }
 \citation{barysei2023investigating}
-\citation{beales2014empirical,johnson2020consumer,google2019cookie}
-\citation{iqbal2020adgraph}
-\citation{barysei2023investigating}
+\citation{hannak2014ecommerce}
 \citation{wasserstein2016asa}
+\citation{zeber2020representativeness}
 \citation{pachilakis2019no,cook2020inferring}
 \citation{papadogiannakis2021user}
 \citation{acar2014web,liu2025first}
 \citation{barysei2023investigating}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Metrics \& Econometric Ground Truth}{5}{subsection.4.4}\protected@file@percent }
-\newlabel{subsec:metrics}{{4.4}{5}{Metrics \& Econometric Ground Truth}{subsection.4.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{Relative Economic Bid Shift ($\Delta \text  {CPM}\xspace  $)}{5}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Econometric Resistance Thresholds}{5}{section*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Re-Identification Rate ($R_{\text  {ID}}\xspace  $)}{5}{section*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Usability Cost ($U_{\text  {cost}}\xspace  $)}{5}{section*.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$).}}{5}{figure.caption.12}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:causal_lifecycle}{{1}{5}{The 3-Phase Causal Measurement Lifecycle: Persona training ($t_0 \to t_1$), Pre-Break baseline capture ($t_1 \to t_2$), programmatic profile sanitization ($t_2 \to t_3$), and Post-Break re-crawl ($t_3 \to t_4$)}{figure.caption.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Statistical Hypothesis Testing}{5}{subsection.4.5}\protected@file@percent }
 \newlabel{subsec:stats}{{4.5}{5}{Statistical Hypothesis Testing}{subsection.4.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Empirical Evaluation}{5}{section.5}\protected@file@percent }
@@ -141,7 +147,6 @@
 \citation{papadopoulos2019cookie}
 \citation{randall2022measuring}
 \citation{iqbal2020adgraph}
-\citation{iqbal2020adgraph}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta \text  {CPM}\xspace  $ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text  {post}}$) and Smuggled UIDs ($U_{\text  {post}}$); Usability Cost ($U_{\text  {cost}}\xspace  $) is normalized to the Chrome control group.}}{6}{table.caption.22}\protected@file@percent }
 \newlabel{tab:master_results}{{1}{6}{Master Empirical Evaluation Matrix across 150 Commercial Publishers. Absolute bids reflect Pre/Post medians; $\Delta \cpm $ distributions show first quartile ($Q_1$), median, and third quartile ($Q_3$); Identity Diffusion decomposes into Cookie Syncs ($S_{\text {post}}$) and Smuggled UIDs ($U_{\text {post}}$); Usability Cost ($\ucost $) is normalized to the Chrome control group}{table.caption.22}{}}
 \@writefile{toc}{\contentsline {paragraph}{Hardened Defenses: Normalization vs.\ Disruption}{6}{section*.25}\protected@file@percent }
@@ -149,31 +154,30 @@
 \newlabel{subsec:rank_dilution}{{5.3}{6}{Ad-Tech Pricing \& Non-Parametric Rank Dilution}{subsection.5.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Silo 2: Identity Diffusion \& The Retry Storm}{6}{subsection.5.4}\protected@file@percent }
 \newlabel{subsec:silo_network}{{5.4}{6}{Silo 2: Identity Diffusion \& The Retry Storm}{subsection.5.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Silo 3: Usability Cost \& Runtime Breakage}{6}{subsection.5.5}\protected@file@percent }
-\newlabel{subsec:silo_usability}{{5.5}{6}{Silo 3: Usability Cost \& Runtime Breakage}{subsection.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Silo 3: Usability Cost \& Runtime Exception Overhead}{6}{subsection.5.5}\protected@file@percent }
+\newlabel{subsec:silo_usability}{{5.5}{6}{Silo 3: Usability Cost \& Runtime Exception Overhead}{subsection.5.5}{}}
+\citation{iqbal2020adgraph}
 \citation{papadopoulos2019cookie}
 \citation{randall2022measuring}
 \citation{iqbal2020adgraph}
 \citation{bashir2016tracing,cook2020inferring}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion: The Usability Trap \& Metric Refinement}{7}{section.6}\protected@file@percent }
-\newlabel{sec:discussion}{{6}{7}{Discussion: The Usability Trap \& Metric Refinement}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Deconstructing the Usability Trap}{7}{subsection.6.1}\protected@file@percent }
-\newlabel{subsec:usability_trap}{{6.1}{7}{Deconstructing the Usability Trap}{subsection.6.1}{}}
-\newlabel{eq:etr_initial}{{9}{7}{Deconstructing the Usability Trap}{equation.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Axiomatic Formulation of $\text  {ETR}^*\xspace  $}{7}{subsection.6.2}\protected@file@percent }
-\newlabel{subsec:etr_star}{{6.2}{7}{Axiomatic Formulation of $\etr $}{subsection.6.2}{}}
-\newlabel{eq:etr_refined}{{10}{7}{Axiomatic Formulation of $\etr $}{equation.10}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Decomposition of Refined Metric Components ($\text  {ETR}^*\xspace  $). Deduplicated tracking host density restores monotonically sound defense rankings.}}{7}{table.caption.26}\protected@file@percent }
-\newlabel{tab:etr_breakdown}{{2}{7}{Decomposition of Refined Metric Components ($\etr $). Deduplicated tracking host density restores monotonically sound defense rankings}{table.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Empirical Privacy-Usability Pareto Frontier. The red dashed line connects the non-dominated Pareto boundaries: Stealth Optimum (FF Hardened) and Apex Disruption (Brave Hardened).}}{7}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:pareto}{{3}{7}{The Empirical Privacy-Usability Pareto Frontier. The red dashed line connects the non-dominated Pareto boundaries: Stealth Optimum (FF Hardened) and Apex Disruption (Brave Hardened)}{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {paragraph}{Benchmark Restoration}{7}{section*.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}The Empirical Pareto Frontier}{7}{subsection.6.3}\protected@file@percent }
-\newlabel{subsec:pareto_frontier}{{6.3}{7}{The Empirical Pareto Frontier}{subsection.6.3}{}}
 \citation{tor_design,mozilla_rfp_docs}
 \citation{randall2022measuring}
 \citation{brave_fingerprinting_protections_2025}
 \citation{iqbal2020adgraph}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion: The Usability Trap \& Metric Refinement}{7}{section.6}\protected@file@percent }
+\newlabel{sec:discussion}{{6}{7}{Discussion: The Usability Trap \& Metric Refinement}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Deconstructing the Usability Trap}{7}{subsection.6.1}\protected@file@percent }
+\newlabel{subsec:usability_trap}{{6.1}{7}{Deconstructing the Usability Trap}{subsection.6.1}{}}
+\newlabel{eq:etr_initial}{{7}{7}{Deconstructing the Usability Trap}{equation.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Decomposition of Refined Metric Components ($\text  {ETR}^*\xspace  $). Deduplicated tracking host density restores monotonically sound defense rankings.}}{7}{table.caption.26}\protected@file@percent }
+\newlabel{tab:etr_breakdown}{{2}{7}{Decomposition of Refined Metric Components ($\etr $). Deduplicated tracking host density restores monotonically sound defense rankings}{table.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Axiomatic Formulation of $\text  {ETR}^*\xspace  $}{7}{subsection.6.2}\protected@file@percent }
+\newlabel{subsec:etr_star}{{6.2}{7}{Axiomatic Formulation of $\etr $}{subsection.6.2}{}}
+\newlabel{eq:etr_refined}{{8}{7}{Axiomatic Formulation of $\etr $}{equation.8}{}}
+\@writefile{toc}{\contentsline {paragraph}{Benchmark Restoration}{7}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}The Empirical Pareto Frontier}{7}{subsection.6.3}\protected@file@percent }
+\newlabel{subsec:pareto_frontier}{{6.3}{7}{The Empirical Pareto Frontier}{subsection.6.3}{}}
 \citation{acar2014web}
 \citation{lerner2016internet}
 \citation{whatwg_webstorage}
@@ -189,18 +193,6 @@
 \bibstyle{ACM-Reference-Format}
 \bibdata{references}
 \bibcite{acar2014web}{{1}{2014}{{Acar et~al\mbox  {.}}}{{}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Methodological Post-Mortem}{8}{subsection.6.4}\protected@file@percent }
-\newlabel{subsec:post_mortem}{{6.4}{8}{Methodological Post-Mortem}{subsection.6.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Threats to Validity \& Limitations}{8}{section.7}\protected@file@percent }
-\newlabel{sec:threats}{{7}{8}{Threats to Validity \& Limitations}{section.7}{}}
-\@writefile{toc}{\contentsline {paragraph}{Client-Side vs.\ Server-Side Bidding Observability}{8}{section*.29}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Usability Breakage Heuristics ($U_{\text  {cost}}$)}{8}{section*.30}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Synthetic Personas vs.\ Longitudinal Browsing}{8}{section*.31}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Software Rasterization Trade-offs}{8}{section*.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Geographic Vantage}{8}{section*.33}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{8}{section.8}\protected@file@percent }
-\newlabel{sec:conclusion}{{8}{8}{Conclusion}{section.8}{}}
-\@writefile{toc}{\contentsline {section}{References}{8}{section*.35}\protected@file@percent }
 \bibcite{acar2013fpdetective}{{2}{2013}{{Acar et~al\mbox  {.}}}{{}}}
 \bibcite{ahmad2020apophanies}{{3}{2020}{{Ahmad et~al\mbox  {.}}}{{}}}
 \bibcite{rfc6265}{{4}{2011}{{Barth}}{{}}}
@@ -210,6 +202,20 @@
 \bibcite{brave_fingerprinting_protections_2025}{{8}{2025}{{Brave Software}}{{}}}
 \bibcite{bujlow2017survey}{{9}{2017}{{Bujlow et~al\mbox  {.}}}{{}}}
 \bibcite{cao2017cross}{{10}{2017}{{Cao et~al\mbox  {.}}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The Empirical Privacy-Usability Pareto Frontier. The red dashed line connects the non-dominated Pareto boundaries: Stealth Optimum (FF Hardened) and Apex Disruption (Brave Hardened).}}{8}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:pareto}{{3}{8}{The Empirical Privacy-Usability Pareto Frontier. The red dashed line connects the non-dominated Pareto boundaries: Stealth Optimum (FF Hardened) and Apex Disruption (Brave Hardened)}{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Methodological Post-Mortem}{8}{subsection.6.4}\protected@file@percent }
+\newlabel{subsec:post_mortem}{{6.4}{8}{Methodological Post-Mortem}{subsection.6.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations}{8}{section.7}\protected@file@percent }
+\newlabel{sec:threats}{{7}{8}{Limitations}{section.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Client-Side vs.\ Server-Side Bidding}{8}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Usability Proxy: Exception Overhead}{8}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Synthetic Personas vs.\ Longitudinal Drift}{8}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Software Rasterization Trade-offs}{8}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Geographic Vantage}{8}{section*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{8}{section.8}\protected@file@percent }
+\newlabel{sec:conclusion}{{8}{8}{Conclusion}{section.8}{}}
+\@writefile{toc}{\contentsline {section}{References}{8}{section*.35}\protected@file@percent }
 \bibcite{cassel2022omnicrawl}{{11}{2022}{{Cassel et~al\mbox  {.}}}{{}}}
 \bibcite{castelluccia2014selling}{{12}{2014}{{Castelluccia et~al\mbox  {.}}}{{}}}
 \bibcite{cook2020inferring}{{13}{2020}{{Cook et~al\mbox  {.}}}{{}}}
@@ -218,32 +224,33 @@
 \bibcite{englehardt2016openwpm}{{16}{2016}{{Englehardt and Narayanan}}{{}}}
 \bibcite{rfc9110}{{17}{2022}{{Fielding et~al\mbox  {.}}}{{}}}
 \bibcite{rfc7231}{{18}{2014}{{Fielding and Reschke}}{{}}}
-\bibcite{iqbal2021fingerprinting}{{19}{2021}{{Iqbal et~al\mbox  {.}}}{{}}}
-\bibcite{iqbal2020adgraph}{{20}{2020}{{Iqbal et~al\mbox  {.}}}{{}}}
-\bibcite{johnson2020consumer}{{21}{2020}{{Johnson et~al\mbox  {.}}}{{}}}
-\bibcite{laperdrix2020browser}{{22}{2020}{{Laperdrix et~al\mbox  {.}}}{{}}}
-\bibcite{laperdrix2016amiunique}{{23}{2016}{{Laperdrix et~al\mbox  {.}}}{{}}}
-\bibcite{lerner2016internet}{{24}{2016}{{Lerner et~al\mbox  {.}}}{{}}}
-\bibcite{liu2025first}{{25}{2025}{{Liu et~al\mbox  {.}}}{{}}}
-\bibcite{mowery2012pixel}{{26}{2012}{{Mowery and Shacham}}{{}}}
-\bibcite{mozilla_rfp_docs}{{27}{2025}{{Mozilla}}{{}}}
-\bibcite{nikiforakis2013cookieless}{{28}{2013}{{Nikiforakis et~al\mbox  {.}}}{{}}}
-\bibcite{oh2022cart}{{29}{2022}{{Oh et~al\mbox  {.}}}{{}}}
-\bibcite{pachilakis2019no}{{30}{2019}{{Pachilakis et~al\mbox  {.}}}{{}}}
-\bibcite{papadogiannakis2021user}{{31}{2021}{{Papadogiannakis et~al\mbox  {.}}}{{}}}
-\bibcite{papadopoulos2019cookie}{{32}{2019}{{Papadopoulos et~al\mbox  {.}}}{{}}}
-\bibcite{tor_design}{{33}{2019}{{Perry et~al\mbox  {.}}}{{}}}
-\bibcite{randall2022measuring}{{34}{2022}{{Randall et~al\mbox  {.}}}{{}}}
-\bibcite{google2019cookie}{{35}{2019}{{Ravichandran and Korula}}{{}}}
-\bibcite{sanchez2018clock}{{36}{2018}{{Sanchez-Rola et~al\mbox  {.}}}{{}}}
-\bibcite{sjosten2021essentialfp}{{37}{2021}{{Sj{\"o}sten et~al\mbox  {.}}}{{}}}
-\bibcite{starov2019unnecessarily}{{38}{2019}{{Starov et~al\mbox  {.}}}{{}}}
-\bibcite{torbrowser_normalization_2019}{{39}{2019}{{Tor Project}}{{}}}
-\bibcite{vastel2018fp}{{40}{2018}{{Vastel et~al\mbox  {.}}}{{}}}
-\bibcite{vastel2020fp}{{41}{2020}{{Vastel et~al\mbox  {.}}}{{}}}
-\bibcite{wasserstein2016asa}{{42}{2016}{{Wasserstein and Lazar}}{{}}}
-\bibcite{whatwg_webstorage}{{43}{2026}{{WHATWG}}{{}}}
-\bibcite{zeber2020representativeness}{{44}{2020}{{Zeber et~al\mbox  {.}}}{{}}}
+\bibcite{hannak2014ecommerce}{{19}{2014}{{Hannak et~al\mbox  {.}}}{{}}}
+\bibcite{iqbal2021fingerprinting}{{20}{2021}{{Iqbal et~al\mbox  {.}}}{{}}}
+\bibcite{iqbal2020adgraph}{{21}{2020}{{Iqbal et~al\mbox  {.}}}{{}}}
+\bibcite{johnson2020consumer}{{22}{2020}{{Johnson et~al\mbox  {.}}}{{}}}
+\bibcite{laperdrix2020browser}{{23}{2020}{{Laperdrix et~al\mbox  {.}}}{{}}}
+\bibcite{laperdrix2016amiunique}{{24}{2016}{{Laperdrix et~al\mbox  {.}}}{{}}}
+\bibcite{lerner2016internet}{{25}{2016}{{Lerner et~al\mbox  {.}}}{{}}}
+\bibcite{liu2025first}{{26}{2025}{{Liu et~al\mbox  {.}}}{{}}}
+\bibcite{mowery2012pixel}{{27}{2012}{{Mowery and Shacham}}{{}}}
+\bibcite{mozilla_rfp_docs}{{28}{2025}{{Mozilla}}{{}}}
+\bibcite{nikiforakis2013cookieless}{{29}{2013}{{Nikiforakis et~al\mbox  {.}}}{{}}}
+\bibcite{oh2022cart}{{30}{2022}{{Oh et~al\mbox  {.}}}{{}}}
+\bibcite{pachilakis2019no}{{31}{2019}{{Pachilakis et~al\mbox  {.}}}{{}}}
+\bibcite{papadogiannakis2021user}{{32}{2021}{{Papadogiannakis et~al\mbox  {.}}}{{}}}
+\bibcite{papadopoulos2019cookie}{{33}{2019}{{Papadopoulos et~al\mbox  {.}}}{{}}}
+\bibcite{tor_design}{{34}{2019}{{Perry et~al\mbox  {.}}}{{}}}
+\bibcite{randall2022measuring}{{35}{2022}{{Randall et~al\mbox  {.}}}{{}}}
+\bibcite{google2019cookie}{{36}{2019}{{Ravichandran and Korula}}{{}}}
+\bibcite{sanchez2018clock}{{37}{2018}{{Sanchez-Rola et~al\mbox  {.}}}{{}}}
+\bibcite{sjosten2021essentialfp}{{38}{2021}{{Sj{\"o}sten et~al\mbox  {.}}}{{}}}
+\bibcite{starov2019unnecessarily}{{39}{2019}{{Starov et~al\mbox  {.}}}{{}}}
+\bibcite{torbrowser_normalization_2019}{{40}{2019}{{Tor Project}}{{}}}
+\bibcite{vastel2018fp}{{41}{2018}{{Vastel et~al\mbox  {.}}}{{}}}
+\bibcite{vastel2020fp}{{42}{2020}{{Vastel et~al\mbox  {.}}}{{}}}
+\bibcite{wasserstein2016asa}{{43}{2016}{{Wasserstein and Lazar}}{{}}}
+\bibcite{whatwg_webstorage}{{44}{2026}{{WHATWG}}{{}}}
+\bibcite{zeber2020representativeness}{{45}{2020}{{Zeber et~al\mbox  {.}}}{{}}}
 \citation{acar2014web,whatwg_webstorage}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Atomic Profile Sanitizer Implementation}{9}{appendix.A}\protected@file@percent }
 \newlabel{sec:appendix_sanitizer}{{A}{9}{Atomic Profile Sanitizer Implementation}{appendix.A}{}}

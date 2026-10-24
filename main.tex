@@ -45,6 +45,20 @@
 \setlength{\abovedisplayskip}{3pt plus 1pt minus 1pt}
 \setlength{\belowdisplayskip}{3pt plus 1pt minus 1pt}
 
+% 1. Emergency stretch: Forces LaTeX to wrap lines instead of spilling into margins
+\emergencystretch=3em
+\hfuzz=1pt % Ignores tiny sub-1pt overflows that human eyes cannot see
+
+% 2. Enable hyphenation inside \texttt (LaTeX disables it by default)
+\usepackage[htt]{hyphenat}
+
+% 3. Allow inline math to break across lines at operators (=, \ge, +, etc.)
+\binoppenalty=700
+\relpenalty=500
+
+% Anonymous Review Header
+\acmConference[Review Submission]{The Web Conference (WWW)}{Double-Blind Review Copy}{Confidential}
+\acmYear{2027}
 
 \begin{document}
 

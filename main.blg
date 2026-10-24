@@ -31,6 +31,7 @@ Warning--empty address in demir2022reproducibility
 Warning--empty publisher in eckersley2010unique
 Warning--empty address in eckersley2010unique
 Warning--empty address in englehardt2016openwpm
+Warning--empty address in hannak2014ecommerce
 Warning--empty publisher in iqbal2021fingerprinting
 Warning--empty address in iqbal2021fingerprinting
 Warning--empty publisher in iqbal2020adgraph
@@ -59,45 +60,45 @@ Warning--empty publisher in vastel2020fp
 Warning--empty address in vastel2020fp
 Warning--page numbers missing in both pages and numpages fields in vastel2020fp
 Warning--empty address in zeber2020representativeness
-You've used 44 entries,
+You've used 45 entries,
             6335 wiz_defined-function locations,
-            1769 strings with 28124 characters,
-and the built_in function-call counts, 51491 in all, are:
-= -- 5986
-> -- 1632
+            1775 strings with 28398 characters,
+and the built_in function-call counts, 52823 in all, are:
+= -- 6130
+> -- 1679
 < -- 0
-+ -- 542
-- -- 546
-* -- 3556
-:= -- 4889
-add.period$ -- 219
-call.type$ -- 44
-change.case$ -- 336
-chr.to.int$ -- 44
-cite$ -- 89
-duplicate$ -- 4886
-empty$ -- 3430
-format.name$ -- 698
-if$ -- 12400
++ -- 558
+- -- 561
+* -- 3657
+:= -- 5015
+add.period$ -- 224
+call.type$ -- 45
+change.case$ -- 345
+chr.to.int$ -- 45
+cite$ -- 91
+duplicate$ -- 5013
+empty$ -- 3518
+format.name$ -- 717
+if$ -- 12716
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 168
-newline$ -- 382
-num.names$ -- 308
-pop$ -- 1989
+missing$ -- 173
+newline$ -- 390
+num.names$ -- 315
+pop$ -- 2042
 preamble$ -- 1
-purify$ -- 686
+purify$ -- 703
 quote$ -- 0
-skip$ -- 1822
+skip$ -- 1870
 stack$ -- 0
-substring$ -- 3943
-swap$ -- 474
+substring$ -- 4049
+swap$ -- 488
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1222
-warning$ -- 45
-while$ -- 273
+type$ -- 1252
+warning$ -- 46
+while$ -- 279
 width$ -- 0
-write$ -- 878
-(There were 45 warnings)
+write$ -- 898
+(There were 46 warnings)

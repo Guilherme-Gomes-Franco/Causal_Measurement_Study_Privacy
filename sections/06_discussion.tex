@@ -35,19 +35,11 @@ To resolve these distortions, we formulate the \textbf{Refined Effective Trackin
 \label{eq:etr_refined}
 \end{equation}
 where each component satisfies strict axiomatic requirements:
-\begin{itemize}
-    \item \textbf{Continuous Economic Disruption ($\Phi_{\text{econ}}$):} Integrates binary resistance, high-tier disruption, and median price decay:
-    \begin{equation}
-    \Phi_{\text{econ}} = \frac{(1 - \rid) + \htr + \max(0, -\widetilde{\Delta\cpm})}{3}
-    \end{equation}
-    where $\Phi_{\text{econ}} \in [0, 1]$ scales monotonically with tracking disruption.
-    \item \textbf{Entity Density Containment ($\Psi_{\text{containment}}$):} Evaluates unique tracking entities contacted per publisher ($d = D_{\text{entity}} / 150$):
-    \begin{equation}
-    \Psi_{\text{containment}} = \frac{1}{\ln\left(\frac{D_{\text{entity}}}{N_{\text{sites}}} + e\right)}
-    \end{equation}
-    rewarding browsers that restrict communication across distinct corporate tracking entities~\cite{bashir2016tracing, cook2020inferring} while remaining invariant to script retry loops. As $D_{\text{entity}} \to 0$, $\Psi \to 1.0$.
-    \item \textbf{Sub-Linear Usability Dampening ($\Omega_{\text{usability}}$):} Dampens the usability penalty logarithmically ($\Omega_{\text{usability}} = 1 + \ln(1 + \ucost)$) so that script errors do not drown out deep privacy protections.
-\end{itemize}
+\begin{enumerate}
+    \item \textbf{Continuous Economic Disruption ($\Phi_{\text{econ}}$):} Integrates binary resistance, high-tier disruption, and median price decay: $\Phi_{\text{econ}} = \frac{1}{3} [(1 - \rid) + \htr + \max(0, -\widetilde{\Delta\cpm})]$, scaling monotonically in $[0, 1]$ with tracking disruption;
+    \item \textbf{Entity Density Containment ($\Psi_{\text{containment}}$):} Evaluates unique tracking entities contacted per publisher: $\Psi_{\text{containment}} = 1 / \ln(\frac{D_{\text{entity}}}{N_{\text{sites}}} + e)$, rewarding browsers that restrict communication across distinct corporate tracking entities~\cite{bashir2016tracing, cook2020inferring} while remaining invariant to local script retry loops ($D_{\text{entity}} \to 0 \implies \Psi \to 1.0$);
+    \item \textbf{Sub-Linear Usability Dampening ($\Omega_{\text{usability}}$):} Dampens the usability penalty logarithmically: $\Omega_{\text{usability}} = 1 + \ln(1 + \ucost)$, ensuring script exceptions do not disproportionately penalize real privacy gains.
+\end{enumerate}
 
 \begin{table}[t]
 \centering
@@ -88,7 +80,7 @@ Our empirical findings demonstrate that client-side web privacy adheres to a mul
 \begin{axis}[
     width=\columnwidth,
     height=3.2cm,
-    xlabel={Usability Breakage Cost ($\ucost$)},
+    xlabel={Runtime Exception Overhead ($\ucost$)},,
     ylabel={Economic Disruption ($\Phi_{\text{econ}}$)},
     xlabel style={font=\footnotesize},
     ylabel style={font=\footnotesize},
@@ -132,13 +124,10 @@ Our empirical findings demonstrate that client-side web privacy adheres to a mul
 \label{fig:pareto}
 \end{figure}
 
-As mapped in Figure~\ref{fig:pareto}, defense strategies define an empirical frontier:
-\begin{enumerate}
-    \item \textbf{The Stealth / Zero-Breakage Optimum (\texttt{firefox\_hardened}):} Combining Tor-derived API normalization (RFP)~\cite{tor_design, mozilla_rfp_docs} with Total Cookie Protection and query stripping~\cite{randall2022measuring} achieves $\Phi_{\text{econ}} = 0.368$ (a $-26.86\%$ median bid collapse) with \textbf{zero usability breakage ($\ucost = 0.00$)}. 
-    Because RFP normalizes API return values to uniform mock pools rather than severing network calls, downstream publisher code continues executing cleanly.
-    \item \textbf{The Maximum Privacy Optimum (\texttt{brave\_hardened}):} Combining API farbling~\cite{brave_fingerprinting_protections_2025} with aggressive network-level blocking maximizes tracking severance ($\Phi_{\text{econ}} = 0.526$, $-59.98\%$ median collapse, $\rid = 0.500$), but incurs $\ucost = 0.44$ due to severed script dependency chains~\cite{iqbal2020adgraph}. 
-    \item \textbf{Dominated Configurations:} \nolinkurl{chrome_baseline}, \nolinkurl{firefox_baseline}, and \nolinkurl{brave_baseline} are strictly Pareto-dominated, yielding weaker privacy protections without offering offsetting usability advantages.
-\end{enumerate}
+As mapped in Figure~\ref{fig:pareto}, defense strategies define an empirical non-dominated frontier:
+(1)~\textbf{The Stealth / Zero-Overhead Optimum (\texttt{firefox\_hardened}):} Combining Tor-derived API normalization (RFP)~\cite{tor_design, mozilla_rfp_docs} with Total Cookie Protection and query stripping~\cite{randall2022measuring} achieves $\Phi_{\text{econ}} = 0.368$ (a $-26.86\%$ median bid collapse) with \textbf{zero excess exception overhead ($\ucost = 0.00$)}, as mock return values allow publisher scripts to continue executing cleanly;
+(2)~\textbf{The Maximum Privacy Optimum (\texttt{brave\_hardened}):} Combining API farbling~\cite{brave_fingerprinting_protections_2025} with aggressive network request blocking maximizes tracking severance ($\Phi_{\text{econ}} = 0.526$, $-59.98\%$ median collapse, $\rid = 0.500$), but incurs $\ucost = 0.44$ due to severed script dependency chains~\cite{iqbal2020adgraph}; and
+(3)~\textbf{Dominated Configurations:} \nolinkurl{chrome_baseline}, \nolinkurl{firefox_baseline}, and \nolinkurl{brave_baseline} are strictly Pareto-dominated, yielding weaker privacy protections without offering offsetting usability advantages.
 
 \subsection{Methodological Post-Mortem}
 \label{subsec:post_mortem}
